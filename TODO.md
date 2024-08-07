@@ -8,22 +8,22 @@ Soft Uni React Course Project
 - [X] CleanUp Client
 
 ## 2. Add project resources
-- [ ] Nav Bar html layout
-- [ ] Home page html layout
-- [ ] Catalog page html layout
+- [X] Nav Bar html layout
+- [X] Home page html layout
+- [X] Catalog page html layout
 - [ ] Details page html layout
 - [ ] Comments/Reviews html layout
-- [ ] About page html layout
-- [ ] Login page html layout
-- [ ] Register page html layout
+- [X] About page html layout
+- [X] Login page html layout
+- [X] Register page html layout
 ---
 - [ ] Create form html layout
 - [ ] Edit form html layout
 - [ ] Add comment fomr html layout
 ---
-- [ ] Convert html to jsx
-- [ ] Think about css modules of the separate components
-- [ ] Separate html into components
+- [X] Convert html to jsx
+- [X] Think about css modules of the separate components
+- [X] Separate html into components
 
 ## 3. React Router
 - [ ] Install react-router-dom
