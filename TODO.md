@@ -44,3 +44,4 @@ Soft Uni React Course Project
   - [ ] Details Link
   - [ ] Details route
   - [ ] Api funciton - getOne
+- [ ] User Page (favourites etc)

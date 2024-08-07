@@ -1,8 +1,10 @@
+import Component from "./components/demo"
+
 function App() {
 
   return (
     <>
-      <h1>Hello World</h1>
+      <Component />
     </>
   )
 }
