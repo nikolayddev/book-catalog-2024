@@ -143,30 +143,6 @@
         left: 40px;
         top: 110%;
     }
-    .electronic_img {
-        margin: 20px 0px;
-        min-height: 280px;
-    }
-    #electronic_main_slider a.carousel-control-next {
-        right: 40px;
-        top: 110%;
-    }
-    #electronic_main_slider a.carousel-control-prev {
-        left: 40px;
-        top: 110%;
-    }
-    .jewellery_img {
-        margin: 20px 0px;
-        min-height: 0;
-    }
-    #jewellery_main_slider a.carousel-control-prev {
-        left: 40px;
-        top: 70%;
-    }
-    #jewellery_main_slider a.carousel-control-next {
-        right: 40px;
-        top: 70%;
-    }
     .input_bt {
         width: 80%;
     }
@@ -193,30 +169,6 @@
     #main_slider a.carousel-control-prev {
         left: 40px;
         top: 110%;
-    }
-    .electronic_img {
-        margin: 20px 0px;
-        min-height: 190px;
-    }
-    #electronic_main_slider a.carousel-control-next {
-        right: 40px;
-        top: 110%;
-    }
-    #electronic_main_slider a.carousel-control-prev {
-        left: 40px;
-        top: 110%;
-    }
-    .jewellery_img {
-        margin: 20px 0px;
-        min-height: 0;
-    }
-    #jewellery_main_slider a.carousel-control-prev {
-        left: 40px;
-        top: 70%;
-    }
-    #jewellery_main_slider a.carousel-control-next {
-        right: 40px;
-        top: 70%;
     }
     .input_bt {
         width: 100%;
@@ -286,17 +238,9 @@
     .fashion_section {
         padding-bottom: 100px;
     }
-    .electronic_img {
-        margin: 20px 0px;
-        min-height: 145px;
-    }
     .tshirt_img {
         margin: 20px 0px;
         min-height: 246px;
-    }
-    .jewellery_img {
-        margin: 20px 0px;
-        min-height: 0;
     }
     .shirt_text {
         font-size: 14px;
@@ -313,27 +257,11 @@
     .box_main {
         padding: 20px 10px;
     }
-    #jewellery_main_slider a.carousel-control-prev {
-        left: 35px;
-        top: 65%;
-    }
-    #jewellery_main_slider a.carousel-control-next {
-        right: 35px;
-        top: 65%;
-    }
     #main_slider a.carousel-control-prev {
         left: 33px;
         top: 101%;
     }
     #main_slider a.carousel-control-next {
-        right: 33px;
-        top: 101%;
-    }
-    #electronic_main_slider a.carousel-control-prev {
-        left: 33px;
-        top: 101%;
-    }
-    #electronic_main_slider a.carousel-control-next {
         right: 33px;
         top: 101%;
     }
@@ -415,39 +343,15 @@
     .fashion_section {
         padding-bottom: 100px;
     }
-    .electronic_img {
-        margin: 20px 0px;
-        min-height: 0;
-    }
     .tshirt_img {
         margin: 20px 0px;
         min-height: 0;
-    }
-    .jewellery_img {
-        margin: 20px 0px;
-        min-height: 0;
-    }
-    #jewellery_main_slider a.carousel-control-prev {
-        left: 15px;
-        top: 86%;
-    }
-    #jewellery_main_slider a.carousel-control-next {
-        right: 15px;
-        top: 86%;
     }
     #main_slider a.carousel-control-prev {
         left: 15px;
         top: 101%;
     }
     #main_slider a.carousel-control-next {
-        right: 15px;
-        top: 101%;
-    }
-    #electronic_main_slider a.carousel-control-prev {
-        left: 15px;
-        top: 101%;
-    }
-    #electronic_main_slider a.carousel-control-next {
         right: 15px;
         top: 101%;
     }

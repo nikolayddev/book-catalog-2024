@@ -1,12 +1,29 @@
-import Component from "./components/demo"
+import CopyrightSection from "./components/copyright-section/CopyrightSection";
+import FashionSection from "./components/fashion-section/FashionSection";
+import FooterSection from "./components/footer-section/FooterSection";
+import HomeSection from "./components/home-section/HomeSection";
+import Login from "./components/login/Login";
+import Register from "./components/register/Register";
 
-function App() {
+export default function App() {
+    return (
+        <>
+            <HomeSection />
 
-  return (
-    <>
-      <Component />
-    </>
-  )
+            <FashionSection />
+
+            <FashionSection />
+
+            <FashionSection />
+
+            <FooterSection />
+
+            <CopyrightSection />
+
+            <Login />
+
+            <Register />
+        </>
+
+    );
 }
-
-export default App
