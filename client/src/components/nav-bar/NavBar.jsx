@@ -1,3 +1,5 @@
+import { Link } from 'react-router-dom';
+
 export default function NavBar() {
     return (
         <div className="container">
@@ -7,19 +9,19 @@ export default function NavBar() {
                         <div className="custom_menu">
                             <ul>
                                 <li>
-                                    <a href="#">Best Sellers</a>
+                                    <Link to="#">My Profile</ Link>
                                 </li>
                                 <li>
-                                    <a href="#">Gift Ideas</a>
+                                    <Link to="/">Home</ Link>
                                 </li>
                                 <li>
-                                    <a href="#">New Releases</a>
+                                    <Link to="/Catalog">Catalog</ Link>
                                 </li>
                                 <li>
-                                    <a href="#">Todays Deals</a>
+                                    <Link to="/login">Login</ Link>
                                 </li>
                                 <li>
-                                    <a href="#">Customer Service</a>
+                                    <Link to="/register">Register</ Link>
                                 </li>
                             </ul>
                         </div>

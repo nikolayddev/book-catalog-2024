@@ -1,28 +1,34 @@
+import { Routes, Route } from 'react-router-dom';
+
 import Copyright from "./components/copyright/Copyright";
-import FashionSection from "./components/fashion-section/FashionSection";
 import Footer from "./components/footer/Footer";
 import Home from "./components/home/Home";
 import Login from "./components/login/Login";
 import Register from "./components/register/Register";
+import NavBar from './components/nav-bar/NavBar';
+import Catalog from './components/catalog/Catalog';
 
 export default function App() {
     return (
         <>
-            <Home />
-            
-            <FashionSection />
+            <div className="banner_bg_main">
 
-            <FashionSection />
+                <NavBar />
 
-            <FashionSection />
+                <Routes>
+                    <Route path='/' element={<Home />} />
+                    <Route path='/login' element={<Login />} />
+                    <Route path='/register' element={<Register />} />
+                    <Route path='/catalog' element={<Catalog />} />
+                    <Route path='/' element={<Home />} />
 
-            <Footer />
+                </Routes>
 
-            <Copyright />
+                <Footer />
 
-            <Login />
+                <Copyright />
+            </div>
 
-            <Register />
         </>
 
     );

@@ -1,4 +1,4 @@
-export default function FashionSection() {
+export default function BookSection() {
     return (
         <div className="fashion_section">
             <div id="main_slider" className="carousel slide" data-ride="carousel">

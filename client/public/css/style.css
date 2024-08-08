@@ -678,13 +678,31 @@ a:hover {
 
 /* login/register section start */
 
-.login_text {
+.login_title_text {
+    width: 100%;
+    font-size: 40px;
+    color: #30302e;
+    text-align: center;
+    font-weight: bold;
+}
+
+.login_form_text {
     width: 100%;
     font-size: 20px;
     color: #30302e;
     text-align: left;
     font-weight: bold;
     padding-bottom: 5px;
+}
+
+.login_container {
+    width: 100%;
+    padding-right: 15px;
+    padding-left: 15px;
+    margin-right: auto;
+    margin-left: auto;
+    padding-top: 100px;
+    max-width: 960px;
 }
 
 /* login/register section end */
