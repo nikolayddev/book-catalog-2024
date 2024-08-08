@@ -1,4 +1,4 @@
-export default function CopyrightSection() {
+export default function Copyright() {
     return (
         <div className="copyright_section">
             <div className="container">

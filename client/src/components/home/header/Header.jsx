@@ -1,4 +1,4 @@
-export default function HeaderSection() {
+export default function Header() {
     return (
         <div className="header_section">
             <div className="container">

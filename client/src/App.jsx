@@ -1,24 +1,24 @@
-import CopyrightSection from "./components/copyright-section/CopyrightSection";
+import Copyright from "./components/copyright/Copyright";
 import FashionSection from "./components/fashion-section/FashionSection";
-import FooterSection from "./components/footer-section/FooterSection";
-import HomeSection from "./components/home-section/HomeSection";
+import Footer from "./components/footer/Footer";
+import Home from "./components/home/Home";
 import Login from "./components/login/Login";
 import Register from "./components/register/Register";
 
 export default function App() {
     return (
         <>
-            <HomeSection />
-
+            <Home />
+            
             <FashionSection />
 
             <FashionSection />
 
             <FashionSection />
 
-            <FooterSection />
+            <Footer />
 
-            <CopyrightSection />
+            <Copyright />
 
             <Login />
 

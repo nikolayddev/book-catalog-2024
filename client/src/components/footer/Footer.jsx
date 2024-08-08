@@ -1,4 +1,4 @@
-export default function FooterSection() {
+export default function Footer() {
     return (
         <div className="footer_section layout_padding">
             <div className="container">
