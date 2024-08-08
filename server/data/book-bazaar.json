@@ -1,0 +1,85 @@
+{
+    "books": {
+        "24e5dc01-c5aa-473a-9cf5-801d66df3801": {
+            "_id": "fb352199-bcbc-4e1d-a1dc-ed346a6fb49a",
+            "_ownerId": "12345678",
+            "title": "Shogun",
+            "author": "John",
+            "publisher": "JohnDoes",
+            "language": "Bulgarian",
+            "pageCount": "366",
+            "yearOfPublication": "2023",
+            "imageURL": "https://www.blackstonepublishing.com/cdn/shop/files/484414-hps9-Rectangle.jpg?v=1708046530&width=800"
+        },
+        "849e3032-dcb8-4ce6-905b-a5b3c7505c02": {
+            "_id": "849e3032-dcb8-4ce6-905b-a5b3c7505c02",
+            "_ownerId": "12345678",
+            "title": "Shogun",
+            "author": "John",
+            "publisher": "JohnDoes",
+            "language": "Bulgarian",
+            "pageCount": "366",
+            "yearOfPublication": "2023",
+            "imageURL": "https://www.blackstonepublishing.com/cdn/shop/files/484414-hps9-Rectangle.jpg?v=1708046530&width=800"
+        },
+        "f9a7bd3d-c636-4485-9af2-77ccaf43dac7": {
+            "_id": "f9a7bd3d-c636-4485-9af2-77ccaf43dac7",
+            "_ownerId": "12345678",
+            "title": "Shogun",
+            "author": "John",
+            "publisher": "JohnDoes",
+            "language": "Bulgarian",
+            "pageCount": "366",
+            "yearOfPublication": "2023",
+            "imageURL": "https://www.blackstonepublishing.com/cdn/shop/files/484414-hps9-Rectangle.jpg?v=1708046530&width=800"
+        },
+        "05b62ff2-babc-4426-ad5c-2811d4b964f8": {
+            "_id": "05b62ff2-babc-4426-ad5c-2811d4b964f8",
+            "_ownerId": "12345678",
+            "title": "Shogun",
+            "author": "John",
+            "publisher": "JohnDoes",
+            "language": "Bulgarian",
+            "pageCount": "366",
+            "yearOfPublication": "2023",
+            "imageURL": "https://www.blackstonepublishing.com/cdn/shop/files/484414-hps9-Rectangle.jpg?v=1708046530&width=800"
+        },
+        "e163a82e-81c0-4da6-bfd7-629f15732124": {
+            "_id": "e163a82e-81c0-4da6-bfd7-629f15732124",
+            "_ownerId": "12345678",
+            "title": "Shogun",
+            "author": "John",
+            "publisher": "JohnDoes",
+            "language": "Bulgarian",
+            "pageCount": "366",
+            "yearOfPublication": "2023",
+            "imageURL": "https://www.blackstonepublishing.com/cdn/shop/files/484414-hps9-Rectangle.jpg?v=1708046530&width=800"
+        },
+        "94a7bfd5-b1b1-414c-9ef8-0101714c002a": {
+            "_id": "94a7bfd5-b1b1-414c-9ef8-0101714c002a",
+            "_ownerId": "12345678",
+            "title": "Shogun",
+            "author": "John",
+            "publisher": "JohnDoes",
+            "language": "Bulgarian",
+            "pageCount": "366",
+            "yearOfPublication": "2023",
+            "imageURL": "https://www.blackstonepublishing.com/cdn/shop/files/484414-hps9-Rectangle.jpg?v=1708046530&width=800"
+        },
+        "0c47971c-a6bf-4a3b-9f97-6a91a5dda626": {
+            "_id": "0c47971c-a6bf-4a3b-9f97-6a91a5dda626",
+            "_ownerId": "12345678",
+            "title": "Shogun",
+            "author": "John",
+            "publisher": "JohnDoes",
+            "language": "Bulgarian",
+            "pageCount": "366",
+            "yearOfPublication": "2023",
+            "imageURL": "https://www.blackstonepublishing.com/cdn/shop/files/484414-hps9-Rectangle.jpg?v=1708046530&width=800"
+        }
+    },
+
+    "users": {
+
+    }
+}
