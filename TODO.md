@@ -32,10 +32,10 @@ Soft Uni React Course Project
 - [X] Add links in the navigation
 
 ## 4. Create Service Layer
-- [ ] Service layer architecture planning
-- [ ] Abstract requester
+- [X] Service layer architecture planning
+- [X] Abstract requester
 - [ ] Add books api
-- [ ] Preseed practice server
+- [X] Preseed practice server
 
 ## 5. Page Implementations
 - [ ] Home

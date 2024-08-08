@@ -9,7 +9,7 @@ export default function NavBar() {
                         <div className="custom_menu">
                             <ul>
                                 <li>
-                                    <Link to="#">My Profile</ Link>
+                                    <Link to="/my-profile">My Profile</ Link>
                                 </li>
                                 <li>
                                     <Link to="/">Home</ Link>

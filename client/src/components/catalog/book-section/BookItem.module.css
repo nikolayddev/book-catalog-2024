@@ -1,0 +1,9 @@
+.book_item {
+    margin-right: auto;
+    margin-left: auto;
+    max-width: 30%;
+    padding-left: 15px;
+    padding-right: 15px;
+    padding-top: 20px;
+    display: inline-block;
+}

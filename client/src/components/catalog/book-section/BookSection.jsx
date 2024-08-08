@@ -1,11 +1,14 @@
-export default function BookSection() {
+export default function BookSection({
+    books,
+    title,
+}) {
     return (
         <div className="fashion_section">
             <div id="main_slider" className="carousel slide" data-ride="carousel">
                 <div className="carousel-inner">
                     <div className="carousel-item active">
                         <div className="container">
-                            <h1 className="fashion_taital">Man &amp; Woman Fashion</h1>
+                            <h1 className="fashion_taital">TITLE HERE</h1>
                             <div className="fashion_section_2">
                                 <div className="row">
                                     <div className="col-lg-4 col-sm-4">
@@ -65,6 +68,7 @@ export default function BookSection() {
                                             </div>
                                         </div>
                                     </div>
+
                                 </div>
                             </div>
                         </div>
