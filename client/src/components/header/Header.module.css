@@ -1,0 +1,13 @@
+.header_section {
+    width: 100%;
+    display: flex;
+    padding-top: 40px;
+    padding-bottom: 43px;
+}
+
+.dropdown_item:hover {
+    background-color: #5a5857;
+    color: white;
+}
+
+/* rgb(226, 89, 20); */
