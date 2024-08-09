@@ -213,7 +213,7 @@ button {
 .banner_bg_main {
     width: 100%;
     float: left;
-    background-image: url(../images/banner-bg.png);
+    background-image: url(/images/background_leaves.jpg);
     height: auto;
     background-size: 100%;
     background-repeat: no-repeat;

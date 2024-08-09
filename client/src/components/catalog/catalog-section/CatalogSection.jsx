@@ -7,7 +7,7 @@ export default function CatalogSection({
 }) {
     return (
         <div className={styles.container}>
-            <h1 className={styles.title_text}>Genre</h1>
+            <h1 className={styles.title_text}>Приключенски</h1>
             <div className={styles.book_section}>
                 <CatalogItem />
                 <CatalogItem />
