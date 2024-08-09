@@ -1,12 +1,13 @@
-import BookSection from "./book-section/BookSection";
+import Header from "../header/Header";
+import CatalogSection from "./catalog-section/CatalogSection";
 
 export default function Catalog() {
     return (
         <>
-            <BookSection />
-            <BookSection />
-            <BookSection />
+            <Header />
 
+            <CatalogSection />
+            <CatalogSection />
         </>
     );
 }

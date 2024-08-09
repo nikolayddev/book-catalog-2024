@@ -1,5 +1,5 @@
 import Carousel from 'react-bootstrap/Carousel';
-import BookItem from './BookItem';
+import BookItem from '../book-section/BookItem';
 import styles from './Carousel.module.css';
 import { useState } from 'react';
 

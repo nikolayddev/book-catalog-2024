@@ -7,8 +7,8 @@ import Login from "./components/login/Login";
 import Register from "./components/register/Register";
 import NavBar from './components/nav-bar/NavBar';
 import Catalog from './components/catalog/Catalog';
-import BookItem from './components/catalog/book-section/BookItem';
-import CarouselItem from './components/catalog/book-section/Carousel';
+import BookItem from './components/book-section/BookItem';
+import CarouselItem from './components/carousel/Carousel';
 
 export default function App() {
     return (
@@ -21,7 +21,7 @@ export default function App() {
                     <Route path='/' element={<Home />} />
                     <Route path='/login' element={<Login />} />
                     <Route path='/register' element={<Register />} />
-                    <Route path='/catalog' element={<CarouselItem />} />
+                    <Route path='/catalog' element={<Catalog />} />
                     <Route path='/my-profile' element={<BookItem />} />
 
                 </Routes>

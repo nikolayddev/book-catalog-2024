@@ -1,8 +1,7 @@
 import { getAll } from "../../api/books-api";
-import BookSection from "../catalog/book-section/BookSection";
-import CarouselItem from "../catalog/book-section/Carousel";
+import CarouselItem from "../carousel/Carousel";
+import Header from "../header/Header";
 import Banner from "./banner/Banner";
-import Header from "./header/Header";
 import Logo from "./logo/Logo";
 
 import { useEffect, useState } from "react";
@@ -31,7 +30,7 @@ export default function Home() {
             <Banner />
 
             <CarouselItem />
-            
+
             <CarouselItem />
         </>
     );

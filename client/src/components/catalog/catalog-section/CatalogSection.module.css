@@ -1,0 +1,26 @@
+.book_section {
+    display: flex;
+    background-color: #f8f9fa;
+    padding: 10px;
+    max-width: 82%;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: auto;
+    background-color: #f8f9fa;
+    padding: 10px;
+    padding-top: 20px;
+    max-width: 100%;
+    flex-wrap: wrap;
+}
+
+.title_text {
+    width: 78%;
+    font-size: 30px;
+    color: #30302e;
+    text-align: left;
+    font-weight: bold;
+}
