@@ -13,7 +13,7 @@ import CarouselItem from './components/catalog/book-section/Carousel';
 export default function App() {
     return (
         <>
-            <div className="banner_bg_main">
+            <div className='banner_bg_main'>
 
                 <NavBar />
 

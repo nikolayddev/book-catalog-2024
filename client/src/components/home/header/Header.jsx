@@ -60,52 +60,6 @@ export default function Header() {
                             </div>
                         </div>
                     </div>
-                    <div className="header_box">
-                        <div className="lang_box ">
-                            <a
-                                href="#"
-                                title="Language"
-                                className="nav-link"
-                                data-toggle="dropdown"
-                                aria-expanded="true"
-                            >
-                                <img
-                                    src="images/flag-uk.png"
-                                    alt="flag"
-                                    className="mr-2 "
-                                    title="United Kingdom"
-                                />{" "}
-                                English{" "}
-                                <i className="fa fa-angle-down ml-2" aria-hidden="true" />
-                            </a>
-                            <div className="dropdown-menu ">
-                                <a href="#" className="dropdown-item">
-                                    <img
-                                        src="images/flag-france.png"
-                                        className="mr-2"
-                                        alt="flag"
-                                    />
-                                    French
-                                </a>
-                            </div>
-                        </div>
-                        <div className="login_menu">
-                            <ul>
-                                <li>
-                                    <a href="#">
-                                        <i className="fa fa-shopping-cart" aria-hidden="true" />
-                                        <span className="padding_10">Cart</span>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#">
-                                        <i className="fa fa-user" aria-hidden="true" />
-                                        <span className="padding_10">Cart</span>
-                                    </a>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
                 </div>
             </div>
         </div>

@@ -9,7 +9,10 @@ export default function NavBar() {
                         <div className="custom_menu">
                             <ul>
                                 <li>
-                                    <Link to="/my-profile">My Profile</ Link>
+                                    <Link to="/my-profile">
+                                        <i className="fa fa-user" />
+                                        <span className='padding_10'>My Profile</span>
+                                    </ Link>
                                 </li>
                                 <li>
                                     <Link to="/">Home</ Link>
@@ -22,6 +25,18 @@ export default function NavBar() {
                                 </li>
                                 <li>
                                     <Link to="/register">Register</ Link>
+                                </li>
+                                <li>
+                                    <div className="login_menu">
+                                        <ul>
+                                            <li>
+                                                <a href="#">
+                                                    <i className="fa fa-shopping-cart" />
+                                                    <span className="padding_10">Cart</span>
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </div>
                                 </li>
                             </ul>
                         </div>
