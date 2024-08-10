@@ -1,8 +1,9 @@
 import { Link } from 'react-router-dom';
+import styles from './Navbar.module.css'
 
 export default function NavBar() {
     return (
-        <div className="container">
+        <div className={styles.container}>
             <div className="header_section_top">
                 <div className="row">
                     <div className="col-sm-12">
@@ -27,16 +28,10 @@ export default function NavBar() {
                                     <Link to="/register">Register</ Link>
                                 </li>
                                 <li>
-                                    <div className="login_menu">
-                                        <ul>
-                                            <li>
-                                                <a href="#">
-                                                    <i className="fa fa-shopping-cart" />
-                                                    <span className="padding_10">Cart</span>
-                                                </a>
-                                            </li>
-                                        </ul>
-                                    </div>
+                                    <Link to="#">
+                                        <i className="fa fa-shopping-cart" />
+                                        <span className="padding_10">Cart</span>
+                                    </Link>
                                 </li>
                             </ul>
                         </div>

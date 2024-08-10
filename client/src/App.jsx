@@ -13,9 +13,9 @@ import Details from './components/details/Details';
 export default function App() {
     return (
         <>
-            <div className='banner_bg_main'>
+            <NavBar />
 
-                <NavBar />
+            <div className='banner_bg_main'>
 
                 <Routes>
                     <Route path='/' element={<Home />} />

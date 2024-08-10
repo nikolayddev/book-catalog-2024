@@ -1,4 +1,4 @@
-/* .navbar {
+.navbar {
     position: sticky;
     width: 100%;
     float: left;
@@ -12,6 +12,10 @@
 .container {
     position: sticky;
     z-index: 1000;
+    width: 100%;
+    margin: 0 auto;
+    text-align: center;
+    top: 0;
 }
 
 .header_section_top {
@@ -27,47 +31,4 @@
     width: 100%;
     margin: 0 auto;
     text-align: center;
-} */
-
-
-.navbar {
-    position: -webkit-sticky;
-    /* For Safari */
-    position: sticky;
-    top: 0;
-    width: 100%;
-    background-color: #333;
-    z-index: 1000;
-}
-
-.navbar ul {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-    overflow: hidden;
-    background-color: #333;
-}
-
-.navbar ul li {
-    float: left;
-}
-
-.navbar ul li a {
-    display: block;
-    color: white;
-    text-align: center;
-    padding: 14px 16px;
-    text-decoration: none;
-}
-
-.navbar ul li a:hover {
-    background-color: #111;
-}
-
-/* Adding a height to test stickiness */
-body {
-    margin: 0;
-    padding: 0;
-    height: 2000px;
-    /* Ensure there's enough content to scroll */
 }
