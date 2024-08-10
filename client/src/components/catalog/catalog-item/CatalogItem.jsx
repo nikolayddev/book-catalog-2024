@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import styles from './CatalogItem.module.css';
 
 export default function CatalogItem() {
@@ -5,12 +6,12 @@ export default function CatalogItem() {
         <div className={styles.book_item}>
             <div className={styles.box_main}>
                 <div>
-                    <a href="#">
+                    <Link to="/details">
                         <img
                             src="https://www.orangecenter.bg/media/catalog/product/cache/bdc2c78f7e06003a3c29bc34b94b23a8/s/h/shogun-tom-1-9789542804437.jpg"
                             className={styles.book_img}
                         />
-                    </a>
+                    </Link>
                 </div>
 
                 <h4 className={styles.book_title}>Shogun: Part 1</h4>

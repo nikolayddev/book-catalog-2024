@@ -8,6 +8,7 @@ import Register from "./components/register/Register";
 import NavBar from './components/nav-bar/NavBar';
 import Catalog from './components/catalog/Catalog';
 import BookItem from './components/book-section/BookItem';
+import Details from './components/details/Details';
 
 export default function App() {
     return (
@@ -23,6 +24,7 @@ export default function App() {
                     <Route path='/register' element={<Register />} />
                     <Route path='/catalog' element={<Catalog />} />
                     <Route path='/my-profile' element={<BookItem />} />
+                    <Route path='/details' element={<Details />} />
 
                 </Routes>
 
