@@ -1,15 +1,12 @@
 import Header from "../header/Header";
+import Logo from "../home/logo/Logo";
 import CatalogSection from "./catalog-section/CatalogSection";
 import styles from './Catalog.module.css';
 
 export default function Catalog() {
     return (
         <div>
-            <div className={styles.container}>
-                <h1 className={styles.catalog_text}>
-                    Browse through your favorite Books!
-                </h1>
-            </div>
+            <Logo />
             <Header />
             <hr />
             <CatalogSection />

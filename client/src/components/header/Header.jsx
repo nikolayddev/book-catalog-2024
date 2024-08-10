@@ -11,7 +11,7 @@ export default function Header() {
                     </div>
                     
                     {/* SEARCH BAR */}
-                    <div className="main">
+                    <div className={styles.main}>
                         <div className="input-group">
                             <input
                                 type="text"

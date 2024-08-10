@@ -4,10 +4,11 @@ import styles from './Navbar.module.css'
 export default function NavBar() {
     return (
         <div className={styles.container}>
-            <div className="header_section_top">
+            <div className={styles.header_section}>
                 <div className="row">
                     <div className="col-sm-12">
                         <div className="custom_menu">
+                            
                             <ul>
                                 <li>
                                     <Link to="/my-profile">
@@ -19,7 +20,7 @@ export default function NavBar() {
                                     <Link to="/">Home</ Link>
                                 </li>
                                 <li>
-                                    <Link to="/Catalog">Catalog</ Link>
+                                    <Link to="/catalog">Catalog</ Link>
                                 </li>
                                 <li>
                                     <Link to="/login">Login</ Link>

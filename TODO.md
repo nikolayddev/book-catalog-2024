@@ -11,8 +11,8 @@ Soft Uni React Course Project
 - [X] Nav Bar html layout
 - [X] Home page html layout
 - [X] Catalog page html layout
-- [ ] Details page html layout
-- [ ] Comments/Reviews html layout
+- [X] Details page html layout
+- [X] Comments/Reviews html layout
 - [X] About page html layout
 - [X] Login page html layout
 - [X] Register page html layout
@@ -34,7 +34,7 @@ Soft Uni React Course Project
 ## 4. Create Service Layer
 - [X] Service layer architecture planning
 - [X] Abstract requester
-- [ ] Add books api
+- [X] Add books api
 - [X] Preseed practice server
 
 ## 5. Page Implementations
@@ -45,3 +45,12 @@ Soft Uni React Course Project
   - [ ] Details route
   - [ ] Api funciton - getOne
 - [ ] User Page (favourites etc)
+
+## For next 2 days 
+- [ ] Make Create form html and css
+- [ ] Make Edit form html and css
+- [ ] Make Comments form html and css
+- [ ] Make Delete prompt html and css
+- [ ] Make CART page html and css (straightforward)
+- [ ] Start and think on and try to implement My Profile page html and css (harder)
+- [ ] BONUS: Make changes to the css to fix the edges of the forms and banner!

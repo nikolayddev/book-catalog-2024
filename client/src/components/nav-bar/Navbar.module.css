@@ -1,34 +1,17 @@
-.navbar {
-    position: sticky;
-    width: 100%;
-    float: left;
-    background-color: #2b2a29;
-    clip-path: polygon(0 0, 100% 0, 96% 100%, 3% 100%);
-    height: auto;
-    padding: 10px 0px;
-    z-index: 1000;
-}
-
 .container {
     position: sticky;
     z-index: 1000;
-    width: 100%;
+    width: 75%;
     margin: 0 auto;
     text-align: center;
     top: 0;
+    padding-bottom: 15px;
 }
 
-.header_section_top {
+.header_section {
     width: 100%;
-    float: left;
     background-color: #2b2a29;
     clip-path: polygon(0 0, 100% 0, 96% 100%, 3% 100%);
     height: auto;
     padding: 10px 0px;
-}
-
-.custom_menu {
-    width: 100%;
-    margin: 0 auto;
-    text-align: center;
 }
