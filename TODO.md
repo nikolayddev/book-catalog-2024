@@ -18,8 +18,8 @@ Soft Uni React Course Project
 - [X] Register page html layout
 ---
 - [X] Create form html layout
-- [ ] Edit form html layout
-- [ ] Add comment fomr html layout
+- [X] Edit form html layout
+- [X] Add comment fomr html layout
 ---
 - [X] Convert html to jsx
 - [X] Think about css modules of the separate components
@@ -51,6 +51,6 @@ Soft Uni React Course Project
 - [X] Make Edit form html and css
 - [X] Make Comments form html and css
 - [ ] Make Delete prompt html and css
-- [ ] Make CART page html and css (straightforward)
-- [ ] Start and think on and try to implement My Profile page html and css (harder)
+- [X] Make CART page html and css (straightforward)
+- [X] Start and think on and try to implement My Profile page html and css (harder)
 - [ ] BONUS: Make changes to the css to fix the edges of the forms and banner!

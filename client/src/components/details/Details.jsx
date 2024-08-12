@@ -146,16 +146,18 @@ export default function Details() {
                         }
                     </div>
                 </div>
-                <div className={styles.button_div}>
-                    <Button onClick={addCommentClickHandler} className={styles.button} variant="secondary" type="submit">
-                        Add Comment
-                    </Button>
-                </div>
+                {activeButton == 'comments' &&
+                    <div className={styles.button_div}>
+                        <Button onClick={addCommentClickHandler} className={styles.button} variant="secondary" type="submit">
+                            Add Comment
+                        </Button>
+                    </div>
+                }
             </div>
 
-            {showAddComment && <AddComment 
-            onClose={addCommentCloseHandler}
-            isOpen={showAddComment}
+            {showAddComment && <AddComment
+                onClose={addCommentCloseHandler}
+                isOpen={showAddComment}
             />}
         </>
     );

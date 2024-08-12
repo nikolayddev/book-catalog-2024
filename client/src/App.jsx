@@ -7,11 +7,10 @@ import Login from "./components/login/Login";
 import Register from "./components/register/Register";
 import NavBar from './components/nav-bar/NavBar';
 import Catalog from './components/catalog/Catalog';
-import BookItem from './components/book-section/BookItem';
 import Details from './components/details/Details';
 import BookCreate from './components/book-section/book-create/BookCreate';
-import BookEdit from './components/book-section/book-create/book-edit/BookEdit';
 import ShoppingCart from './components/shopping-cart/ShoppingCart';
+import MyProfile from './components/my-profle/MyProfile';
 
 export default function App() {
     return (
@@ -27,7 +26,7 @@ export default function App() {
                     <Route path='/register' element={<Register />} />
                     <Route path='/catalog' element={<Catalog />} />
                     <Route path='/create' element={<BookCreate />} />
-                    <Route path='/my-profile' element={<BookItem />} />
+                    <Route path='/my-profile' element={<MyProfile />} />
                     <Route path='/details' element={<Details />} />
                     <Route path='/cart' element={<ShoppingCart />} />
 
