@@ -9,13 +9,14 @@ import NavBar from './components/nav-bar/NavBar';
 import Catalog from './components/catalog/Catalog';
 import BookItem from './components/book-section/BookItem';
 import Details from './components/details/Details';
+import BookCreate from './components/book-section/book-create/BookCreate';
 
 export default function App() {
     return (
         <>
 
             <div className='banner_bg_main'>
-            <NavBar />
+                <NavBar />
 
                 <Routes>
                     <Route path='/' element={<Home />} />
@@ -23,6 +24,7 @@ export default function App() {
                     <Route path='/login' element={<Login />} />
                     <Route path='/register' element={<Register />} />
                     <Route path='/catalog' element={<Catalog />} />
+                    <Route path='/create' element={<BookCreate />} />
                     <Route path='/my-profile' element={<BookItem />} />
                     <Route path='/details' element={<Details />} />
 

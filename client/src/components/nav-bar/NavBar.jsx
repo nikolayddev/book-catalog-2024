@@ -8,7 +8,7 @@ export default function NavBar() {
                 <div className="row">
                     <div className="col-sm-12">
                         <div className="custom_menu">
-                            
+
                             <ul>
                                 <li>
                                     <Link to="/my-profile">
@@ -21,6 +21,9 @@ export default function NavBar() {
                                 </li>
                                 <li>
                                     <Link to="/catalog">Catalog</ Link>
+                                </li>
+                                <li>
+                                    <Link to="/create">Create</ Link>
                                 </li>
                                 <li>
                                     <Link to="/login">Login</ Link>

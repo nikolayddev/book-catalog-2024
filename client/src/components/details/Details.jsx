@@ -1,5 +1,5 @@
 import Header from "../header/Header";
-import Logo from "../home/logo/Logo";
+import Logo from "../logo/Logo";
 
 import styles from './Details.module.css'
 
