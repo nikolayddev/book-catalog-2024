@@ -1,11 +1,22 @@
 .container {
-    position: sticky;
-    z-index: 1000;
     width: 75%;
     margin: 0 auto;
     text-align: center;
-    top: 0;
     padding-bottom: 15px;
+}
+
+.container_sticky {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.container_visible {
+    top: 0;
+}
+
+.container_hidden {
+    top: -100px;
 }
 
 .header_section {

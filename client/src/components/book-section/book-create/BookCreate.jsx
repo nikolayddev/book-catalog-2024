@@ -7,14 +7,6 @@ import { useRef, useEffect } from 'react';
 
 export default function BookCreate() {
 
-    const middleRef = useRef(null);
-
-    useEffect(() => {
-        if (middleRef.current) {
-            middleRef.current.scrollIntoView({ behavior: 'smooth', block: 'center' });
-        }
-    }, []);
-
     return (
         <>
             <div className="login_container">
@@ -35,7 +27,7 @@ export default function BookCreate() {
                                     </div>
                                 </div>
 
-                                <div className='row pt-4' ref={middleRef}>
+                                <div className='row pt-4'>
 
                                     <div className="col md-3">
                                         <label className={styles.create_form_labels}>Publisher</label>
@@ -92,8 +84,8 @@ export default function BookCreate() {
                             </form>
                         </div>
                     </div>
-                </div>
-            </div>
+                </div >
+            </div >
         </>
     );
 }

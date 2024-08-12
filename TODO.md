@@ -53,4 +53,14 @@ Soft Uni React Course Project
 - [ ] Make Delete prompt html and css
 - [X] Make CART page html and css (straightforward)
 - [X] Start and think on and try to implement My Profile page html and css (harder)
+- [X] Make CSS improvements
 - [ ] BONUS: Make changes to the css to fix the edges of the forms and banner!
+
+## For next 2 days
+- [ ] Work on better routing and routing advanced techniques
+- [ ] Do Books API
+- [ ] Do User API
+- [ ] Do Comments API
+- [ ] Do Cart API
+- [ ] Start thinking on server implementations
+- [ ] Start to implement custom hooks 
