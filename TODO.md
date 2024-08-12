@@ -17,7 +17,7 @@ Soft Uni React Course Project
 - [X] Login page html layout
 - [X] Register page html layout
 ---
-- [ ] Create form html layout
+- [X] Create form html layout
 - [ ] Edit form html layout
 - [ ] Add comment fomr html layout
 ---
@@ -47,8 +47,8 @@ Soft Uni React Course Project
 - [ ] User Page (favourites etc)
 
 ## For next 2 days 
-- [ ] Make Create form html and css
-- [ ] Make Edit form html and css
+- [X] Make Create form html and css
+- [X] Make Edit form html and css
 - [ ] Make Comments form html and css
 - [ ] Make Delete prompt html and css
 - [ ] Make CART page html and css (straightforward)
