@@ -114,7 +114,7 @@ export default function Details() {
                                 <p className={styles.box_price}>Price: $19.85</p>
                                 <ul>
                                     <li className={styles.box_li}>
-                                        <a href="#" className={styles.btn_buy}>BUY</a>
+                                        <a href="#" className={styles.btn_buy}>Add to Cart</a>
                                     </li>
                                     <li className={styles.box_li}>
                                         <a href="#" className={styles.btn_favorites}>&#9733; ADD TO FAVORITES</a>
@@ -153,7 +153,10 @@ export default function Details() {
                 </div>
             </div>
 
-            {showAddComment && <AddComment onClose={addCommentCloseHandler}/>}
+            {showAddComment && <AddComment 
+            onClose={addCommentCloseHandler}
+            isOpen={showAddComment}
+            />}
         </>
     );
 }

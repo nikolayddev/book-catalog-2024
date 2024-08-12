@@ -32,7 +32,7 @@ export default function NavBar() {
                                     <Link to="/register">Register</ Link>
                                 </li>
                                 <li>
-                                    <Link to="#">
+                                    <Link to="/cart">
                                         <i className="fa fa-shopping-cart" />
                                         <span className="padding_10">Cart</span>
                                     </Link>

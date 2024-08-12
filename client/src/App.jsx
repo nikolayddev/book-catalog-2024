@@ -11,6 +11,7 @@ import BookItem from './components/book-section/BookItem';
 import Details from './components/details/Details';
 import BookCreate from './components/book-section/book-create/BookCreate';
 import BookEdit from './components/book-section/book-create/book-edit/BookEdit';
+import ShoppingCart from './components/shopping-cart/ShoppingCart';
 
 export default function App() {
     return (
@@ -25,9 +26,10 @@ export default function App() {
                     <Route path='/login' element={<Login />} />
                     <Route path='/register' element={<Register />} />
                     <Route path='/catalog' element={<Catalog />} />
-                    <Route path='/create' element={<BookEdit />} />
+                    <Route path='/create' element={<BookCreate />} />
                     <Route path='/my-profile' element={<BookItem />} />
                     <Route path='/details' element={<Details />} />
+                    <Route path='/cart' element={<ShoppingCart />} />
 
                 </Routes>
 

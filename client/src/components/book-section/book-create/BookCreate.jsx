@@ -17,7 +17,6 @@ export default function BookCreate() {
 
     return (
         <>
-            <Logo />
             <div className="login_container">
                 <h1 className="login_title_text">Upload a Book</h1>
                 <div className="fashion_section_2">

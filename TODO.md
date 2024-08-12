@@ -49,7 +49,7 @@ Soft Uni React Course Project
 ## For next 2 days 
 - [X] Make Create form html and css
 - [X] Make Edit form html and css
-- [ ] Make Comments form html and css
+- [X] Make Comments form html and css
 - [ ] Make Delete prompt html and css
 - [ ] Make CART page html and css (straightforward)
 - [ ] Start and think on and try to implement My Profile page html and css (harder)
