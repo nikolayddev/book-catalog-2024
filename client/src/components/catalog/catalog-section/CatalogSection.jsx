@@ -1,23 +1,17 @@
 import { useEffect, useState } from "react";
 import CatalogItem from "../catalog-item/CatalogItem";
 import { getGenre } from "../../../api/books-api";
+import { useGetBookGenre } from "../../../hooks/useBooks";
 
 export default function CatalogSection({
     genre,
 }) {
 
-    const [booksGenre, setBooksGenre] = useState([]);
-
-    useEffect(() => {
-        (async () => {
-            const result = await getGenre(genre);
-            setBooksGenre(result);
-        })();
-    }, [genre]);
+    const [bookGenre] = useGetBookGenre(genre);
 
     return (
         <>
-            {booksGenre.map((book) => (<CatalogItem key={book._id} book={{ ...book }} />))}
+            {bookGenre.map((book) => (<CatalogItem key={book._id} book={{ ...book }} />))}
         </>
     )
 }

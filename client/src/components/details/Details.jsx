@@ -6,21 +6,16 @@ import Button from "react-bootstrap/esm/Button";
 import AddComment from "./comment-section/AddComment";
 import { useParams } from "react-router-dom";
 import { getOne } from "../../api/books-api";
+import { useGetOneBook } from "../../hooks/useBooks";
 
 export default function Details() {
 
     const [activeButton, setActiveButton] = useState('description');
     const [showAddComment, setShowAddComment] = useState(false);
-    const [currentBook, setCurrentBook] = useState({});
-
     const { genre, id: book_id } = useParams();
 
-    useEffect(() => {
-        (async () => {
-            const result = await getOne(genre, book_id);
-            setCurrentBook(result);
-        })();
-    }, [genre, book_id]);
+    const [currentBook] = useGetOneBook(genre, book_id);
+
 
     const addCommentClickHandler = () => {
         setShowAddComment(true);
