@@ -1,4 +1,5 @@
 import { Routes, Route } from 'react-router-dom';
+import { useState } from 'react';
 
 import Copyright from "./components/copyright/Copyright";
 import Footer from "./components/footer/Footer";
@@ -11,10 +12,25 @@ import Details from './components/details/Details';
 import BookCreate from './components/book-section/book-create/BookCreate';
 import ShoppingCart from './components/shopping-cart/ShoppingCart';
 import MyProfile from './components/my-profle/MyProfile';
+import AuthContext from './contexts/UserContext';
 
 export default function App() {
+    const [authState, setAuthState] = useState({});
+
+    const changeAuthState = (state) => {
+        setAuthState(state);
+    };
+
+    const contextData = {
+        user_id: authState._id,
+        email: authState.email,
+        accessToken: authState.accessToken,
+        isAuthenticated: !!authState.email,
+        changeAuthState
+    };
+
     return (
-        <>
+        <AuthContext.Provider value={contextData}>
             <div className='banner_bg_main'>
                 <NavBar />
 
@@ -34,8 +50,7 @@ export default function App() {
                 <Footer />
                 <Copyright />
             </div>
-
-        </>
+        </AuthContext.Provider>
 
     );
 }

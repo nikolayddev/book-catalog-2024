@@ -1,5 +1,11 @@
 import { createContext } from "react";
 
-const UserContext = createContext();
+const AuthContext = createContext({
+    user_id: '',
+    email: '',
+    accessToken: '',
+    isAuthenticated: false,
+    changeAuthState: (authstate = {}) => null
+});
 
-export default UserContext;
+export default AuthContext;
