@@ -309,5 +309,31 @@
             }
         }
     },
-    "users": {}
+    "users": {},
+    "comments": {
+        "e3071f05-ebf3-4b34-b40c-10e4978e223e": {
+            "name": "Victor Von Doom",
+            "date": "20.08.2024",
+            "body": "I really enjoyed writing this comment here!",
+            "_id": "e3071f05-ebf3-4b34-b40c-10e4978e223e"
+        },
+        "e3071f05-ebf3-4b24-b49c-10e4978e223e": {
+            "name": "Tony Hinchcliffe",
+            "date": "20.08.2024",
+            "body": "I really enjoyed writing this comment hered!",
+            "_id": "e3071f05-ebf3-4b24-b49c-10e4978e223e"
+        },
+        "e3071f05-ebf3-4b24-b40c-10e4978e221e": {
+            "name": "Donald J Trump",
+            "date": "20.08.2024",
+            "body": "I really enjoyed writing this comment here!",
+            "_id": "e3071f05-ebf3-4b24-b40c-10e4978e221e"
+        },
+        "e3041f05-ebf3-4b24-b40c-10e4978e223e": {
+            "name": "George W Bush",
+            "date": "20.08.2024",
+            "body": "I really enjoyed writing this comment here!",
+            "_id": "e3041f05-ebf3-4b24-b40c-10e4978e223e"
+        }
+    }
 }

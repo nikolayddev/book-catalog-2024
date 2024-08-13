@@ -1,18 +1,17 @@
-import { useEffect, useRef, useState } from "react";
+import { useState } from "react";
 
 import styles from './Details.module.css'
 import CommentSection from "./comment-section/CommentSection";
 import Button from "react-bootstrap/esm/Button";
 import AddComment from "./comment-section/AddComment";
 import { useParams } from "react-router-dom";
-import { getOne } from "../../api/books-api";
 import { useGetOneBook } from "../../hooks/useBooks";
 
 export default function Details() {
+    const { genre, id: book_id } = useParams();
 
     const [activeButton, setActiveButton] = useState('description');
     const [showAddComment, setShowAddComment] = useState(false);
-    const { genre, id: book_id } = useParams();
 
     const [currentBook] = useGetOneBook(genre, book_id);
 
