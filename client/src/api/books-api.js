@@ -5,6 +5,12 @@ export async function getAll() {
     return Object.values(result);
 }
 
-export async function getOne() {
+export async function getGenre(genre) {
+    const result = await get(`book-bazaar/books/${genre}`);
+    return Object.values(result);
+}
 
+export async function getOne(genre, book_id) {
+    const result = await get(`book-bazaar/books/${genre}/${book_id}`);
+    return result;
 }

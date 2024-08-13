@@ -15,7 +15,6 @@ import MyProfile from './components/my-profle/MyProfile';
 export default function App() {
     return (
         <>
-
             <div className='banner_bg_main'>
                 <NavBar />
 
@@ -27,13 +26,12 @@ export default function App() {
                     <Route path='/catalog' element={<Catalog />} />
                     <Route path='/create' element={<BookCreate />} />
                     <Route path='/my-profile' element={<MyProfile />} />
-                    <Route path='/details' element={<Details />} />
+                    <Route path='/catalog/:genre/:id' element={<Details />} />
                     <Route path='/cart' element={<ShoppingCart />} />
 
                 </Routes>
 
                 <Footer />
-
                 <Copyright />
             </div>
 

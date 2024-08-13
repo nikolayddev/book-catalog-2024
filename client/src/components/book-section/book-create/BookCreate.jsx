@@ -72,6 +72,28 @@ export default function BookCreate() {
                                     </div>
                                 </div>
 
+                                <div className='row pt-4'>
+
+                                    <div className="col md-3">
+                                        <label className={styles.create_form_labels}>Genre</label>
+                                        <div>
+                                            <select id="options" className={styles.select}>
+                                                <option value="option1">Science Fiction</option>
+                                                <option value="option2">Adventure</option>
+                                                <option value="option3">Fantasy</option>
+                                                <option value="option3">Thriller</option>
+                                                <option value="option3">Historical Fiction</option>
+                                                <option value="option3">Graphic Novel</option>
+                                            </select>
+                                        </div>
+                                    </div>
+
+                                    <div className="col md-3">
+                                        <label className={styles.create_form_labels}>Price $</label>
+                                        <input className={styles.input} type="number" placeholder="" />
+                                    </div>
+                                </div>
+
                                 <div className={styles.description}>
                                     <label className={styles.create_form_labels}>Description</label>
                                     <textarea className={styles.description_textarea} type="textarea" placeholder=""></textarea>
