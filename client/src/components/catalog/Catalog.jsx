@@ -1,9 +1,5 @@
-import { useEffect, useState } from "react";
-import Header from "../header/Header";
-import Logo from "../logo/Logo";
 import CatalogSection from "./catalog-section/CatalogSection";
 import styles from './Catalog.module.css';
-import Banner from "../home/banner/Banner";
 
 export default function Catalog() {
 
@@ -11,7 +7,7 @@ export default function Catalog() {
 
     return (
         <div>
-          
+
             <div className="mt-3">
                 {genres.map((genre) => (
                     <div key={genre.toLowerCase()} className={styles.container}>

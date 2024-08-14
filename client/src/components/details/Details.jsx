@@ -6,15 +6,21 @@ import Button from "react-bootstrap/esm/Button";
 import AddComment from "./comment-section/AddComment";
 import { useParams } from "react-router-dom";
 import { useGetOneBook } from "../../hooks/useBooks";
+import { useGetAllCommentsById } from "../../hooks/useComments";
 
 export default function Details() {
     const { id: book_id } = useParams();
 
-    const [activeButton, setActiveButton] = useState('description');
-    const [showAddComment, setShowAddComment] = useState(false);
-
     const [currentBook] = useGetOneBook(book_id);
 
+    const [activeButton, setActiveButton] = useState('description');
+    const [showAddComment, setShowAddComment] = useState(false);
+    const [allComments, setAllComments] = useGetAllCommentsById(book_id);
+
+    const handleAddComment = (newComment) => {
+        setAllComments(prevComments => [newComment, ...prevComments]);
+        setShowAddComment(false);
+    }
 
     const addCommentClickHandler = () => {
         setShowAddComment(true);
@@ -142,7 +148,14 @@ export default function Details() {
 
                         {activeButton == 'comments' &&
                             <div className={styles.div_comments}>
-                                <CommentSection />
+                                {allComments.length > 0 ? 
+                                <CommentSection comments={allComments} /> : 
+                                <div className={styles.scrollable_container}>
+                                    <p className={styles.no_comments_p}>
+                                        Be The First to Leave a Comment!
+                                    </p>
+                                </div>
+                                }
                             </div>
                         }
                     </div>
@@ -157,8 +170,11 @@ export default function Details() {
             </div>
 
             {showAddComment && <AddComment
+                onAddComment={handleAddComment}
                 onClose={addCommentCloseHandler}
                 isOpen={showAddComment}
+                book_id={book_id}
+                genre={currentBook.genre}
             />}
         </>
     );

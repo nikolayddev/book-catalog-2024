@@ -12,7 +12,7 @@ export async function getOne(book_id) {
     return result;
 }
 
-export async function createBook(bookData) {
+export function createBook(bookData) {
     const result = post(BASE_URL, bookData);
     return result;
 }

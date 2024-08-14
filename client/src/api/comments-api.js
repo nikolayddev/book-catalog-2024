@@ -2,9 +2,9 @@ import { get, post } from "./requester";
 
 const BASE_URL = 'data/comments';
 
-export async function createComment(owner_id, name, date, info) {
-    const body = { owner_id, name, date, info };
-    await post(BASE_URL, body);
+export function createComment(commentData) {
+    const result =  post(BASE_URL, commentData);
+    return result;
 }
 
 export async function getAllComments() {
