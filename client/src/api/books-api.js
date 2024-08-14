@@ -7,11 +7,6 @@ export async function getAll() {
     return Object.values(result);
 }
 
-export async function getGenre(genre) {
-    const result = await get(`${BASE_URL}/${genre}`);
-    return Object.values(result);
-}
-
 export async function getOne(book_id) {
     const result = get(`${BASE_URL}/${book_id}`);
     return result;

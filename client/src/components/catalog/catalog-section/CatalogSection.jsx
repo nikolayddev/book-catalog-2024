@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react";
 import CatalogItem from "../catalog-item/CatalogItem";
-import { getGenre } from "../../../api/books-api";
 import { useGetBookGenre } from "../../../hooks/useBooks";
 
 export default function CatalogSection({
@@ -8,6 +7,7 @@ export default function CatalogSection({
 }) {
 
     const [bookGenre] = useGetBookGenre(genre);
+    console.log(bookGenre);
 
     return (
         <>

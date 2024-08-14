@@ -1,10 +1,11 @@
 (function (global, factory) {
     typeof exports === 'object' && typeof module !== 'undefined' ? module.exports = factory(require('http'), require('fs'), require('crypto')) :
-    typeof define === 'function' && define.amd ? define(['http', 'fs', 'crypto'], factory) :
-    (global = typeof globalThis !== 'undefined' ? globalThis : global || self, global.Server = factory(global.http, global.fs, global.crypto));
-}(this, (function (http, fs, crypto) { 'use strict';
+        typeof define === 'function' && define.amd ? define(['http', 'fs', 'crypto'], factory) :
+            (global = typeof globalThis !== 'undefined' ? globalThis : global || self, global.Server = factory(global.http, global.fs, global.crypto));
+}(this, (function (http, fs, crypto) {
+    'use strict';
 
-    function _interopDefaultLegacy (e) { return e && typeof e === 'object' && 'default' in e ? e : { 'default': e }; }
+    function _interopDefaultLegacy(e) { return e && typeof e === 'object' && 'default' in e ? e : { 'default': e }; }
 
     var http__default = /*#__PURE__*/_interopDefaultLegacy(http);
     var fs__default = /*#__PURE__*/_interopDefaultLegacy(fs);
@@ -13,14 +14,14 @@
     class ServiceError extends Error {
         constructor(message = 'Service Error') {
             super(message);
-            this.name = 'ServiceError'; 
+            this.name = 'ServiceError';
         }
     }
 
     class NotFoundError extends ServiceError {
         constructor(message = 'Resource not found') {
             super(message);
-            this.name = 'NotFoundError'; 
+            this.name = 'NotFoundError';
             this.status = 404;
         }
     }
@@ -28,7 +29,7 @@
     class RequestError extends ServiceError {
         constructor(message = 'Request error') {
             super(message);
-            this.name = 'RequestError'; 
+            this.name = 'RequestError';
             this.status = 400;
         }
     }
@@ -36,7 +37,7 @@
     class ConflictError extends ServiceError {
         constructor(message = 'Resource conflict') {
             super(message);
-            this.name = 'ConflictError'; 
+            this.name = 'ConflictError';
             this.status = 409;
         }
     }
@@ -44,7 +45,7 @@
     class AuthorizationError extends ServiceError {
         constructor(message = 'Unauthorized') {
             super(message);
-            this.name = 'AuthorizationError'; 
+            this.name = 'AuthorizationError';
             this.status = 401;
         }
     }
@@ -52,7 +53,7 @@
     class CredentialError extends ServiceError {
         constructor(message = 'Forbidden') {
             super(message);
-            this.name = 'CredentialError'; 
+            this.name = 'CredentialError';
             this.status = 403;
         }
     }
@@ -556,8 +557,8 @@
             if (query.pageSize) {
                 responseData = responseData.slice(0, pageSize);
             }
-    		
-    		if (query.distinct) {
+
+            if (query.distinct) {
                 const props = query.distinct.split(',').filter(p => p != '');
                 responseData = Object.values(responseData.reduce((distinct, c) => {
                     const key = props.map(p => c[p]).join('::');
@@ -793,7 +794,7 @@
     }
 
     function onRequest(context, tokens, query, body) {
-        Object.entries(body).forEach(([k,v]) => {
+        Object.entries(body).forEach(([k, v]) => {
             console.log(`${k} ${v ? 'enabled' : 'disabled'}`);
             context.util[k] = v;
         });
@@ -931,7 +932,7 @@
          * @param {Object} data Value to store. Shallow merge will be performed!
          * @return {Object} Updated entry.
          */
-         function merge(collection, id, data) {
+        function merge(collection, id, data) {
             if (!collections.has(collection)) {
                 throw new ReferenceError('Collection does not exist: ' + collection);
             }
@@ -1318,359 +1319,1017 @@
 
     var identity = "email";
     var protectedData = {
-    	users: {
-    		"35c62d76-8152-4626-8712-eeb96381bea8": {
-    			email: "peter@abv.bg",
-    			username: "Peter",
-    			hashedPassword: "83313014ed3e2391aa1332615d2f053cf5c1bfe05ca1cbcb5582443822df6eb1"
-    		},
-    		"847ec027-f659-4086-8032-5173e2f9c93a": {
-    			email: "george@abv.bg",
-    			username: "George",
-    			hashedPassword: "83313014ed3e2391aa1332615d2f053cf5c1bfe05ca1cbcb5582443822df6eb1"
-    		},
-    		"60f0cf0b-34b0-4abd-9769-8c42f830dffc": {
-    			email: "admin@abv.bg",
-    			username: "Admin",
-    			hashedPassword: "fac7060c3e17e6f151f247eacb2cd5ae80b8c36aedb8764e18a41bbdc16aa302"
-    		}
-    	},
-    	sessions: {
-    	}
+        users: {
+            "35c62d76-8152-4626-8712-eeb96381bea8": {
+                email: "peter@abv.bg",
+                username: "Peter",
+                hashedPassword: "83313014ed3e2391aa1332615d2f053cf5c1bfe05ca1cbcb5582443822df6eb1"
+            },
+            "847ec027-f659-4086-8032-5173e2f9c93a": {
+                email: "george@abv.bg",
+                username: "George",
+                hashedPassword: "83313014ed3e2391aa1332615d2f053cf5c1bfe05ca1cbcb5582443822df6eb1"
+            },
+            "60f0cf0b-34b0-4abd-9769-8c42f830dffc": {
+                email: "admin@abv.bg",
+                username: "Admin",
+                hashedPassword: "fac7060c3e17e6f151f247eacb2cd5ae80b8c36aedb8764e18a41bbdc16aa302"
+            }
+        },
+        sessions: {
+        }
     };
     var seedData = {
-    	recipes: {
-    		"3987279d-0ad4-4afb-8ca9-5b256ae3b298": {
-    			_ownerId: "35c62d76-8152-4626-8712-eeb96381bea8",
-    			name: "Easy Lasagna",
-    			img: "assets/lasagna.jpg",
-    			ingredients: [
-    				"1 tbsp Ingredient 1",
-    				"2 cups Ingredient 2",
-    				"500 g  Ingredient 3",
-    				"25 g Ingredient 4"
-    			],
-    			steps: [
-    				"Prepare ingredients",
-    				"Mix ingredients",
-    				"Cook until done"
-    			],
-    			_createdOn: 1613551279012
-    		},
-    		"8f414b4f-ab39-4d36-bedb-2ad69da9c830": {
-    			_ownerId: "35c62d76-8152-4626-8712-eeb96381bea8",
-    			name: "Grilled Duck Fillet",
-    			img: "assets/roast.jpg",
-    			ingredients: [
-    				"500 g  Ingredient 1",
-    				"3 tbsp Ingredient 2",
-    				"2 cups Ingredient 3"
-    			],
-    			steps: [
-    				"Prepare ingredients",
-    				"Mix ingredients",
-    				"Cook until done"
-    			],
-    			_createdOn: 1613551344360
-    		},
-    		"985d9eab-ad2e-4622-a5c8-116261fb1fd2": {
-    			_ownerId: "847ec027-f659-4086-8032-5173e2f9c93a",
-    			name: "Roast Trout",
-    			img: "assets/fish.jpg",
-    			ingredients: [
-    				"4 cups Ingredient 1",
-    				"1 tbsp Ingredient 2",
-    				"1 tbsp Ingredient 3",
-    				"750 g  Ingredient 4",
-    				"25 g Ingredient 5"
-    			],
-    			steps: [
-    				"Prepare ingredients",
-    				"Mix ingredients",
-    				"Cook until done"
-    			],
-    			_createdOn: 1613551388703
-    		}
-    	},
-    	comments: {
-    		"0a272c58-b7ea-4e09-a000-7ec988248f66": {
-    			_ownerId: "35c62d76-8152-4626-8712-eeb96381bea8",
-    			content: "Great recipe!",
-    			recipeId: "8f414b4f-ab39-4d36-bedb-2ad69da9c830",
-    			_createdOn: 1614260681375,
-    			_id: "0a272c58-b7ea-4e09-a000-7ec988248f66"
-    		}
-    	},
-    	records: {
-    		i01: {
-    			name: "John1",
-    			val: 1,
-    			_createdOn: 1613551388703
-    		},
-    		i02: {
-    			name: "John2",
-    			val: 1,
-    			_createdOn: 1613551388713
-    		},
-    		i03: {
-    			name: "John3",
-    			val: 2,
-    			_createdOn: 1613551388723
-    		},
-    		i04: {
-    			name: "John4",
-    			val: 2,
-    			_createdOn: 1613551388733
-    		},
-    		i05: {
-    			name: "John5",
-    			val: 2,
-    			_createdOn: 1613551388743
-    		},
-    		i06: {
-    			name: "John6",
-    			val: 3,
-    			_createdOn: 1613551388753
-    		},
-    		i07: {
-    			name: "John7",
-    			val: 3,
-    			_createdOn: 1613551388763
-    		},
-    		i08: {
-    			name: "John8",
-    			val: 2,
-    			_createdOn: 1613551388773
-    		},
-    		i09: {
-    			name: "John9",
-    			val: 3,
-    			_createdOn: 1613551388783
-    		},
-    		i10: {
-    			name: "John10",
-    			val: 1,
-    			_createdOn: 1613551388793
-    		}
-    	},
-    	catches: {
-    		"07f260f4-466c-4607-9a33-f7273b24f1b4": {
-    			_ownerId: "35c62d76-8152-4626-8712-eeb96381bea8",
-    			angler: "Paulo Admorim",
-    			weight: 636,
-    			species: "Atlantic Blue Marlin",
-    			location: "Vitoria, Brazil",
-    			bait: "trolled pink",
-    			captureTime: 80,
-    			_createdOn: 1614760714812,
-    			_id: "07f260f4-466c-4607-9a33-f7273b24f1b4"
-    		},
-    		"bdabf5e9-23be-40a1-9f14-9117b6702a9d": {
-    			_ownerId: "847ec027-f659-4086-8032-5173e2f9c93a",
-    			angler: "John Does",
-    			weight: 554,
-    			species: "Atlantic Blue Marlin",
-    			location: "Buenos Aires, Argentina",
-    			bait: "trolled pink",
-    			captureTime: 120,
-    			_createdOn: 1614760782277,
-    			_id: "bdabf5e9-23be-40a1-9f14-9117b6702a9d"
-    		}
-    	},
-    	furniture: {
-    	},
-    	orders: {
-    	},
-    	movies: {
-    		"1240549d-f0e0-497e-ab99-eb8f703713d7": {
-    			_ownerId: "847ec027-f659-4086-8032-5173e2f9c93a",
-    			title: "Black Widow",
-    			description: "Natasha Romanoff aka Black Widow confronts the darker parts of her ledger when a dangerous conspiracy with ties to her past arises. Comes on the screens 2020.",
-    			img: "https://miro.medium.com/max/735/1*akkAa2CcbKqHsvqVusF3-w.jpeg",
-    			_createdOn: 1614935055353,
-    			_id: "1240549d-f0e0-497e-ab99-eb8f703713d7"
-    		},
-    		"143e5265-333e-4150-80e4-16b61de31aa0": {
-    			_ownerId: "847ec027-f659-4086-8032-5173e2f9c93a",
-    			title: "Wonder Woman 1984",
-    			description: "Diana must contend with a work colleague and businessman, whose desire for extreme wealth sends the world down a path of destruction, after an ancient artifact that grants wishes goes missing.",
-    			img: "https://pbs.twimg.com/media/ETINgKwWAAAyA4r.jpg",
-    			_createdOn: 1614935181470,
-    			_id: "143e5265-333e-4150-80e4-16b61de31aa0"
-    		},
-    		"a9bae6d8-793e-46c4-a9db-deb9e3484909": {
-    			_ownerId: "35c62d76-8152-4626-8712-eeb96381bea8",
-    			title: "Top Gun 2",
-    			description: "After more than thirty years of service as one of the Navy's top aviators, Pete Mitchell is where he belongs, pushing the envelope as a courageous test pilot and dodging the advancement in rank that would ground him.",
-    			img: "https://i.pinimg.com/originals/f2/a4/58/f2a458048757bc6914d559c9e4dc962a.jpg",
-    			_createdOn: 1614935268135,
-    			_id: "a9bae6d8-793e-46c4-a9db-deb9e3484909"
-    		}
-    	},
-    	likes: {
-    	},
-    	ideas: {
-    		"833e0e57-71dc-42c0-b387-0ce0caf5225e": {
-    			_ownerId: "847ec027-f659-4086-8032-5173e2f9c93a",
-    			title: "Best Pilates Workout To Do At Home",
-    			description: "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Minima possimus eveniet ullam aspernatur corporis tempore quia nesciunt nostrum mollitia consequatur. At ducimus amet aliquid magnam nulla sed totam blanditiis ullam atque facilis corrupti quidem nisi iusto saepe, consectetur culpa possimus quos? Repellendus, dicta pariatur! Delectus, placeat debitis error dignissimos nesciunt magni possimus quo nulla, fuga corporis maxime minus nihil doloremque aliquam quia recusandae harum. Molestias dolorum recusandae commodi velit cum sapiente placeat alias rerum illum repudiandae? Suscipit tempore dolore autem, neque debitis quisquam molestias officia hic nesciunt? Obcaecati optio fugit blanditiis, explicabo odio at dicta asperiores distinctio expedita dolor est aperiam earum! Molestias sequi aliquid molestiae, voluptatum doloremque saepe dignissimos quidem quas harum quo. Eum nemo voluptatem hic corrupti officiis eaque et temporibus error totam numquam sequi nostrum assumenda eius voluptatibus quia sed vel, rerum, excepturi maxime? Pariatur, provident hic? Soluta corrupti aspernatur exercitationem vitae accusantium ut ullam dolor quod!",
-    			img: "./images/best-pilates-youtube-workouts-2__medium_4x3.jpg",
-    			_createdOn: 1615033373504,
-    			_id: "833e0e57-71dc-42c0-b387-0ce0caf5225e"
-    		},
-    		"247efaa7-8a3e-48a7-813f-b5bfdad0f46c": {
-    			_ownerId: "847ec027-f659-4086-8032-5173e2f9c93a",
-    			title: "4 Eady DIY Idea To Try!",
-    			description: "Similique rem culpa nemo hic recusandae perspiciatis quidem, quia expedita, sapiente est itaque optio enim placeat voluptates sit, fugit dignissimos tenetur temporibus exercitationem in quis magni sunt vel. Corporis officiis ut sapiente exercitationem consectetur debitis suscipit laborum quo enim iusto, labore, quod quam libero aliquid accusantium! Voluptatum quos porro fugit soluta tempore praesentium ratione dolorum impedit sunt dolores quod labore laudantium beatae architecto perspiciatis natus cupiditate, iure quia aliquid, iusto modi esse!",
-    			img: "./images/brightideacropped.jpg",
-    			_createdOn: 1615033452480,
-    			_id: "247efaa7-8a3e-48a7-813f-b5bfdad0f46c"
-    		},
-    		"b8608c22-dd57-4b24-948e-b358f536b958": {
-    			_ownerId: "35c62d76-8152-4626-8712-eeb96381bea8",
-    			title: "Dinner Recipe",
-    			description: "Consectetur labore et corporis nihil, officiis tempora, hic ex commodi sit aspernatur ad minima? Voluptas nesciunt, blanditiis ex nulla incidunt facere tempora laborum ut aliquid beatae obcaecati quidem reprehenderit consequatur quis iure natus quia totam vel. Amet explicabo quidem repellat unde tempore et totam minima mollitia, adipisci vel autem, enim voluptatem quasi exercitationem dolor cum repudiandae dolores nostrum sit ullam atque dicta, tempora iusto eaque! Rerum debitis voluptate impedit corrupti quibusdam consequatur minima, earum asperiores soluta. A provident reiciendis voluptates et numquam totam eveniet! Dolorum corporis libero dicta laborum illum accusamus ullam?",
-    			img: "./images/dinner.jpg",
-    			_createdOn: 1615033491967,
-    			_id: "b8608c22-dd57-4b24-948e-b358f536b958"
-    		}
-    	},
-    	catalog: {
-    		"53d4dbf5-7f41-47ba-b485-43eccb91cb95": {
-    			_ownerId: "35c62d76-8152-4626-8712-eeb96381bea8",
-    			make: "Table",
-    			model: "Swedish",
-    			year: 2015,
-    			description: "Medium table",
-    			price: 235,
-    			img: "./images/table.png",
-    			material: "Hardwood",
-    			_createdOn: 1615545143015,
-    			_id: "53d4dbf5-7f41-47ba-b485-43eccb91cb95"
-    		},
-    		"f5929b5c-bca4-4026-8e6e-c09e73908f77": {
-    			_ownerId: "847ec027-f659-4086-8032-5173e2f9c93a",
-    			make: "Sofa",
-    			model: "ES-549-M",
-    			year: 2018,
-    			description: "Three-person sofa, blue",
-    			price: 1200,
-    			img: "./images/sofa.jpg",
-    			material: "Frame - steel, plastic; Upholstery - fabric",
-    			_createdOn: 1615545572296,
-    			_id: "f5929b5c-bca4-4026-8e6e-c09e73908f77"
-    		},
-    		"c7f51805-242b-45ed-ae3e-80b68605141b": {
-    			_ownerId: "847ec027-f659-4086-8032-5173e2f9c93a",
-    			make: "Chair",
-    			model: "Bright Dining Collection",
-    			year: 2017,
-    			description: "Dining chair",
-    			price: 180,
-    			img: "./images/chair.jpg",
-    			material: "Wood laminate; leather",
-    			_createdOn: 1615546332126,
-    			_id: "c7f51805-242b-45ed-ae3e-80b68605141b"
-    		}
-    	},
-    	teams: {
-    		"34a1cab1-81f1-47e5-aec3-ab6c9810efe1": {
-    			_ownerId: "35c62d76-8152-4626-8712-eeb96381bea8",
-    			name: "Storm Troopers",
-    			logoUrl: "/assets/atat.png",
-    			description: "These ARE the droids we're looking for",
-    			_createdOn: 1615737591748,
-    			_id: "34a1cab1-81f1-47e5-aec3-ab6c9810efe1"
-    		},
-    		"dc888b1a-400f-47f3-9619-07607966feb8": {
-    			_ownerId: "847ec027-f659-4086-8032-5173e2f9c93a",
-    			name: "Team Rocket",
-    			logoUrl: "/assets/rocket.png",
-    			description: "Gotta catch 'em all!",
-    			_createdOn: 1615737655083,
-    			_id: "dc888b1a-400f-47f3-9619-07607966feb8"
-    		},
-    		"733fa9a1-26b6-490d-b299-21f120b2f53a": {
-    			_ownerId: "847ec027-f659-4086-8032-5173e2f9c93a",
-    			name: "Minions",
-    			logoUrl: "/assets/hydrant.png",
-    			description: "Friendly neighbourhood jelly beans, helping evil-doers succeed.",
-    			_createdOn: 1615737688036,
-    			_id: "733fa9a1-26b6-490d-b299-21f120b2f53a"
-    		}
-    	},
-    	members: {
-    		"cc9b0a0f-655d-45d7-9857-0a61c6bb2c4d": {
-    			_ownerId: "35c62d76-8152-4626-8712-eeb96381bea8",
-    			teamId: "34a1cab1-81f1-47e5-aec3-ab6c9810efe1",
-    			status: "member",
-    			_createdOn: 1616236790262,
-    			_updatedOn: 1616236792930
-    		},
-    		"61a19986-3b86-4347-8ca4-8c074ed87591": {
-    			_ownerId: "847ec027-f659-4086-8032-5173e2f9c93a",
-    			teamId: "dc888b1a-400f-47f3-9619-07607966feb8",
-    			status: "member",
-    			_createdOn: 1616237188183,
-    			_updatedOn: 1616237189016
-    		},
-    		"8a03aa56-7a82-4a6b-9821-91349fbc552f": {
-    			_ownerId: "847ec027-f659-4086-8032-5173e2f9c93a",
-    			teamId: "733fa9a1-26b6-490d-b299-21f120b2f53a",
-    			status: "member",
-    			_createdOn: 1616237193355,
-    			_updatedOn: 1616237195145
-    		},
-    		"9be3ac7d-2c6e-4d74-b187-04105ab7e3d6": {
-    			_ownerId: "35c62d76-8152-4626-8712-eeb96381bea8",
-    			teamId: "dc888b1a-400f-47f3-9619-07607966feb8",
-    			status: "member",
-    			_createdOn: 1616237231299,
-    			_updatedOn: 1616237235713
-    		},
-    		"280b4a1a-d0f3-4639-aa54-6d9158365152": {
-    			_ownerId: "60f0cf0b-34b0-4abd-9769-8c42f830dffc",
-    			teamId: "dc888b1a-400f-47f3-9619-07607966feb8",
-    			status: "member",
-    			_createdOn: 1616237257265,
-    			_updatedOn: 1616237278248
-    		},
-    		"e797fa57-bf0a-4749-8028-72dba715e5f8": {
-    			_ownerId: "60f0cf0b-34b0-4abd-9769-8c42f830dffc",
-    			teamId: "34a1cab1-81f1-47e5-aec3-ab6c9810efe1",
-    			status: "member",
-    			_createdOn: 1616237272948,
-    			_updatedOn: 1616237293676
-    		}
-    	}
+        books: {
+            "aaad6613-1159-42ee-a596-a54bd461426e": {
+                _ownerId: "60f0cf0b-34b0-4abd-9769-8c42f830dffc",
+                price: "18.99",
+                genre: "science-fiction",
+                title: "Dune",
+                author: "Frank Herbert",
+                publisher: "Ace",
+                description: "Set in the distant future amidst a huge interstellar empire, Dune tells the story of young Paul Atreides as he navigates political intrigue and battles for control of the desert planet Arrakis.",
+                language: "English",
+                pageCount: "688",
+                format: "Hard Copy",
+                yearOfPublication: "1965",
+                imageURL: "https://m.media-amazon.com/images/I/91b0C2YNSrL.jpg",
+                _createdOn: 1723631576154,
+                _id: "aaad6613-1159-42ee-a596-a54bd461426e"
+            },
+            "b5dcdecf-ae2b-4358-b873-2d67ad2fac52": {
+                _ownerId: "60f0cf0b-34b0-4abd-9769-8c42f830dffc",
+                price: "14.99",
+                genre: "science-fiction",
+                title: "Ender's Game",
+                author: "Orson Scott Card",
+                publisher: "Tor Books",
+                description: "A young boy, Ender Wiggin, is recruited into a military academy to prepare for an impending alien invasion.",
+                language: "English",
+                pageCount: "324",
+                format: "Hard Copy",
+                yearOfPublication: "1985",
+                imageURL: "https://m.media-amazon.com/images/I/81t2CVWEsUL.jpg",
+                _createdOn: 1723631590769,
+                _id: "b5dcdecf-ae2b-4358-b873-2d67ad2fac52"
+            },
+            "9cdc008b-d86e-414e-a2cc-4226499e0acb": {
+                _ownerId: "60f0cf0b-34b0-4abd-9769-8c42f830dffc",
+                price: "16.50",
+                genre: "science-fiction",
+                title: "The Hitchhiker's Guide to the Galaxy",
+                author: "Douglas Adams",
+                publisher: "Del Rey",
+                description: "Arthur Dent is swept off Earth just before it's destroyed to make way for a galactic freeway, embarking on a humorous and absurd adventure through space.",
+                language: "English",
+                pageCount: "224",
+                format: "Hard Copy",
+                yearOfPublication: "1979",
+                imageURL: "https://m.media-amazon.com/images/I/81-349iYbfL.jpg",
+                _createdOn: 1723631599687,
+                _id: "9cdc008b-d86e-414e-a2cc-4226499e0acb"
+            },
+            "5a955e4f-d49c-4ce8-a839-2737fc2c1e1a": {
+                _ownerId: "60f0cf0b-34b0-4abd-9769-8c42f830dffc",
+                price: "13.99",
+                genre: "science-fiction",
+                title: "1984",
+                author: "George Orwell",
+                publisher: "Houghton Mifflin Harcourt",
+                description: "A dystopian novel set in a totalitarian society under constant surveillance, where independent thinking is a crime.",
+                language: "English",
+                pageCount: "328",
+                format: "Hard Copy",
+                yearOfPublication: "1949",
+                imageURL: "https://m.media-amazon.com/images/I/81-349iYbfL.jpg",
+                _createdOn: 1723631607195,
+                _id: "5a955e4f-d49c-4ce8-a839-2737fc2c1e1a"
+            },
+            "c832b07d-704c-4a2c-ba0a-d76c10eba70f": {
+                _ownerId: "60f0cf0b-34b0-4abd-9769-8c42f830dffc",
+                price: "15.00",
+                genre: "science-fiction",
+                title: "Fahrenheit 451",
+                author: "Ray Bradbury",
+                publisher: "Simon & Schuster",
+                description: "In a future where books are banned and 'firemen' burn any that are found, one fireman begins to question his role in society.",
+                language: "English",
+                pageCount: "194",
+                format: "Hard Copy",
+                yearOfPublication: "1953",
+                imageURL: "https://m.media-amazon.com/images/I/81-349iYbfL.jpg",
+                _createdOn: 1723631615867,
+                _id: "c832b07d-704c-4a2c-ba0a-d76c10eba70f"
+            },
+            "f4d89538-3036-4a99-acd5-62209d0e4b4f": {
+                _ownerId: "60f0cf0b-34b0-4abd-9769-8c42f830dffc",
+                price: "17.99",
+                genre: "science-fiction",
+                title: "The Martian",
+                author: "Andy Weir",
+                publisher: "Crown",
+                description: "Stranded on Mars, astronaut Mark Watney must use his ingenuity and spirit to survive and find a way to signal to Earth that he is alive.",
+                language: "English",
+                pageCount: "369",
+                format: "Hard Copy",
+                yearOfPublication: "2011",
+                imageURL: "https://m.media-amazon.com/images/I/81t2CVWEsUL.jpg",
+                _createdOn: 1723631624792,
+                _id: "f4d89538-3036-4a99-acd5-62209d0e4b4f"
+            },
+            "8b4abea4-d7bf-4ff1-9bb6-6eead512901e": {
+                _ownerId: "60f0cf0b-34b0-4abd-9769-8c42f830dffc",
+                price: "18.50",
+                genre: "science-fiction",
+                title: "Neuromancer",
+                author: "William Gibson",
+                publisher: "Ace",
+                description: "A washed-up computer hacker is hired for one last job: to pull off the ultimate hack in a world of cybernetics and artificial intelligence.",
+                language: "English",
+                pageCount: "271",
+                format: "Hard Copy",
+                yearOfPublication: "1984",
+                imageURL: "https://m.media-amazon.com/images/I/81-349iYbfL.jpg",
+                _createdOn: 1723631633557,
+                _id: "8b4abea4-d7bf-4ff1-9bb6-6eead512901e"
+            },
+            "b62a7f38-f1dd-4327-bb05-b11bd974a094": {
+                _ownerId: "60f0cf0b-34b0-4abd-9769-8c42f830dffc",
+                price: "14.99",
+                genre: "adventure",
+                title: "Treasure Island",
+                author: "Robert Louis Stevenson",
+                publisher: "Penguin Classics",
+                description: "A young boy named Jim Hawkins embarks on a perilous journey to find buried pirate treasure.",
+                language: "English",
+                pageCount: "240",
+                format: "Hard Copy",
+                yearOfPublication: "1883",
+                imageURL: "https://m.media-amazon.com/images/I/81a4kCNuH+L.jpg",
+                _createdOn: 1723631649324,
+                _id: "b62a7f38-f1dd-4327-bb05-b11bd974a094"
+            },
+            "c361f2cd-a15d-44dc-8e30-3648176b19eb": {
+                _ownerId: "60f0cf0b-34b0-4abd-9769-8c42f830dffc",
+                price: "16.50",
+                genre: "adventure",
+                title: "The Count of Monte Cristo",
+                author: "Alexandre Dumas",
+                publisher: "Modern Library",
+                description: "Edmond Dantès is wrongfully imprisoned and escapes to seek revenge on those who betrayed him.",
+                language: "English",
+                pageCount: "1276",
+                format: "Hard Copy",
+                yearOfPublication: "1844",
+                imageURL: "https://m.media-amazon.com/images/I/91b0C2YNSrL.jpg",
+                _createdOn: 1723631658243,
+                _id: "c361f2cd-a15d-44dc-8e30-3648176b19eb"
+            },
+            "8323ac10-6bb4-4d69-93d1-9bac84174d5c": {
+                _ownerId: "60f0cf0b-34b0-4abd-9769-8c42f830dffc",
+                price: "13.99",
+                genre: "adventure",
+                title: "Journey to the Center of the Earth",
+                author: "Jules Verne",
+                publisher: "Bantam Classics",
+                description: "Professor Lidenbrock and his nephew Axel embark on a subterranean adventure to the Earth's core.",
+                language: "English",
+                pageCount: "320",
+                format: "Hard Copy",
+                yearOfPublication: "1864",
+                imageURL: "https://m.media-amazon.com/images/I/81-349iYbfL.jpg",
+                _createdOn: 1723631667588,
+                _id: "8323ac10-6bb4-4d69-93d1-9bac84174d5c"
+            },
+            "ae355edf-94e1-4848-85a1-62a676512ae8": {
+                _ownerId: "60f0cf0b-34b0-4abd-9769-8c42f830dffc",
+                price: "15.00",
+                genre: "adventure",
+                title: "The Three Musketeers",
+                author: "Alexandre Dumas",
+                publisher: "Penguin Classics",
+                description: "D'Artagnan and his three musketeer friends fight for justice and honor in 17th-century France.",
+                language: "English",
+                pageCount: "736",
+                format: "Hard Copy",
+                yearOfPublication: "1844",
+                imageURL: "https://m.media-amazon.com/images/I/91K8rH5aQUL.jpg",
+                _createdOn: 1723631676394,
+                _id: "ae355edf-94e1-4848-85a1-62a676512ae8"
+            },
+            "c768e061-43cd-4df7-aa84-3282b720dd8a": {
+                _ownerId: "60f0cf0b-34b0-4abd-9769-8c42f830dffc",
+                price: "17.99",
+                genre: "adventure",
+                title: "Moby-Dick",
+                author: "Herman Melville",
+                publisher: "Harper & Brothers",
+                description: "Captain Ahab's obsessive quest to hunt the great white whale, Moby-Dick.",
+                language: "English",
+                pageCount: "720",
+                format: "Hard Copy",
+                yearOfPublication: "1851",
+                imageURL: "https://m.media-amazon.com/images/I/81t2CVWEsUL.jpg",
+                _createdOn: 1723631686201,
+                _id: "c768e061-43cd-4df7-aa84-3282b720dd8a"
+            },
+            "4f3a56b1-1954-4641-80f5-7d6f07fcd57c": {
+                _ownerId: "60f0cf0b-34b0-4abd-9769-8c42f830dffc",
+                price: "18.50",
+                genre: "adventure",
+                title: "The Lost World",
+                author: "Arthur Conan Doyle",
+                publisher: "Penguin Classics",
+                description: "Professor Challenger leads an expedition to a plateau in the Amazon basin where dinosaurs still roam.",
+                language: "English",
+                pageCount: "256",
+                format: "Hard Copy",
+                yearOfPublication: "1912",
+                imageURL: "https://m.media-amazon.com/images/I/81-349iYbfL.jpg",
+                _createdOn: 1723631693639,
+                _id: "4f3a56b1-1954-4641-80f5-7d6f07fcd57c"
+            },
+            "50ab5fed-0798-4b76-a0fe-a9cb5db17b1a": {
+                _ownerId: "60f0cf0b-34b0-4abd-9769-8c42f830dffc",
+                price: "14.50",
+                genre: "adventure",
+                title: "Around the World in Eighty Days",
+                author: "Jules Verne",
+                publisher: "Bantam Classics",
+                description: "Phileas Fogg attempts to circumnavigate the globe in 80 days to win a bet.",
+                language: "English",
+                pageCount: "304",
+                format: "Hard Copy",
+                yearOfPublication: "1873",
+                imageURL: "https://m.media-amazon.com/images/I/81-349iYbfL.jpg",
+                _createdOn: 1723631703175,
+                _id: "50ab5fed-0798-4b76-a0fe-a9cb5db17b1a"
+            },
+            "cc421157-6f39-4348-918c-2e280e30d282": {
+                _ownerId: "60f0cf0b-34b0-4abd-9769-8c42f830dffc",
+                price: "15.49",
+                genre: "historical-fiction",
+                title: "A Gentleman in Moscow",
+                author: "Amor Towles",
+                publisher: "Viking",
+                description: "A Russian aristocrat is sentenced to house arrest in a grand hotel across the street from the Kremlin.",
+                language: "English",
+                pageCount: "462",
+                format: "Hard Copy",
+                yearOfPublication: "2016",
+                imageURL: "https://m.media-amazon.com/images/I/81-349iYbfL.jpg",
+                _createdOn: 1723631719300,
+                _id: "cc421157-6f39-4348-918c-2e280e30d282"
+            },
+            "65a0c03e-9bc0-4930-b58d-f71aa05461a8": {
+                _ownerId: "60f0cf0b-34b0-4abd-9769-8c42f830dffc",
+                price: "17.00",
+                genre: "historical-fiction",
+                title: "The Book Thief",
+                author: "Markus Zusak",
+                publisher: "Knopf",
+                description: "Narrated by Death, this novel is set in Nazi Germany and follows a young girl who steals books to share with others.",
+                language: "English",
+                pageCount: "552",
+                format: "Hard Copy",
+                yearOfPublication: "2005",
+                imageURL: "https://m.media-amazon.com/images/I/81eB+7+CkUL.jpg",
+                _createdOn: 1723631735761,
+                _id: "65a0c03e-9bc0-4930-b58d-f71aa05461a8"
+            },
+            "0e7331e2-aa60-4f17-85f3-20dbcda0398c": {
+                _ownerId: "60f0cf0b-34b0-4abd-9769-8c42f830dffc",
+                price: "16.99",
+                genre: "historical-fiction",
+                title: "The Nightingale",
+                author: "Kristin Hannah",
+                publisher: "St. Martin's Press",
+                description: "Two sisters in Nazi-occupied France: one who joins the Resistance, and one who tries to survive the war at home.",
+                language: "English",
+                pageCount: "440",
+                format: "Hard Copy",
+                yearOfPublication: "2015",
+                imageURL: "https://m.media-amazon.com/images/I/91aF7n6L5FL.jpg",
+                _createdOn: 1723631743591,
+                _id: "0e7331e2-aa60-4f17-85f3-20dbcda0398c"
+            },
+            "28e70445-832f-484d-8c71-440e4341f90d": {
+                _ownerId: "60f0cf0b-34b0-4abd-9769-8c42f830dffc",
+                price: "14.99",
+                genre: "historical-fiction",
+                title: "All the Light We Cannot See",
+                author: "Anthony Doerr",
+                publisher: "Scribner",
+                description: "A blind French girl and a German boy whose paths collide in occupied France as both try to survive the devastation of World War II.",
+                language: "English",
+                pageCount: "531",
+                format: "Hard Copy",
+                yearOfPublication: "2014",
+                imageURL: "https://m.media-amazon.com/images/I/91b0C2YNSrL.jpg",
+                _createdOn: 1723631756958,
+                _id: "28e70445-832f-484d-8c71-440e4341f90d"
+            },
+            "c528c74a-15f9-4c6b-9016-968a3a1b6013": {
+                _ownerId: "60f0cf0b-34b0-4abd-9769-8c42f830dffc",
+                price: "18.00",
+                genre: "historical-fiction",
+                title: "The Pillars of the Earth",
+                author: "Ken Follett",
+                publisher: "Penguin",
+                description: "Set in 12th-century England, this epic tale follows the construction of a cathedral and the lives of the people connected to it.",
+                language: "English",
+                pageCount: "973",
+                format: "Hard Copy",
+                yearOfPublication: "1989",
+                imageURL: "https://m.media-amazon.com/images/I/91K8rH5aQUL.jpg",
+                _createdOn: 1723631764866,
+                _id: "c528c74a-15f9-4c6b-9016-968a3a1b6013"
+            },
+            "6e347a50-1681-4a2c-aff1-a5a32707e1fd": {
+                _ownerId: "60f0cf0b-34b0-4abd-9769-8c42f830dffc",
+                price: "19.99",
+                genre: "historical-fiction",
+                title: "The Tattooist of Auschwitz",
+                author: "Heather Morris",
+                publisher: "Harper",
+                description: "Based on the true story of Lale Sokolov, a Jewish man who is forced to tattoo numbers on his fellow prisoners in Auschwitz.",
+                language: "English",
+                pageCount: "288",
+                format: "Hard Copy",
+                yearOfPublication: "2018",
+                imageURL: "https://m.media-amazon.com/images/I/81t2CVWEsUL.jpg",
+                _createdOn: 1723631773857,
+                _id: "6e347a50-1681-4a2c-aff1-a5a32707e1fd"
+            },
+            "2485bb21-d493-41a8-8e86-a8bce441f37b": {
+                _ownerId: "60f0cf0b-34b0-4abd-9769-8c42f830dffc",
+                price: "19.99",
+                genre: "thriller",
+                title: "The Silent Patient",
+                author: "Alex Michaelides",
+                publisher: "Celadon Books",
+                description: "A woman shoots her husband and then stops speaking. A psychotherapist is determined to get her to talk and uncover the truth.",
+                language: "English",
+                pageCount: "336",
+                format: "Hard Copy",
+                yearOfPublication: "2019",
+                imageURL: "https://m.media-amazon.com/images/I/81bPKr9mKxL.jpg",
+                _createdOn: 1723631824840,
+                _id: "2485bb21-d493-41a8-8e86-a8bce441f37b"
+            },
+            "2d1db1fd-67cb-42b9-96cb-6853d8549f42": {
+                _ownerId: "60f0cf0b-34b0-4abd-9769-8c42f830dffc",
+                price: "17.50",
+                genre: "thriller",
+                title: "Gone Girl",
+                author: "Gillian Flynn",
+                publisher: "Crown Publishing Group",
+                description: "On their fifth wedding anniversary, Nick's wife Amy disappears. Under pressure from the police and a growing media frenzy, Nick's portrait of a blissful union begins to crumble.",
+                language: "English",
+                pageCount: "422",
+                format: "Hard Copy",
+                yearOfPublication: "2012",
+                imageURL: "https://m.media-amazon.com/images/I/81bPKr9mKxL.jpg",
+                _createdOn: 1723631833399,
+                _id: "2d1db1fd-67cb-42b9-96cb-6853d8549f42"
+            },
+            "d77f96d1-ae8a-4846-8e0c-94ebae151f44": {
+                _ownerId: "60f0cf0b-34b0-4abd-9769-8c42f830dffc",
+                price: "18.00",
+                genre: "thriller",
+                title: "The Girl on the Train",
+                author: "Paula Hawkins",
+                publisher: "Riverhead Books",
+                description: "Rachel catches the same commuter train every morning. One day, she sees something shocking. Now Rachel has a chance to become a part of the lives she's only watched from afar.",
+                language: "English",
+                pageCount: "336",
+                format: "Hard Copy",
+                yearOfPublication: "2015",
+                imageURL: "https://m.media-amazon.com/images/I/81bPKr9mKxL.jpg",
+                _createdOn: 1723631842254,
+                _id: "d77f96d1-ae8a-4846-8e0c-94ebae151f44"
+            },
+            "21dde114-a329-459a-b254-7ab3d9b6a404": {
+                _ownerId: "60f0cf0b-34b0-4abd-9769-8c42f830dffc",
+                price: "16.99",
+                genre: "thriller",
+                title: "The Woman in the Window",
+                author: "A.J. Finn",
+                publisher: "William Morrow",
+                description: "An agoraphobic woman believes she witnessed a crime in a neighboring house, but no one believes her.",
+                language: "English",
+                pageCount: "448",
+                format: "Hard Copy",
+                yearOfPublication: "2018",
+                imageURL: "https://m.media-amazon.com/images/I/81bPKr9mKxL.jpg",
+                _createdOn: 1723631850727,
+                _id: "21dde114-a329-459a-b254-7ab3d9b6a404"
+            },
+            "fdeb115f-7fa1-4055-9f50-64203c489a1e": {
+                _ownerId: "60f0cf0b-34b0-4abd-9769-8c42f830dffc",
+                price: "15.99",
+                genre: "thriller",
+                title: "The Da Vinci Code",
+                author: "Dan Brown",
+                publisher: "Doubleday",
+                description: "A murder in the Louvre and clues in Da Vinci paintings lead to the discovery of a religious mystery protected by a secret society for two thousand years.",
+                language: "English",
+                pageCount: "489",
+                format: "Hard Copy",
+                yearOfPublication: "2003",
+                imageURL: "https://m.media-amazon.com/images/I/81bPKr9mKxL.jpg",
+                _createdOn: 1723631859772,
+                _id: "fdeb115f-7fa1-4055-9f50-64203c489a1e"
+            },
+            "669a4739-17cc-417c-91d5-76b04b3a5725": {
+                _ownerId: "60f0cf0b-34b0-4abd-9769-8c42f830dffc",
+                price: "14.99",
+                genre: "thriller",
+                title: "Big Little Lies",
+                author: "Liane Moriarty",
+                publisher: "Penguin Books",
+                description: "A murder...a tragic accident...or just parents behaving badly? What's indisputable is that someone is dead.",
+                language: "English",
+                pageCount: "460",
+                format: "Hard Copy",
+                yearOfPublication: "2014",
+                imageURL: "https://m.media-amazon.com/images/I/81bPKr9mKxL.jpg",
+                _createdOn: 1723631869134,
+                _id: "669a4739-17cc-417c-91d5-76b04b3a5725"
+            },
+            "43d983a2-df10-4c8d-a2b1-3e0e8179e8b0": {
+                _ownerId: "60f0cf0b-34b0-4abd-9769-8c42f830dffc",
+                price: "18.50",
+                genre: "thriller",
+                title: "The Girl with the Dragon Tattoo",
+                author: "Stieg Larsson",
+                publisher: "Knopf",
+                description: "A journalist and a hacker team up to solve a decades-old disappearance in Sweden.",
+                language: "English",
+                pageCount: "465",
+                format: "Hard Copy",
+                yearOfPublication: "2005",
+                imageURL: "https://m.media-amazon.com/images/I/81bPKr9mKxL.jpg",
+                _createdOn: 1723631877922,
+                _id: "43d983a2-df10-4c8d-a2b1-3e0e8179e8b0"
+            },
+            "f74d6955-4b87-424e-a7cd-e40823ea493a": {
+                _ownerId: "60f0cf0b-34b0-4abd-9769-8c42f830dffc",
+                price: "19.99",
+                genre: "graphic-novel",
+                title: "Maus",
+                author: "Art Spiegelman",
+                publisher: "Pantheon Books",
+                description: "A Holocaust survivor's tale told through the lens of anthropomorphic animals.",
+                language: "English",
+                pageCount: "296",
+                format: "Hard Copy",
+                yearOfPublication: "1980",
+                imageURL: "https://m.media-amazon.com/images/I/81t2CVWEsUL.jpg",
+                _createdOn: 1723632396266,
+                _id: "f74d6955-4b87-424e-a7cd-e40823ea493a"
+            },
+            "d4d8c10f-3b88-40b6-9916-faebba77b799": {
+                _ownerId: "60f0cf0b-34b0-4abd-9769-8c42f830dffc",
+                price: "18.50",
+                genre: "graphic-novel",
+                title: "Persepolis",
+                author: "Marjane Satrapi",
+                publisher: "Pantheon Books",
+                description: "An autobiographical graphic novel depicting the author's childhood in Iran during and after the Islamic Revolution.",
+                language: "English",
+                pageCount: "341",
+                format: "Hard Copy",
+                yearOfPublication: "2000",
+                imageURL: "https://m.media-amazon.com/images/I/81F-+2k2JIL.jpg",
+                _createdOn: 1723632414791,
+                _id: "d4d8c10f-3b88-40b6-9916-faebba77b799"
+            },
+            "4145a47d-94da-4176-9a13-28feca654e6d": {
+                _ownerId: "60f0cf0b-34b0-4abd-9769-8c42f830dffc",
+                price: "24.99",
+                genre: "graphic-novel",
+                title: "Watchmen",
+                author: "Alan Moore, Dave Gibbons",
+                publisher: "DC Comics",
+                description: "A complex, multi-layered narrative that deconstructs the superhero genre.",
+                language: "English",
+                pageCount: "416",
+                format: "Hard Copy",
+                yearOfPublication: "1986",
+                imageURL: "https://m.media-amazon.com/images/I/91G8d1n1KFL.jpg",
+                _createdOn: 1723632422415,
+                _id: "4145a47d-94da-4176-9a13-28feca654e6d"
+            },
+            "cb30a99e-d6de-4afe-b363-2c23cd35c60e": {
+                _ownerId: "60f0cf0b-34b0-4abd-9769-8c42f830dffc",
+                price: "22.99",
+                genre: "graphic-novel",
+                title: "Sandman",
+                author: "Neil Gaiman",
+                publisher: "Vertigo",
+                description: "A dark fantasy series that blends mythology, history, and literature.",
+                language: "English",
+                pageCount: "240",
+                format: "Hard Copy",
+                yearOfPublication: "1989",
+                imageURL: "https://m.media-amazon.com/images/I/81p2+4nYtkL.jpg",
+                _createdOn: 1723632429944,
+                _id: "cb30a99e-d6de-4afe-b363-2c23cd35c60e"
+            },
+            "b9eda2d3-26d5-4821-9f86-efa31fdbcf1b": {
+                _ownerId: "60f0cf0b-34b0-4abd-9769-8c42f830dffc",
+                price: "17.99",
+                genre: "graphic-novel",
+                title: "Fun Home",
+                author: "Alison Bechdel",
+                publisher: "Houghton Mifflin Harcourt",
+                description: "A memoir about the author's relationship with her father and her coming out as a lesbian.",
+                language: "English",
+                pageCount: "232",
+                format: "Hard Copy",
+                yearOfPublication: "2006",
+                imageURL: "https://m.media-amazon.com/images/I/81p2+4nYtkL.jpg",
+                _createdOn: 1723632441363,
+                _id: "b9eda2d3-26d5-4821-9f86-efa31fdbcf1b"
+            },
+            "4ccffef9-b1a1-4286-bab4-6a8853bbf3bf": {
+                _ownerId: "60f0cf0b-34b0-4abd-9769-8c42f830dffc",
+                price: "14.99",
+                genre: "graphic-novel",
+                title: "Saga",
+                author: "Brian K. Vaughan, Fiona Staples",
+                publisher: "Image Comics",
+                description: "An epic space opera/fantasy series about a family fighting to survive in a war-torn galaxy.",
+                language: "English",
+                pageCount: "160",
+                format: "Hard Copy",
+                yearOfPublication: "2012",
+                imageURL: "https://m.media-amazon.com/images/I/91G8d1n1KFL.jpg",
+                _createdOn: 1723632449526,
+                _id: "4ccffef9-b1a1-4286-bab4-6a8853bbf3bf"
+            },
+            "c9eeffd7-a1d5-4c88-9fec-bdcfa081019d": {
+                _ownerId: "60f0cf0b-34b0-4abd-9769-8c42f830dffc",
+                price: "20.00",
+                genre: "graphic-novel",
+                title: "Blankets",
+                author: "Craig Thompson",
+                publisher: "Top Shelf Productions",
+                description: "A coming-of-age story about first love, family, and faith.",
+                language: "English",
+                pageCount: "592",
+                format: "Hard Copy",
+                yearOfPublication: "2003",
+                imageURL: "https://m.media-amazon.com/images/I/81p2+4nYtkL.jpg",
+                _createdOn: 1723632458718,
+                _id: "c9eeffd7-a1d5-4c88-9fec-bdcfa081019d"
+            },
+            "95a29193-7a89-491d-8dcf-ab84790d7358": {
+                _ownerId: "60f0cf0b-34b0-4abd-9769-8c42f830dffc",
+                price: "15.99",
+                genre: "fantasy",
+                title: "The Hobbit",
+                author: "J.R.R. Tolkien",
+                publisher: "HarperCollins",
+                description: "Bilbo Baggins embarks on an unexpected journey to the Lonely Mountain with a spirited group of dwarves to reclaim their mountain home.",
+                language: "English",
+                pageCount: "310",
+                format: "Hard Copy",
+                yearOfPublication: "1937",
+                imageURL: "https://m.media-amazon.com/images/I/91b0C2YNSrL.jpg",
+                _createdOn: 1723632467542,
+                _id: "95a29193-7a89-491d-8dcf-ab84790d7358"
+            },
+            "af299846-adae-413e-8fbd-29b3380f0deb": {
+                _ownerId: "60f0cf0b-34b0-4abd-9769-8c42f830dffc",
+                price: "18.99",
+                genre: "fantasy",
+                title: "Harry Potter and the Sorcerer's Stone",
+                author: "J.K. Rowling",
+                publisher: "Scholastic",
+                description: "A young boy discovers he is a wizard and attends Hogwarts School of Witchcraft and Wizardry.",
+                language: "English",
+                pageCount: "309",
+                format: "Hard Copy",
+                yearOfPublication: "1997",
+                imageURL: "https://m.media-amazon.com/images/I/81YOuOGFCJL.jpg",
+                _createdOn: 1723632478821,
+                _id: "af299846-adae-413e-8fbd-29b3380f0deb"
+            },
+            "fabcb43d-41bc-4ecc-8076-63f051b39fb6": {
+                _ownerId: "60f0cf0b-34b0-4abd-9769-8c42f830dffc",
+                price: "20.00",
+                genre: "fantasy",
+                title: "The Name of the Wind",
+                author: "Patrick Rothfuss",
+                publisher: "DAW Books",
+                description: "The story of a magically gifted young man who grows up to become a legendary figure.",
+                language: "English",
+                pageCount: "662",
+                format: "Hard Copy",
+                yearOfPublication: "2007",
+                imageURL: "https://m.media-amazon.com/images/I/91b0C2YNSrL.jpg",
+                _createdOn: 1723632486760,
+                _id: "fabcb43d-41bc-4ecc-8076-63f051b39fb6"
+            },
+            "4aadd70e-e9bf-49ae-b82f-cccc6d5c7845": {
+                _ownerId: "60f0cf0b-34b0-4abd-9769-8c42f830dffc",
+                price: "17.99",
+                genre: "fantasy",
+                title: "Mistborn: The Final Empire",
+                author: "Brandon Sanderson",
+                publisher: "Tor Books",
+                description: "A young street urchin discovers she has the powers of a Mistborn and joins a group of rebels to overthrow the oppressive Lord Ruler.",
+                language: "English",
+                pageCount: "541",
+                format: "Hard Copy",
+                yearOfPublication: "2006",
+                imageURL: "https://m.media-amazon.com/images/I/91b0C2YNSrL.jpg",
+                _createdOn: 1723632497259,
+                _id: "4aadd70e-e9bf-49ae-b82f-cccc6d5c7845"
+            },
+            "a1b8fbf3-2cc0-499e-aaac-5ae84fc8c401": {
+                _ownerId: "60f0cf0b-34b0-4abd-9769-8c42f830dffc",
+                price: "19.99",
+                genre: "fantasy",
+                title: "The Way of Kings",
+                author: "Brandon Sanderson",
+                publisher: "Tor Books",
+                description: "An epic tale of war, politics, and magic in a world where storms shape the landscape and the fate of nations.",
+                language: "English",
+                pageCount: "1007",
+                format: "Hard Copy",
+                yearOfPublication: "2010",
+                imageURL: "https://m.media-amazon.com/images/I/91b0C2YNSrL.jpg",
+                _createdOn: 1723632517041,
+                _id: "a1b8fbf3-2cc0-499e-aaac-5ae84fc8c401"
+            },
+            "315f17b2-d690-4501-ac83-bbdd58b5ca8f": {
+                _ownerId: "60f0cf0b-34b0-4abd-9769-8c42f830dffc",
+                price: "16.99",
+                genre: "fantasy",
+                title: "The Lies of Locke Lamora",
+                author: "Scott Lynch",
+                publisher: "Bantam Spectra",
+                description: "A young orphan grows up to become a master thief in a city of canals and thieves.",
+                language: "English",
+                pageCount: "722",
+                format: "Hard Copy",
+                yearOfPublication: "2006",
+                imageURL: "https://m.media-amazon.com/images/I/91b0C2YNSrL.jpg",
+                _createdOn: 1723632527184,
+                _id: "315f17b2-d690-4501-ac83-bbdd58b5ca8f"
+            },
+            "d82ffb6e-f478-4c7a-91e1-7f03456d58ff": {
+                _ownerId: "60f0cf0b-34b0-4abd-9769-8c42f830dffc",
+                price: "14.99",
+                genre: "fantasy",
+                title: "The Priory of the Orange Tree",
+                author: "Samantha Shannon",
+                publisher: "Bloomsbury Publishing",
+                description: "A world divided by a thousand-year-old war must come together to face an ancient dragon.",
+                language: "English",
+                pageCount: "848",
+                format: "Hard Copy",
+                yearOfPublication: "2019",
+                imageURL: "https://m.media-amazon.com/images/I/91b0C2YNSrL.jpg",
+                _createdOn: 1723632540073,
+                _id: "d82ffb6e-f478-4c7a-91e1-7f03456d58ff"
+            }
+        },
+        recipes: {
+            "3987279d-0ad4-4afb-8ca9-5b256ae3b298": {
+                _ownerId: "35c62d76-8152-4626-8712-eeb96381bea8",
+                name: "Easy Lasagna",
+                img: "assets/lasagna.jpg",
+                ingredients: [
+                    "1 tbsp Ingredient 1",
+                    "2 cups Ingredient 2",
+                    "500 g  Ingredient 3",
+                    "25 g Ingredient 4"
+                ],
+                steps: [
+                    "Prepare ingredients",
+                    "Mix ingredients",
+                    "Cook until done"
+                ],
+                _createdOn: 1613551279012
+            },
+            "8f414b4f-ab39-4d36-bedb-2ad69da9c830": {
+                _ownerId: "35c62d76-8152-4626-8712-eeb96381bea8",
+                name: "Grilled Duck Fillet",
+                img: "assets/roast.jpg",
+                ingredients: [
+                    "500 g  Ingredient 1",
+                    "3 tbsp Ingredient 2",
+                    "2 cups Ingredient 3"
+                ],
+                steps: [
+                    "Prepare ingredients",
+                    "Mix ingredients",
+                    "Cook until done"
+                ],
+                _createdOn: 1613551344360
+            },
+            "985d9eab-ad2e-4622-a5c8-116261fb1fd2": {
+                _ownerId: "847ec027-f659-4086-8032-5173e2f9c93a",
+                name: "Roast Trout",
+                img: "assets/fish.jpg",
+                ingredients: [
+                    "4 cups Ingredient 1",
+                    "1 tbsp Ingredient 2",
+                    "1 tbsp Ingredient 3",
+                    "750 g  Ingredient 4",
+                    "25 g Ingredient 5"
+                ],
+                steps: [
+                    "Prepare ingredients",
+                    "Mix ingredients",
+                    "Cook until done"
+                ],
+                _createdOn: 1613551388703
+            }
+        },
+        comments: {
+            "0a272c58-b7ea-4e09-a000-7ec988248f66": {
+                _ownerId: "35c62d76-8152-4626-8712-eeb96381bea8",
+                content: "Great recipe!",
+                recipeId: "8f414b4f-ab39-4d36-bedb-2ad69da9c830",
+                _createdOn: 1614260681375,
+                _id: "0a272c58-b7ea-4e09-a000-7ec988248f66"
+            }
+        },
+        records: {
+            i01: {
+                name: "John1",
+                val: 1,
+                _createdOn: 1613551388703
+            },
+            i02: {
+                name: "John2",
+                val: 1,
+                _createdOn: 1613551388713
+            },
+            i03: {
+                name: "John3",
+                val: 2,
+                _createdOn: 1613551388723
+            },
+            i04: {
+                name: "John4",
+                val: 2,
+                _createdOn: 1613551388733
+            },
+            i05: {
+                name: "John5",
+                val: 2,
+                _createdOn: 1613551388743
+            },
+            i06: {
+                name: "John6",
+                val: 3,
+                _createdOn: 1613551388753
+            },
+            i07: {
+                name: "John7",
+                val: 3,
+                _createdOn: 1613551388763
+            },
+            i08: {
+                name: "John8",
+                val: 2,
+                _createdOn: 1613551388773
+            },
+            i09: {
+                name: "John9",
+                val: 3,
+                _createdOn: 1613551388783
+            },
+            i10: {
+                name: "John10",
+                val: 1,
+                _createdOn: 1613551388793
+            }
+        },
+        catches: {
+            "07f260f4-466c-4607-9a33-f7273b24f1b4": {
+                _ownerId: "35c62d76-8152-4626-8712-eeb96381bea8",
+                angler: "Paulo Admorim",
+                weight: 636,
+                species: "Atlantic Blue Marlin",
+                location: "Vitoria, Brazil",
+                bait: "trolled pink",
+                captureTime: 80,
+                _createdOn: 1614760714812,
+                _id: "07f260f4-466c-4607-9a33-f7273b24f1b4"
+            },
+            "bdabf5e9-23be-40a1-9f14-9117b6702a9d": {
+                _ownerId: "847ec027-f659-4086-8032-5173e2f9c93a",
+                angler: "John Does",
+                weight: 554,
+                species: "Atlantic Blue Marlin",
+                location: "Buenos Aires, Argentina",
+                bait: "trolled pink",
+                captureTime: 120,
+                _createdOn: 1614760782277,
+                _id: "bdabf5e9-23be-40a1-9f14-9117b6702a9d"
+            }
+        },
+        furniture: {
+        },
+        orders: {
+        },
+        movies: {
+            "1240549d-f0e0-497e-ab99-eb8f703713d7": {
+                _ownerId: "847ec027-f659-4086-8032-5173e2f9c93a",
+                title: "Black Widow",
+                description: "Natasha Romanoff aka Black Widow confronts the darker parts of her ledger when a dangerous conspiracy with ties to her past arises. Comes on the screens 2020.",
+                img: "https://miro.medium.com/max/735/1*akkAa2CcbKqHsvqVusF3-w.jpeg",
+                _createdOn: 1614935055353,
+                _id: "1240549d-f0e0-497e-ab99-eb8f703713d7"
+            },
+            "143e5265-333e-4150-80e4-16b61de31aa0": {
+                _ownerId: "847ec027-f659-4086-8032-5173e2f9c93a",
+                title: "Wonder Woman 1984",
+                description: "Diana must contend with a work colleague and businessman, whose desire for extreme wealth sends the world down a path of destruction, after an ancient artifact that grants wishes goes missing.",
+                img: "https://pbs.twimg.com/media/ETINgKwWAAAyA4r.jpg",
+                _createdOn: 1614935181470,
+                _id: "143e5265-333e-4150-80e4-16b61de31aa0"
+            },
+            "a9bae6d8-793e-46c4-a9db-deb9e3484909": {
+                _ownerId: "35c62d76-8152-4626-8712-eeb96381bea8",
+                title: "Top Gun 2",
+                description: "After more than thirty years of service as one of the Navy's top aviators, Pete Mitchell is where he belongs, pushing the envelope as a courageous test pilot and dodging the advancement in rank that would ground him.",
+                img: "https://i.pinimg.com/originals/f2/a4/58/f2a458048757bc6914d559c9e4dc962a.jpg",
+                _createdOn: 1614935268135,
+                _id: "a9bae6d8-793e-46c4-a9db-deb9e3484909"
+            }
+        },
+        likes: {
+        },
+        ideas: {
+            "833e0e57-71dc-42c0-b387-0ce0caf5225e": {
+                _ownerId: "847ec027-f659-4086-8032-5173e2f9c93a",
+                title: "Best Pilates Workout To Do At Home",
+                description: "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Minima possimus eveniet ullam aspernatur corporis tempore quia nesciunt nostrum mollitia consequatur. At ducimus amet aliquid magnam nulla sed totam blanditiis ullam atque facilis corrupti quidem nisi iusto saepe, consectetur culpa possimus quos? Repellendus, dicta pariatur! Delectus, placeat debitis error dignissimos nesciunt magni possimus quo nulla, fuga corporis maxime minus nihil doloremque aliquam quia recusandae harum. Molestias dolorum recusandae commodi velit cum sapiente placeat alias rerum illum repudiandae? Suscipit tempore dolore autem, neque debitis quisquam molestias officia hic nesciunt? Obcaecati optio fugit blanditiis, explicabo odio at dicta asperiores distinctio expedita dolor est aperiam earum! Molestias sequi aliquid molestiae, voluptatum doloremque saepe dignissimos quidem quas harum quo. Eum nemo voluptatem hic corrupti officiis eaque et temporibus error totam numquam sequi nostrum assumenda eius voluptatibus quia sed vel, rerum, excepturi maxime? Pariatur, provident hic? Soluta corrupti aspernatur exercitationem vitae accusantium ut ullam dolor quod!",
+                img: "./images/best-pilates-youtube-workouts-2__medium_4x3.jpg",
+                _createdOn: 1615033373504,
+                _id: "833e0e57-71dc-42c0-b387-0ce0caf5225e"
+            },
+            "247efaa7-8a3e-48a7-813f-b5bfdad0f46c": {
+                _ownerId: "847ec027-f659-4086-8032-5173e2f9c93a",
+                title: "4 Eady DIY Idea To Try!",
+                description: "Similique rem culpa nemo hic recusandae perspiciatis quidem, quia expedita, sapiente est itaque optio enim placeat voluptates sit, fugit dignissimos tenetur temporibus exercitationem in quis magni sunt vel. Corporis officiis ut sapiente exercitationem consectetur debitis suscipit laborum quo enim iusto, labore, quod quam libero aliquid accusantium! Voluptatum quos porro fugit soluta tempore praesentium ratione dolorum impedit sunt dolores quod labore laudantium beatae architecto perspiciatis natus cupiditate, iure quia aliquid, iusto modi esse!",
+                img: "./images/brightideacropped.jpg",
+                _createdOn: 1615033452480,
+                _id: "247efaa7-8a3e-48a7-813f-b5bfdad0f46c"
+            },
+            "b8608c22-dd57-4b24-948e-b358f536b958": {
+                _ownerId: "35c62d76-8152-4626-8712-eeb96381bea8",
+                title: "Dinner Recipe",
+                description: "Consectetur labore et corporis nihil, officiis tempora, hic ex commodi sit aspernatur ad minima? Voluptas nesciunt, blanditiis ex nulla incidunt facere tempora laborum ut aliquid beatae obcaecati quidem reprehenderit consequatur quis iure natus quia totam vel. Amet explicabo quidem repellat unde tempore et totam minima mollitia, adipisci vel autem, enim voluptatem quasi exercitationem dolor cum repudiandae dolores nostrum sit ullam atque dicta, tempora iusto eaque! Rerum debitis voluptate impedit corrupti quibusdam consequatur minima, earum asperiores soluta. A provident reiciendis voluptates et numquam totam eveniet! Dolorum corporis libero dicta laborum illum accusamus ullam?",
+                img: "./images/dinner.jpg",
+                _createdOn: 1615033491967,
+                _id: "b8608c22-dd57-4b24-948e-b358f536b958"
+            }
+        },
+        catalog: {
+            "53d4dbf5-7f41-47ba-b485-43eccb91cb95": {
+                _ownerId: "35c62d76-8152-4626-8712-eeb96381bea8",
+                make: "Table",
+                model: "Swedish",
+                year: 2015,
+                description: "Medium table",
+                price: 235,
+                img: "./images/table.png",
+                material: "Hardwood",
+                _createdOn: 1615545143015,
+                _id: "53d4dbf5-7f41-47ba-b485-43eccb91cb95"
+            },
+            "f5929b5c-bca4-4026-8e6e-c09e73908f77": {
+                _ownerId: "847ec027-f659-4086-8032-5173e2f9c93a",
+                make: "Sofa",
+                model: "ES-549-M",
+                year: 2018,
+                description: "Three-person sofa, blue",
+                price: 1200,
+                img: "./images/sofa.jpg",
+                material: "Frame - steel, plastic; Upholstery - fabric",
+                _createdOn: 1615545572296,
+                _id: "f5929b5c-bca4-4026-8e6e-c09e73908f77"
+            },
+            "c7f51805-242b-45ed-ae3e-80b68605141b": {
+                _ownerId: "847ec027-f659-4086-8032-5173e2f9c93a",
+                make: "Chair",
+                model: "Bright Dining Collection",
+                year: 2017,
+                description: "Dining chair",
+                price: 180,
+                img: "./images/chair.jpg",
+                material: "Wood laminate; leather",
+                _createdOn: 1615546332126,
+                _id: "c7f51805-242b-45ed-ae3e-80b68605141b"
+            }
+        },
+        teams: {
+            "34a1cab1-81f1-47e5-aec3-ab6c9810efe1": {
+                _ownerId: "35c62d76-8152-4626-8712-eeb96381bea8",
+                name: "Storm Troopers",
+                logoUrl: "/assets/atat.png",
+                description: "These ARE the droids we're looking for",
+                _createdOn: 1615737591748,
+                _id: "34a1cab1-81f1-47e5-aec3-ab6c9810efe1"
+            },
+            "dc888b1a-400f-47f3-9619-07607966feb8": {
+                _ownerId: "847ec027-f659-4086-8032-5173e2f9c93a",
+                name: "Team Rocket",
+                logoUrl: "/assets/rocket.png",
+                description: "Gotta catch 'em all!",
+                _createdOn: 1615737655083,
+                _id: "dc888b1a-400f-47f3-9619-07607966feb8"
+            },
+            "733fa9a1-26b6-490d-b299-21f120b2f53a": {
+                _ownerId: "847ec027-f659-4086-8032-5173e2f9c93a",
+                name: "Minions",
+                logoUrl: "/assets/hydrant.png",
+                description: "Friendly neighbourhood jelly beans, helping evil-doers succeed.",
+                _createdOn: 1615737688036,
+                _id: "733fa9a1-26b6-490d-b299-21f120b2f53a"
+            }
+        },
+        members: {
+            "cc9b0a0f-655d-45d7-9857-0a61c6bb2c4d": {
+                _ownerId: "35c62d76-8152-4626-8712-eeb96381bea8",
+                teamId: "34a1cab1-81f1-47e5-aec3-ab6c9810efe1",
+                status: "member",
+                _createdOn: 1616236790262,
+                _updatedOn: 1616236792930
+            },
+            "61a19986-3b86-4347-8ca4-8c074ed87591": {
+                _ownerId: "847ec027-f659-4086-8032-5173e2f9c93a",
+                teamId: "dc888b1a-400f-47f3-9619-07607966feb8",
+                status: "member",
+                _createdOn: 1616237188183,
+                _updatedOn: 1616237189016
+            },
+            "8a03aa56-7a82-4a6b-9821-91349fbc552f": {
+                _ownerId: "847ec027-f659-4086-8032-5173e2f9c93a",
+                teamId: "733fa9a1-26b6-490d-b299-21f120b2f53a",
+                status: "member",
+                _createdOn: 1616237193355,
+                _updatedOn: 1616237195145
+            },
+            "9be3ac7d-2c6e-4d74-b187-04105ab7e3d6": {
+                _ownerId: "35c62d76-8152-4626-8712-eeb96381bea8",
+                teamId: "dc888b1a-400f-47f3-9619-07607966feb8",
+                status: "member",
+                _createdOn: 1616237231299,
+                _updatedOn: 1616237235713
+            },
+            "280b4a1a-d0f3-4639-aa54-6d9158365152": {
+                _ownerId: "60f0cf0b-34b0-4abd-9769-8c42f830dffc",
+                teamId: "dc888b1a-400f-47f3-9619-07607966feb8",
+                status: "member",
+                _createdOn: 1616237257265,
+                _updatedOn: 1616237278248
+            },
+            "e797fa57-bf0a-4749-8028-72dba715e5f8": {
+                _ownerId: "60f0cf0b-34b0-4abd-9769-8c42f830dffc",
+                teamId: "34a1cab1-81f1-47e5-aec3-ab6c9810efe1",
+                status: "member",
+                _createdOn: 1616237272948,
+                _updatedOn: 1616237293676
+            }
+        }
     };
     var rules$1 = {
-    	users: {
-    		".create": false,
-    		".read": [
-    			"Owner"
-    		],
-    		".update": false,
-    		".delete": false
-    	},
-    	members: {
-    		".update": "isOwner(user, get('teams', data.teamId))",
-    		".delete": "isOwner(user, get('teams', data.teamId)) || isOwner(user, data)",
-    		"*": {
-    			teamId: {
-    				".update": "newData.teamId = data.teamId"
-    			},
-    			status: {
-    				".create": "newData.status = 'pending'"
-    			}
-    		}
-    	}
+        users: {
+            ".create": false,
+            ".read": [
+                "Owner"
+            ],
+            ".update": false,
+            ".delete": false
+        },
+        members: {
+            ".update": "isOwner(user, get('teams', data.teamId))",
+            ".delete": "isOwner(user, get('teams', data.teamId)) || isOwner(user, data)",
+            "*": {
+                teamId: {
+                    ".update": "newData.teamId = data.teamId"
+                },
+                status: {
+                    ".create": "newData.status = 'pending'"
+                }
+            }
+        }
     };
     var settings = {
-    	identity: identity,
-    	protectedData: protectedData,
-    	seedData: seedData,
-    	rules: rules$1
+        identity: identity,
+        protectedData: protectedData,
+        seedData: seedData,
+        rules: rules$1
     };
 
     const plugins = [

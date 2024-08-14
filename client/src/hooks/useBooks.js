@@ -1,13 +1,15 @@
 import { useEffect, useState } from "react";
-import { createBook, getGenre, getOne } from "../api/books-api";
+import { createBook, getAll, getOne } from "../api/books-api";
+import { sortGenre } from "../api/utils";
 
 export function useGetBookGenre(genre) {
     const [bookGenre, setBookGenre] = useState([]);
 
     useEffect(() => {
         (async () => {
-            const result = await getGenre(genre);
-            setBookGenre(result);
+            const allBooks = await getAll();
+            const filteredBooks = sortGenre(allBooks, genre);
+            setBookGenre(filteredBooks);
         })();
     }, [genre]);
 
