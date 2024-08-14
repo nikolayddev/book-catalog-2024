@@ -3,8 +3,9 @@
     margin-left: auto;
     display: inline-block;
     padding-inline: 12px;
-    max-width: 255px;
+    width: 240px;
     transition: transform 0.3 ease;
+    border-radius: 10px;
 }
 
 .book_item:hover {
@@ -17,7 +18,8 @@
     background-color: #ffffff;
     padding: 20px;
     box-shadow: 0px 0 30px 10px #f0f0f0;
-    margin-bottom: 20px;
+    margin-bottom: 12px;
+    border-radius: 10px;
 }
 
 .book_img {
@@ -34,6 +36,9 @@
     text-align: left;
     padding-bottom: 0px;
     word-wrap: break-word;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
 }
 
 .book_author {

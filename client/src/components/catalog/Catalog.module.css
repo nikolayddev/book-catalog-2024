@@ -7,7 +7,7 @@
     padding-top: 20px;
     max-width: 100%;
     flex-wrap: wrap;
-    background-color: #fbb351;
+    /* background-color: #fbb351; */
 }
 
 .title_text {
@@ -24,17 +24,17 @@
     padding: 10px;
     max-width: 82%;
 
-    background: linear-gradient(#eadfd9, #e0c196);
-    padding: 20px;
+    background: linear-gradient(#eadfd9, #e0c196bd);
+    padding: 0px;
     border-radius: 10px;
-    box-shadow: 0px 0 20px 10px #e0c196;
+    box-shadow: 0px 0 15px 7px #e0c196;
 }
 
 hr {
     border: none;
     border-radius: 1px;
-    height: 10px;
-    background-color: black;
+    height: 1px;
+    background-color: rgba(0, 0, 0, 0.773);
     margin: 0;
     width: 100%;
     position: absolute;

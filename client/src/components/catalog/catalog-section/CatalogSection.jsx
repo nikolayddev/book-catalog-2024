@@ -1,17 +1,17 @@
 import { useEffect, useState } from "react";
 import CatalogItem from "../catalog-item/CatalogItem";
 import { useGetBookGenre } from "../../../hooks/useBooks";
+import CarouselSimple from "../../carousel/CarouselSimple";
 
 export default function CatalogSection({
     genre,
 }) {
-
     const [bookGenre] = useGetBookGenre(genre);
-    console.log(bookGenre);
+    const items = bookGenre.map((book) => (<CatalogItem key={book._id} book={{ ...book }} />));
 
     return (
         <>
-            {bookGenre.map((book) => (<CatalogItem key={book._id} book={{ ...book }} />))}
+            <CarouselSimple items={items}/>
         </>
     )
 }

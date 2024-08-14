@@ -55,3 +55,57 @@
     text-align: center;
     font-weight: bold;
 }
+
+/* Carousel Simple */
+.carousel_simple {
+    display: block;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: auto;
+    margin: 0 auto;
+    overflow: hidden;
+    padding: 20px;
+}
+
+.carousel_simple_buttons_div {
+    margin: 0 auto;
+}
+
+.carousel_simple_item {
+    min-width: calc(100% / 5 - 10px);
+    text-align: center;
+    font-size: 1.2rem;
+    background-color: #f0f0f0;
+    border-radius: 8px;
+    padding: 3px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.carousel_simple_button {
+    width: 50px;
+    height: 49px;
+    padding-left: 16px;
+    padding-right: 16px;
+    margin-top: 20px;
+    margin-inline: 50px;
+    background: #2c2b2b;
+    opacity: 1;
+    font-size: 40px;
+    color: white;
+    border-radius: 14px;
+    transition: color 0.1s;
+    transition: background-color 0.3s ease;
+}
+
+.carousel_simple_button:hover {
+    color: rgb(226, 89, 20);
+    background: #2c2b2b;
+}
+
+
+.carousel_simple_items {
+    display: flex;
+    height: auto;
+    gap: 15px;
+}

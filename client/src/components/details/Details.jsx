@@ -94,10 +94,10 @@ export default function Details() {
                                             </tr>
                                             <tr>
                                                 <td className={styles.td_labels_last}>
-                                                    Categories
+                                                    Genre
                                                 </td>
                                                 <td className={styles.td_last}>
-                                                    Historical Drama, Novel, World Prose
+                                                    {currentBook.genre}
                                                 </td>
                                             </tr>
                                         </tbody>
@@ -111,7 +111,7 @@ export default function Details() {
                             <div>
                                 <h4 className={styles.box_cover}>{currentBook.format}</h4>
                                 <p className={styles.box_available}>&#10003; Available</p>
-                                <p className={styles.box_unavailable}>X Unavailable</p>
+                                {/* <p className={styles.box_unavailable}>X Unavailable</p> */}
                                 <p className={styles.box_price}>Price: ${currentBook.price}</p>
                                 <ul>
                                     <li className={styles.box_li}>

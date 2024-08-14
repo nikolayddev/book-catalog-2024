@@ -1,9 +1,7 @@
 .book_section {
     display: flex;
     background-color: #f8f9fa;
-    padding: 10px;
-    max-width: 82%;
-
+    max-width: 100%;
     background: linear-gradient(#eadfd9,  #e0c196);
     padding: 20px;
     border-radius: 10px;
