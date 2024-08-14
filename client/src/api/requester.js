@@ -6,6 +6,12 @@ async function requester(method, url, data) {
         headers: {}
     }
 
+    const accessToken = localStorage.getItem('accessToken');
+
+    if (accessToken) {
+        options.headers['X-Authorization'] = accessToken;
+    }
+
     if (data != undefined) {
         options.headers['Content-type'] = 'application/json';
         options.body = JSON.stringify(data);

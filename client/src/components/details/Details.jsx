@@ -8,12 +8,12 @@ import { useParams } from "react-router-dom";
 import { useGetOneBook } from "../../hooks/useBooks";
 
 export default function Details() {
-    const { genre, id: book_id } = useParams();
+    const { id: book_id } = useParams();
 
     const [activeButton, setActiveButton] = useState('description');
     const [showAddComment, setShowAddComment] = useState(false);
 
-    const [currentBook] = useGetOneBook(genre, book_id);
+    const [currentBook] = useGetOneBook(book_id);
 
 
     const addCommentClickHandler = () => {

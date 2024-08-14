@@ -242,6 +242,7 @@
     font-size: 15px;
     padding: 10px;
     height: auto;
+    width: 925px;
     overflow-y: scroll;
     overflow-x: hidden;
 }

@@ -1,6 +1,6 @@
 import { get, post, put, del } from './requester';
 
-const BASE_URL = 'jsonstore/book-bazaar/books';
+const BASE_URL = 'data/books';
 
 export async function getAll() {
     const result = await get(BASE_URL);
@@ -12,7 +12,12 @@ export async function getGenre(genre) {
     return Object.values(result);
 }
 
-export async function getOne(genre, book_id) {
-    const result = await get(`${BASE_URL}/${genre}/${book_id}`);
+export async function getOne(book_id) {
+    const result = get(`${BASE_URL}/${book_id}`);
+    return result;
+}
+
+export async function createBook(bookData) {
+    const result = post(BASE_URL, bookData);
     return result;
 }

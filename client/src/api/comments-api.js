@@ -1,6 +1,6 @@
 import { get, post } from "./requester";
 
-const BASE_URL = 'jsonstore/book-bazaar/comments';
+const BASE_URL = 'data/comments';
 
 export async function createComment(owner_id, name, date, info) {
     const body = { owner_id, name, date, info };

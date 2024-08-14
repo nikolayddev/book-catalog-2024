@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { getGenre, getOne } from "../api/books-api";
+import { createBook, getGenre, getOne } from "../api/books-api";
 
 export function useGetBookGenre(genre) {
     const [bookGenre, setBookGenre] = useState([]);
@@ -14,15 +14,21 @@ export function useGetBookGenre(genre) {
     return [bookGenre, setBookGenre];
 }
 
-export function useGetOneBook(genre, book_id) {
+export function useGetOneBook(book_id) {
     const [currentBook, setCurrentBook] = useState({});
 
     useEffect(() => {
         (async () => {
-            const result = await getOne(genre, book_id);
+            const result = await getOne(book_id);
             setCurrentBook(result);
         })();
-    }, [genre, book_id]);
+    }, [book_id]);
 
     return [currentBook, setCurrentBook];
+}
+
+export function useCreateBook() {
+    const bookCreateHandler = (bookData) => createBook(bookData);
+
+    return bookCreateHandler;
 }
