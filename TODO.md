@@ -72,7 +72,7 @@ Soft Uni React Course Project
   - [ ] Favorites
   - [ ] RecentActivity
   - [ ] ProfilePic Change
-- [ ] Improve auth,
+- [ ] Improve auth,addlogout
 - [ ] Add guards,
 - [ ] Add Basic validation
 - [ ] change Footer
