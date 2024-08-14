@@ -38,13 +38,13 @@ Soft Uni React Course Project
 - [X] Preseed practice server
 
 ## 5. Page Implementations
-- [ ] Home
-- [ ] Book Catalog
-- [ ] Book Details
-  - [ ] Details Link
-  - [ ] Details route
-  - [ ] Api funciton - getOne
-- [ ] User Page (favourites etc)
+- [X] Home
+- [X] Book Catalog
+- [X] Book Details
+  - [X] Details Link
+  - [X] Details route
+  - [X] Api funciton - getOne
+- [X] User Page (favourites etc)
 
 ## For next 2 days 
 - [X] Make Create form html and css
@@ -57,10 +57,25 @@ Soft Uni React Course Project
 - [ ] BONUS: Make changes to the css to fix the edges of the forms and banner!
 
 ## For next 2 days
-- [ ] Work on better routing and routing advanced techniques
-- [ ] Do Books API
-- [ ] Do User API
-- [ ] Do Comments API
-- [ ] Do Cart API
-- [ ] Start thinking on server implementations
-- [ ] Start to implement custom hooks 
+- [X] Work on better routing and routing advanced techniques
+- [X] Do Books API
+- [X] Do User API
+- [X] Do Comments API
+- [X] Start thinking on server implementations
+- [X] Start to implement custom hooks 
+
+## FInal
+- [ ] Do Edit, delete Books
+- [ ] Check edit form technique
+- [ ] Do Cart
+- [ ] Do Profile 
+  - [ ] Favorites
+  - [ ] RecentActivity
+  - [ ] ProfilePic Change
+- [ ] Improve auth,
+- [ ] Add guards,
+- [ ] Add Basic validation
+- [ ] change Footer
+- [ ] change copyright 
+- [ ] Final Touches CSS
+- [ ] IMPROVE ACCESSTOKEN API 
