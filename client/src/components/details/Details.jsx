@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 
 import styles from './Details.module.css'
 import CommentSection from "./comment-section/CommentSection";
@@ -7,19 +7,39 @@ import AddComment from "./comment-section/AddComment";
 import { useParams } from "react-router-dom";
 import { useGetOneBook } from "../../hooks/useBooks";
 import { useGetAllCommentsById } from "../../hooks/useComments";
+import AuthContext from "../../contexts/UserContext";
+import DeleteComment from "./comment-section/DeleteComment";
 
 export default function Details() {
+    const { isAuthenticated } = useContext(AuthContext);
     const { id: book_id } = useParams();
 
     const [currentBook] = useGetOneBook(book_id);
 
     const [activeButton, setActiveButton] = useState('description');
     const [showAddComment, setShowAddComment] = useState(false);
+    const [showDeleteComment, setShowDeleteComment] = useState(false);
+    const [showEditComment, setShowEditComment] = useState(false);
     const [allComments, setAllComments] = useGetAllCommentsById(book_id);
+    const [currentCommentId, setCurrentCommentId] = useState('');
 
     const handleAddComment = (newComment) => {
         setAllComments(prevComments => [newComment, ...prevComments]);
         setShowAddComment(false);
+    }
+
+    const handleDeleteComment = (comment_id) => {
+        setAllComments(prevComments => prevComments.filter(comment => comment._id != comment_id));
+        setShowDeleteComment(false);
+    }
+
+    const deleteCommentClickHandler = (comment_id) => {
+        setCurrentCommentId(comment_id);
+        setShowDeleteComment(true);
+    }
+
+    const deleteCommentCloseHandler = () => {
+        setShowDeleteComment(false);
     }
 
     const addCommentClickHandler = () => {
@@ -148,19 +168,19 @@ export default function Details() {
 
                         {activeButton == 'comments' &&
                             <div className={styles.div_comments}>
-                                {allComments.length > 0 ? 
-                                <CommentSection comments={allComments} /> : 
-                                <div className={styles.scrollable_container}>
-                                    <p className={styles.no_comments_p}>
-                                        Be The First to Leave a Comment!
-                                    </p>
-                                </div>
+                                {allComments.length > 0 ?
+                                    <CommentSection comments={allComments} deleteBtnHandler={deleteCommentClickHandler} /> :
+                                    <div className={styles.scrollable_container}>
+                                        <p className={styles.no_comments_p}>
+                                            Be The First to Leave a Comment!
+                                        </p>
+                                    </div>
                                 }
                             </div>
                         }
                     </div>
                 </div>
-                {activeButton == 'comments' &&
+                {(activeButton == 'comments' && isAuthenticated) &&
                     <div className={styles.button_div}>
                         <Button onClick={addCommentClickHandler} className={styles.button} variant="secondary" type="submit">
                             Add Comment
@@ -175,6 +195,19 @@ export default function Details() {
                 isOpen={showAddComment}
                 book_id={book_id}
                 genre={currentBook.genre}
+            />}
+
+            {showDeleteComment && <DeleteComment
+                onDeleteComment={handleDeleteComment}
+                onClose={deleteCommentCloseHandler}
+                comment_id={currentCommentId}
+            />}
+
+
+            {showDeleteComment && <DeleteComment
+                onDeleteComment={handleDeleteComment}
+                onClose={deleteCommentCloseHandler}
+                comment_id={currentCommentId}
             />}
         </>
     );

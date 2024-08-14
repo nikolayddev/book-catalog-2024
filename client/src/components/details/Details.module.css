@@ -284,6 +284,9 @@
 
 .comment_content {
     padding-top: 7px;
+    white-space: normal;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
 }
 
 .button_div {
@@ -380,4 +383,67 @@
 .comment_form_button:hover {
     background-color: #c8513b;
     border-color: #c8513b;
+}
+
+.edit_buttons_div {
+    text-align: right;
+}
+
+.edit_btn,
+.delete_btn {
+    padding: 5px;
+    height: 35px;
+    width: 35px;
+    margin-right: 10px;
+}
+
+.edit_btn {
+    background-color: white;
+    border-color: white;
+}
+
+.edit_btn:hover {
+    background-color: rgba(0, 128, 128, 0.56);
+    border-color: rgba(0, 128, 128, 0.56);
+}
+
+.delete_btn {
+    background-color: white;
+    border-color: white;
+}
+
+.delete_btn:hover {
+    background-color: #ff6347;
+    border-color: #ff6347;
+}
+
+.edit_img,
+.delete_img {
+    width: 20px;
+    height: auto;
+}
+
+.delete_prompt {
+    width: 500px;
+    height: 130px;
+    position: absolute;
+    max-height: 100vh;
+    margin: auto;
+    border-radius: 7px;
+    border: 2px solid black;
+    background-color: white;
+    padding-top: 10px;
+    box-shadow: 0 2px 8px rgb(0 0 0 / 25%);
+    z-index: 30;
+    margin-top: 650px;
+    margin-left: 500px;
+}
+
+.delete_prompt_div {
+    padding-top: 22px;
+    text-align: right;
+}
+
+.delete_prompt_buttons {
+    margin-right: 15px;
 }

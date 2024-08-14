@@ -54,8 +54,9 @@ export default function NavBar() {
                                             <i className="fa fa-shopping-cart" />
                                             <span className="padding_10">Cart</span>
                                         </Link>
-                                    </li>
-                                    ) : ''}
+                                    </li>)
+                                    : ''
+                                }
 
                             </ul>
                         </div>
