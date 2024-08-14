@@ -1,11 +1,24 @@
 import { useContext, useEffect, useState } from "react";
-import { createComment, deleteComment, editComment, getAllComments } from "../api/comments-api";
+import { createComment, deleteComment, editComment, getAllComments, getOneComment } from "../api/comments-api";
 import AuthContext from "../contexts/UserContext";
 
 export function useCreateComment() {
     const commentCreateHandler = (commentData, book_id) => createComment({ ...commentData, _bookId: book_id });
 
     return commentCreateHandler;
+}
+
+export function useGetOneComment(comment_id) {
+    const [currentComment, setCurrentComment] = useState({});
+
+    useEffect(() => {
+        (async () => {
+            const result = await getOneComment(comment_id);
+            setCurrentComment(result);
+        })();
+    }, [comment_id]);
+
+    return [currentComment, setCurrentComment];
 }
 
 export function useDeleteComment() {
@@ -15,7 +28,7 @@ export function useDeleteComment() {
 }
 
 export function useUpdateComment() {
-    const commentUpdateHandler = (comment_id, data) => editComment(comment_id, data);
+    const commentUpdateHandler = (comment_id, data, book_id) => editComment(comment_id, { ...data, _bookId: book_id });
 
     return commentUpdateHandler;
 }
@@ -37,7 +50,7 @@ export function useGetAllCommentsById(book_id) {
 
 export function useIsCommentOwner(owner_id) {
     const { isAuthenticated, user_id } = useContext(AuthContext);
-    
+
     if (isAuthenticated && owner_id == user_id) {
         console.log(true);
         return true;

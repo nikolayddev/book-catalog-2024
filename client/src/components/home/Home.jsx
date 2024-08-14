@@ -29,8 +29,8 @@ export default function Home() {
 
     useEffect(() => {
         (async () => {
-            const allBooks = await getAll();
-            setBooks(allBooks);
+            // const allBooks = await getAll();
+            // setBooks(allBooks);
         })();
 
     }, [])

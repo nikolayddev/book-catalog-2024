@@ -21,3 +21,8 @@ export async function editComment(comment_id, data) {
     const result = await put(`${BASE_URL}/${comment_id}`, data);
     return result;
 }
+
+export async function getOneComment(comment_id) {
+    const result = await get(`${BASE_URL}/${comment_id}`);
+    return result;
+}

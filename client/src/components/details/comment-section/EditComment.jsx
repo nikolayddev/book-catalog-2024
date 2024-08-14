@@ -1,25 +1,27 @@
 import { useEffect, useRef, useState } from 'react';
 import styles from '../Details.module.css'
 import Button from 'react-bootstrap/esm/Button';
-import { useCreateComment } from '../../../hooks/useComments';
+import { useUpdateComment } from '../../../hooks/useComments';
 import { useForm } from '../../../hooks/useForm';
 
-const initialValues = {
-    commentBody: '',
-}
-
-export default function AddComment({
-    onAddComment,
+export default function EditComment({
+    onEditComment,
     isOpen,
     onClose,
-    book_id,
+    comment_id,
+    commentBody,
+    book_id
 }) {
-    const createComment = useCreateComment();
+    const initialValues = {
+        commentBody: ''
+    }
+
+    const editComment = useUpdateComment();
 
     const submitCallback = async (values) => {
         try {
-            const result = await createComment(values, book_id);
-            onAddComment(result);
+            const result = await editComment(comment_id, values, book_id);
+            onEditComment(result);
         } catch (err) {
             alert(err.message);
         }
@@ -47,7 +49,7 @@ export default function AddComment({
             <div className={styles.modal}>
                 <form onSubmit={submitHandler}>
                     <div>
-                        <label className={styles.comment_form_label}>Add Comment</label>
+                        <label className={styles.comment_form_label}>Edit Comment</label>
                         <textarea ref={textareaRef} className={styles.comment_form_input}
                             name="commentBody"
                             onChange={changeHandler}
@@ -60,7 +62,6 @@ export default function AddComment({
                         </Button>
                     </div>
                 </form>
-
             </div>
         </div>
     );

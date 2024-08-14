@@ -6,9 +6,10 @@ import Button from "react-bootstrap/esm/Button";
 import AddComment from "./comment-section/AddComment";
 import { useParams } from "react-router-dom";
 import { useGetOneBook } from "../../hooks/useBooks";
-import { useGetAllCommentsById } from "../../hooks/useComments";
+import { useGetAllCommentsById, useGetOneComment } from "../../hooks/useComments";
 import AuthContext from "../../contexts/UserContext";
 import DeleteComment from "./comment-section/DeleteComment";
+import EditComment from "./comment-section/EditComment";
 
 export default function Details() {
     const { isAuthenticated } = useContext(AuthContext);
@@ -23,6 +24,8 @@ export default function Details() {
     const [allComments, setAllComments] = useGetAllCommentsById(book_id);
     const [currentCommentId, setCurrentCommentId] = useState('');
 
+    const [{ commentBody }] = useGetOneComment(currentCommentId);
+
     const handleAddComment = (newComment) => {
         setAllComments(prevComments => [newComment, ...prevComments]);
         setShowAddComment(false);
@@ -33,6 +36,15 @@ export default function Details() {
         setShowDeleteComment(false);
     }
 
+    const handleEditComment = (updatedComment) => {
+        setAllComments((prevComments) => prevComments.map((comment) => 
+            comment._id == updatedComment._id ?
+                updatedComment :
+                comment
+        ));
+        setShowEditComment(false);
+    }
+
     const deleteCommentClickHandler = (comment_id) => {
         setCurrentCommentId(comment_id);
         setShowDeleteComment(true);
@@ -40,6 +52,15 @@ export default function Details() {
 
     const deleteCommentCloseHandler = () => {
         setShowDeleteComment(false);
+    }
+
+    const editCommentClickHandler = (comment_id) => {
+        setCurrentCommentId(comment_id);
+        setShowEditComment(true);
+    }
+
+    const editCommentCloseHandler = () => {
+        setShowEditComment(false);
     }
 
     const addCommentClickHandler = () => {
@@ -169,7 +190,10 @@ export default function Details() {
                         {activeButton == 'comments' &&
                             <div className={styles.div_comments}>
                                 {allComments.length > 0 ?
-                                    <CommentSection comments={allComments} deleteBtnHandler={deleteCommentClickHandler} /> :
+                                    <CommentSection comments={allComments}
+                                        deleteBtnHandler={deleteCommentClickHandler}
+                                        editBtnHandler={editCommentClickHandler}
+                                    /> :
                                     <div className={styles.scrollable_container}>
                                         <p className={styles.no_comments_p}>
                                             Be The First to Leave a Comment!
@@ -203,12 +227,16 @@ export default function Details() {
                 comment_id={currentCommentId}
             />}
 
-
-            {showDeleteComment && <DeleteComment
-                onDeleteComment={handleDeleteComment}
-                onClose={deleteCommentCloseHandler}
+            {showEditComment && <EditComment
+                onEditComment={handleEditComment}
+                onClose={editCommentCloseHandler}
+                isOpen={showEditComment}
                 comment_id={currentCommentId}
+                commentBody={commentBody}
+                book_id={book_id}
             />}
+
+
         </>
     );
 }
