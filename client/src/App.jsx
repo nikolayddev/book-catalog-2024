@@ -10,36 +10,16 @@ import NavBar from './components/nav-bar/NavBar';
 import Catalog from './components/catalog/Catalog';
 import Details from './components/details/Details';
 import BookCreate from './components/book-section/book-create/BookCreate';
-import ShoppingCart from './components/shopping-cart/ShoppingCart';
 import MyProfile from './components/my-profle/MyProfile';
-import AuthContext from './contexts/UserContext';
+import { AuthContextProvider } from './contexts/UserContext';
 import Logout from './components/logout/Logout';
 import BookEdit from './components/book-section/book-edit/BookEdit';
 
 export default function App() {
-    const [authState, setAuthState] = useState({});
 
-    const changeAuthState = (state) => {
-        localStorage.setItem('accessToken', state.accessToken);
-        setAuthState(state);
-    };
-
-    const removeAuthState = () => {
-        localStorage.clear();
-        setAuthState({});
-    }
-
-    const contextData = {
-        user_id: authState._id,
-        email: authState.email,
-        accessToken: authState.accessToken,
-        isAuthenticated: !!authState.email,
-        changeAuthState,
-        removeAuthState
-    };
 
     return (
-        <AuthContext.Provider value={contextData}>
+        <AuthContextProvider>
 
             <div className='banner_bg_main'>
                 <NavBar />
@@ -61,7 +41,6 @@ export default function App() {
                 <Footer />
                 <Copyright />
             </div>
-        </AuthContext.Provider>
-
+        </AuthContextProvider>
     );
 }

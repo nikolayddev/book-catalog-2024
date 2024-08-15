@@ -69,13 +69,13 @@ Soft Uni React Course Project
 - [ ] Check edit form technique
 - [X] Do Cart (ONIT)
 - [ ] Do Profile 
-  - [ ] Favorites
-  - [ ] RecentActivity
+  - [X] Favorites
+  - [X] RecentActivity
   - [ ] ProfilePic Change
-- [ ] Improve auth,addlogout
+- [X] Improve auth,addlogout
 - [ ] Add guards,
 - [ ] Add Basic validation
 - [ ] change Footer
 - [ ] change copyright 
 - [ ] Final Touches CSS
-- [ ] IMPROVE ACCESSTOKEN API 
+- [X] IMPROVE ACCESSTOKEN API 

@@ -192,7 +192,7 @@ export default function Details() {
                     </div>
                     <div className="col-md-3 ml-auto pt-4">
                         <div className={styles.box}>
-                            <div>
+                            <div className="pb-2">
                                 <h4 className={styles.box_cover}>{currentBook.format}</h4>
                                 <p className={styles.box_available}>&#10003; Available</p>
                                 {/* <p className={styles.box_unavailable}>X Unavailable</p> */}
@@ -212,22 +212,21 @@ export default function Details() {
                                             } className={styles.btn_buy}>Add to Cart</a>
                                         }
                                     </li> */}
-                                    <li className={styles.box_li}>
+                                    {isAuthenticated && <li className={styles.box_li}>
                                         {itemInFavorites ?
                                             <a href="#" onClick={() => {
                                                 patchInFavorites(book_id, { ...currentBook, inFavorites: false })
                                                 setItemInFavorites(false);
                                             }
-                                            } className={styles.btn_favorites}>&#9733; REMOVE FROM FAVORITES</a> :
+                                            } className={styles.btn_favorites}>&#9733; REMOVE FAVORITE</a> :
                                             <a href="#" onClick={() => {
                                                 patchInFavorites(book_id, { ...currentBook, inFavorites: true })
                                                 setItemInFavorites(true);
                                             }
                                             } className={styles.btn_favorites}>&#9733; ADD TO FAVORITES</a>
                                         }
-
-
                                     </li>
+                                    }
                                 </ul>
                             </div>
                         </div>
