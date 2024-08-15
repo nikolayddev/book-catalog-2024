@@ -7,8 +7,8 @@ export default function ShoppingCart() {
     // const [totalPrice] = useCalculateTotalPrice();
     const patchInCart = useUpdateInCart();
 
-    const handleDeleteCartItem = () => {
-        setAllCartItems(prevCartItem => prevCartItem.filter(item => item.inCart == true));
+    const handleDeleteCartItem = (cartItem_id) => {
+        setAllCartItems(prevCartItem => prevCartItem.filter(cartItem => cartItem._id != cartItem_id));
     }
 
     return (

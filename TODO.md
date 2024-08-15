@@ -67,7 +67,7 @@ Soft Uni React Course Project
 ## FInal
 - [X] Do Edit, delete Books
 - [ ] Check edit form technique
-- [ ] Do Cart (ONIT)
+- [X] Do Cart (ONIT)
 - [ ] Do Profile 
   - [ ] Favorites
   - [ ] RecentActivity

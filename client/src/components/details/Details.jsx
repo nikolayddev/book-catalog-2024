@@ -5,12 +5,14 @@ import CommentSection from "./comment-section/CommentSection";
 import Button from "react-bootstrap/esm/Button";
 import AddComment from "./comment-section/AddComment";
 import { useNavigate, useParams } from "react-router-dom";
-import { useGetOneBook, useToggleInCart, useUpdateInCart } from "../../hooks/useBooks";
+import { useGetOneBook } from "../../hooks/useBooks";
 import { useGetAllCommentsById, useGetOneComment } from "../../hooks/useComments";
 import AuthContext from "../../contexts/UserContext";
 import DeleteComment from "./comment-section/DeleteComment";
 import EditComment from "./comment-section/EditComment";
 import DeleteBook from "./DeleteBook";
+import { useToggleFavorites, useUpdateFavorites } from "../../hooks/useFavorites";
+// import { useToggleInCart, useUpdateInCart } from "../../hooks/useCart";
 
 export default function Details() {
     const { isAuthenticated, user_id } = useContext(AuthContext);
@@ -19,10 +21,14 @@ export default function Details() {
 
     const { id: book_id } = useParams();
     const navigate = useNavigate();
-    const patchInCart = useUpdateInCart();
+    // const patchInCart = useUpdateInCart();
+    const patchInFavorites = useUpdateFavorites();
 
     const [currentBook] = useGetOneBook(book_id);
-    const [itemInCart, setItemInCart] = useToggleInCart(book_id);
+
+    // const [itemInCart, setItemInCart] = useToggleInCart(book_id);
+    const [itemInFavorites, setItemInFavorites] = useToggleFavorites(book_id);
+
     const [allComments, setAllComments] = useGetAllCommentsById(book_id);
     const [currentCommentId, setCurrentCommentId] = useState('');
     const [{ commentBody }] = useGetOneComment(currentCommentId);
@@ -192,7 +198,7 @@ export default function Details() {
                                 {/* <p className={styles.box_unavailable}>X Unavailable</p> */}
                                 <p className={styles.box_price}>Price: ${currentBook.price}</p>
                                 <ul>
-                                    <li className={styles.box_li}>
+                                    {/* <li className={styles.box_li}>
                                         {itemInCart ?
                                             <a href="#" onClick={() => {
                                                 patchInCart(book_id, { ...currentBook, inCart: false })
@@ -205,9 +211,22 @@ export default function Details() {
                                             }
                                             } className={styles.btn_buy}>Add to Cart</a>
                                         }
-                                    </li>
+                                    </li> */}
                                     <li className={styles.box_li}>
-                                        <a href="#" className={styles.btn_favorites}>&#9733; ADD TO FAVORITES</a>
+                                        {itemInFavorites ?
+                                            <a href="#" onClick={() => {
+                                                patchInFavorites(book_id, { ...currentBook, inFavorites: false })
+                                                setItemInFavorites(false);
+                                            }
+                                            } className={styles.btn_favorites}>&#9733; REMOVE FROM FAVORITES</a> :
+                                            <a href="#" onClick={() => {
+                                                patchInFavorites(book_id, { ...currentBook, inFavorites: true })
+                                                setItemInFavorites(true);
+                                            }
+                                            } className={styles.btn_favorites}>&#9733; ADD TO FAVORITES</a>
+                                        }
+
+
                                     </li>
                                 </ul>
                             </div>

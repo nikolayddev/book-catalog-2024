@@ -48,7 +48,7 @@ export default function NavBar() {
                                         <Link to="/register">Register</ Link>
                                     </li>
                                 )}
-                                {isAuthenticated
+                                {/* {isAuthenticated
                                     ? (<li>
                                         <Link to="/cart">
                                             <i className="fa fa-shopping-cart" />
@@ -56,7 +56,7 @@ export default function NavBar() {
                                         </Link>
                                     </li>)
                                     : ''
-                                }
+                                } */}
                                 {isAuthenticated
                                     ? (<li>
                                         <Link to="/logout">Logout</Link>

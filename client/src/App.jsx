@@ -54,7 +54,7 @@ export default function App() {
                     <Route path='/edit/:id' element={<BookEdit />} />
                     <Route path='/my-profile' element={<MyProfile />} />
                     <Route path='/catalog/:genre/:id' element={<Details />} />
-                    <Route path='/cart' element={<ShoppingCart />} />
+                    {/* <Route path='/cart' element={<ShoppingCart />} /> */}
                     <Route path='/logout' element={<Logout />} />
                 </Routes>
 

@@ -1,19 +1,23 @@
 import Button from 'react-bootstrap/esm/Button';
 import styles from '../MyProfile.module.css';
 
-export default function ProfileBookFavorite() {
+export default function ProfileBookFavorite({
+    item,
+    patchItems,
+    onRemove
+}) {
     return (
         <li>
             <hr className={styles.hr} />
             <div className='row pt-2 pb-2'>
                 <div className='col-md-2 p-0'>
-                    <img className={styles.favorites_img} src="https://www.orangecenter.bg/media/catalog/product/cache/bdc2c78f7e06003a3c29bc34b94b23a8/s/h/shogun-tom-1-9789542804437.jpg" alt="cart_img" />
+                    <img className={styles.favorites_img} src={item.imageURL} alt="cart_img" />
                 </div>
                 <div className='col-md-7 pl-4'>
-                    <h2 className={styles.book_title}>Shogun</h2>
+                    <h2 className={styles.book_title}>{item.title}</h2>
                     <div>
-                        <p className={styles.book_params1}>Author: <span><p className={styles.book_params2}>James Clavell</p></span></p>
-                        <p className={styles.book_params_secondary}>Publisher: <span><p className={styles.book_params2}>Ciella</p></span></p>
+                        <p className={styles.book_params1}>Author: <span><p className={styles.book_params2}>{item.author}</p></span></p>
+                        <p className={styles.book_params_secondary}>Publisher: <span><p className={styles.book_params2}>{item.publisher}</p></span></p>
                     </div>
                     <div>
                         <p className={styles.book_params1}>Language: <span><p className={styles.book_params2}>Bulgarian</p></span></p>
@@ -27,10 +31,14 @@ export default function ProfileBookFavorite() {
                     </div>
                 </div>
                 <div className='col-md-3 mt-1'>
-                    <Button className={styles.button_add} variant='primary'>
+                    {/* <Button className={styles.button_add} variant='primary'>
                         Add to Cart
-                    </Button>
-                    <Button className={styles.button_remove_favorite} variant='secondary'>
+                    </Button> */}
+                    <Button onClick={() => {
+                        patchItems(item._id, { ...item, inFavorites: false });
+                        onRemove(item._id);
+                    }}
+                        className={styles.button_add} variant='secondary'>
                         Remove from favorites
                     </Button>
                 </div>

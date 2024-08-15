@@ -26,7 +26,6 @@ export function useGetAllCartItems() {
     useEffect(() => {
         (async () => {
             const result = await getAll();
-            console.log(result);
             const filteredArr = result.filter(book => book.inCart === true);
             setAllCartItems(filteredArr);
         })();
