@@ -1,5 +1,4 @@
 import { Routes, Route } from 'react-router-dom';
-import { useState } from 'react';
 
 import Copyright from "./components/copyright/Copyright";
 import Footer from "./components/footer/Footer";
@@ -11,9 +10,9 @@ import Catalog from './components/catalog/Catalog';
 import Details from './components/details/Details';
 import BookCreate from './components/book-section/book-create/BookCreate';
 import MyProfile from './components/my-profle/MyProfile';
-import { AuthContextProvider } from './contexts/UserContext';
 import Logout from './components/logout/Logout';
 import BookEdit from './components/book-section/book-edit/BookEdit';
+import { AuthContextProvider } from './contexts/AuthContext';
 
 export default function App() {
 

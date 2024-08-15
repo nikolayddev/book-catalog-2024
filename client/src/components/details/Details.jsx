@@ -1,4 +1,4 @@
-import { useContext, useState } from "react";
+import { useState } from "react";
 
 import styles from './Details.module.css'
 import CommentSection from "./comment-section/CommentSection";
@@ -7,7 +7,7 @@ import AddComment from "./comment-section/AddComment";
 import { useNavigate, useParams } from "react-router-dom";
 import { useGetOneBook } from "../../hooks/useBooks";
 import { useGetAllCommentsById, useGetOneComment } from "../../hooks/useComments";
-import AuthContext from "../../contexts/UserContext";
+import { useAuthContext } from "../../contexts/AuthContext.jsx";
 import DeleteComment from "./comment-section/DeleteComment";
 import EditComment from "./comment-section/EditComment";
 import DeleteBook from "./DeleteBook";
@@ -15,7 +15,7 @@ import { useToggleFavorites, useUpdateFavorites } from "../../hooks/useFavorites
 // import { useToggleInCart, useUpdateInCart } from "../../hooks/useCart";
 
 export default function Details() {
-    const { isAuthenticated, user_id } = useContext(AuthContext);
+    const { isAuthenticated, user_id } = useAuthContext();
 
 
 

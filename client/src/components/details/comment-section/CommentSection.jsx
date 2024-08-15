@@ -1,14 +1,13 @@
-import { useContext } from 'react';
 import styles from '../Details.module.css';
 import Button from 'react-bootstrap/esm/Button';
-import AuthContext from '../../../contexts/UserContext';
+import { useAuthContext } from '../../../contexts/AuthContext.jsx';
 
 export default function CommentSection({
     comments,
     deleteBtnHandler,
     editBtnHandler
 }) {
-    const { isAuthenticated, user_id } = useContext(AuthContext);
+    const { isAuthenticated, user_id } = useAuthContext();
 
     return (
         <div className={styles.scrollable_container}>

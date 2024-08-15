@@ -1,6 +1,6 @@
-import { useContext, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { createComment, deleteComment, editComment, getAllComments, getOneComment } from "../api/comments-api";
-import AuthContext from "../contexts/UserContext";
+import { useAuthContext } from "../contexts/AuthContext.jsx";
 
 export function useCreateComment() {
     const commentCreateHandler = (commentData, book_id) => createComment({ ...commentData, _bookId: book_id });
@@ -49,7 +49,7 @@ export function useGetAllCommentsById(book_id) {
 }
 
 export function useIsCommentOwner(owner_id) {
-    const { isAuthenticated, user_id } = useContext(AuthContext);
+    const { isAuthenticated, user_id } = useAuthContext();
 
     if (isAuthenticated && owner_id == user_id) {
         console.log(true);

@@ -1,11 +1,10 @@
 import { Link } from 'react-router-dom';
 import styles from './Navbar.module.css'
-import { useContext, useEffect, useState } from 'react';
-import AuthContext from '../../contexts/UserContext';
+import { useAuthContext } from '../../contexts/AuthContext.jsx';
 import { useNav } from '../../hooks/useNav';
 
 export default function NavBar() {
-    const { isAuthenticated } = useContext(AuthContext);
+    const { isAuthenticated } = useAuthContext();
     const [isSticky, isVisible] = useNav();
 
     return (
