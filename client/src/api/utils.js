@@ -4,6 +4,18 @@ export function sortGenre(allBooks, genre) {
     return bookGenre;
 }
 
+export const getAccessToken = () => {
+    const authJson = localStorage.getItem('auth');
+
+    if(!authJson) {
+        return '';
+    }
+
+    const authData = JSON.parse(authJson);
+
+    return authData?.accessToken;
+}
+
 // export async function calculateTotalPrice() {
 //     const allItems = await getAllCartItems();
 

@@ -1,3 +1,5 @@
+import { getAccessToken } from "./utils";
+
 const host = 'http://localhost:3030/';
 
 async function requester(method, url, data) {
@@ -6,7 +8,7 @@ async function requester(method, url, data) {
         headers: {}
     }
 
-    const accessToken = localStorage.getItem('accessToken');
+    const accessToken = getAccessToken();
 
     if (accessToken) {
         options.headers['X-Authorization'] = accessToken;
