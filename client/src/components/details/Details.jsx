@@ -5,7 +5,7 @@ import CommentSection from "./comment-section/CommentSection";
 import Button from "react-bootstrap/esm/Button";
 import AddComment from "./comment-section/AddComment";
 import { useNavigate, useParams } from "react-router-dom";
-import { useGetOneBook } from "../../hooks/useBooks";
+import { useGetOneBook, useToggleInCart, useUpdateInCart } from "../../hooks/useBooks";
 import { useGetAllCommentsById, useGetOneComment } from "../../hooks/useComments";
 import AuthContext from "../../contexts/UserContext";
 import DeleteComment from "./comment-section/DeleteComment";
@@ -14,21 +14,24 @@ import DeleteBook from "./DeleteBook";
 
 export default function Details() {
     const { isAuthenticated, user_id } = useContext(AuthContext);
+
+
+
     const { id: book_id } = useParams();
     const navigate = useNavigate();
+    const patchInCart = useUpdateInCart();
 
     const [currentBook] = useGetOneBook(book_id);
+    const [itemInCart, setItemInCart] = useToggleInCart(book_id);
     const [allComments, setAllComments] = useGetAllCommentsById(book_id);
     const [currentCommentId, setCurrentCommentId] = useState('');
     const [{ commentBody }] = useGetOneComment(currentCommentId);
     const [activeButton, setActiveButton] = useState('description');
 
-
     const [showDeleteBook, setShowDeleteBook] = useState(false);
     const [showAddComment, setShowAddComment] = useState(false);
     const [showEditComment, setShowEditComment] = useState(false);
     const [showDeleteComment, setShowDeleteComment] = useState(false);
-
 
     const handleAddComment = (newComment) => {
         setAllComments(prevComments => [newComment, ...prevComments]);
@@ -190,7 +193,18 @@ export default function Details() {
                                 <p className={styles.box_price}>Price: ${currentBook.price}</p>
                                 <ul>
                                     <li className={styles.box_li}>
-                                        <a href="#" className={styles.btn_buy}>Add to Cart</a>
+                                        {itemInCart ?
+                                            <a href="#" onClick={() => {
+                                                patchInCart(book_id, { ...currentBook, inCart: false })
+                                                setItemInCart(false);
+                                            }
+                                            } className={styles.btn_buy}>Remove from Cart</a> :
+                                            <a href="#" onClick={() => {
+                                                patchInCart(book_id, { ...currentBook, inCart: true })
+                                                setItemInCart(true);
+                                            }
+                                            } className={styles.btn_buy}>Add to Cart</a>
+                                        }
                                     </li>
                                     <li className={styles.box_li}>
                                         <a href="#" className={styles.btn_favorites}>&#9733; ADD TO FAVORITES</a>
@@ -268,8 +282,6 @@ export default function Details() {
                 commentBody={commentBody}
                 book_id={book_id}
             />}
-
-
         </>
     );
 }

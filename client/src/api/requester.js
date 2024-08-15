@@ -40,11 +40,13 @@ async function requester(method, url, data) {
 const get = (url) => requester('get', url);
 const post = (url, data) => requester('post', url, data);
 const put = (url, data) => requester('put', url, data);
+const patch = (url, data) => requester('patch', url, data);
 const del = (url) => requester('delete', url);
 
 export {
     get,
     post,
     put,
+    patch,
     del
 }

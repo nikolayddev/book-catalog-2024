@@ -1,4 +1,4 @@
-import { get, post, put, del } from './requester';
+import { get, post, put, del, patch } from './requester';
 
 const BASE_URL = 'data/books';
 
@@ -22,6 +22,13 @@ export async function deleteBook(book_id) {
 }
 
 export async function editBook(book_id, data) {
+    const result = await put(`${BASE_URL}/${book_id}`, data);
+    return result;
+}
+
+export async function toggleInCart(book_id, data) {
+    console.log(book_id)
+    console.log(data);
     const result = await put(`${BASE_URL}/${book_id}`, data);
     return result;
 }

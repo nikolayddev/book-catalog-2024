@@ -40,6 +40,7 @@ export default function App() {
 
     return (
         <AuthContext.Provider value={contextData}>
+
             <div className='banner_bg_main'>
                 <NavBar />
 
@@ -55,7 +56,6 @@ export default function App() {
                     <Route path='/catalog/:genre/:id' element={<Details />} />
                     <Route path='/cart' element={<ShoppingCart />} />
                     <Route path='/logout' element={<Logout />} />
-
                 </Routes>
 
                 <Footer />
