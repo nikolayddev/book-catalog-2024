@@ -65,7 +65,7 @@ Soft Uni React Course Project
 - [X] Start to implement custom hooks 
 
 ## FInal
-- [ ] Do Edit, delete Books
+- [X] Do Edit, delete Books
 - [ ] Check edit form technique
 - [ ] Do Cart
 - [ ] Do Profile 

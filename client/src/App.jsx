@@ -13,6 +13,8 @@ import BookCreate from './components/book-section/book-create/BookCreate';
 import ShoppingCart from './components/shopping-cart/ShoppingCart';
 import MyProfile from './components/my-profle/MyProfile';
 import AuthContext from './contexts/UserContext';
+import Logout from './components/logout/Logout';
+import BookEdit from './components/book-section/book-edit/BookEdit';
 
 export default function App() {
     const [authState, setAuthState] = useState({});
@@ -22,12 +24,18 @@ export default function App() {
         setAuthState(state);
     };
 
+    const removeAuthState = () => {
+        localStorage.clear();
+        setAuthState({});
+    }
+
     const contextData = {
         user_id: authState._id,
         email: authState.email,
         accessToken: authState.accessToken,
         isAuthenticated: !!authState.email,
-        changeAuthState
+        changeAuthState,
+        removeAuthState
     };
 
     return (
@@ -42,9 +50,11 @@ export default function App() {
                     <Route path='/register' element={<Register />} />
                     <Route path='/catalog' element={<Catalog />} />
                     <Route path='/create' element={<BookCreate />} />
+                    <Route path='/edit/:id' element={<BookEdit />} />
                     <Route path='/my-profile' element={<MyProfile />} />
                     <Route path='/catalog/:genre/:id' element={<Details />} />
                     <Route path='/cart' element={<ShoppingCart />} />
+                    <Route path='/logout' element={<Logout />} />
 
                 </Routes>
 

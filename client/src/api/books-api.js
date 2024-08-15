@@ -16,3 +16,12 @@ export function createBook(bookData) {
     const result = post(BASE_URL, bookData);
     return result;
 }
+
+export async function deleteBook(book_id) {
+    const result = await del(`${BASE_URL}/${book_id}`);
+}
+
+export async function editBook(book_id, data) {
+    const result = await put(`${BASE_URL}/${book_id}`, data);
+    return result;
+}

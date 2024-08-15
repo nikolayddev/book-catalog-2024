@@ -4,27 +4,31 @@ import styles from './Details.module.css'
 import CommentSection from "./comment-section/CommentSection";
 import Button from "react-bootstrap/esm/Button";
 import AddComment from "./comment-section/AddComment";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { useGetOneBook } from "../../hooks/useBooks";
 import { useGetAllCommentsById, useGetOneComment } from "../../hooks/useComments";
 import AuthContext from "../../contexts/UserContext";
 import DeleteComment from "./comment-section/DeleteComment";
 import EditComment from "./comment-section/EditComment";
+import DeleteBook from "./DeleteBook";
 
 export default function Details() {
-    const { isAuthenticated } = useContext(AuthContext);
+    const { isAuthenticated, user_id } = useContext(AuthContext);
     const { id: book_id } = useParams();
+    const navigate = useNavigate();
 
     const [currentBook] = useGetOneBook(book_id);
-
-    const [activeButton, setActiveButton] = useState('description');
-    const [showAddComment, setShowAddComment] = useState(false);
-    const [showDeleteComment, setShowDeleteComment] = useState(false);
-    const [showEditComment, setShowEditComment] = useState(false);
     const [allComments, setAllComments] = useGetAllCommentsById(book_id);
     const [currentCommentId, setCurrentCommentId] = useState('');
-
     const [{ commentBody }] = useGetOneComment(currentCommentId);
+    const [activeButton, setActiveButton] = useState('description');
+
+
+    const [showDeleteBook, setShowDeleteBook] = useState(false);
+    const [showAddComment, setShowAddComment] = useState(false);
+    const [showEditComment, setShowEditComment] = useState(false);
+    const [showDeleteComment, setShowDeleteComment] = useState(false);
+
 
     const handleAddComment = (newComment) => {
         setAllComments(prevComments => [newComment, ...prevComments]);
@@ -37,12 +41,24 @@ export default function Details() {
     }
 
     const handleEditComment = (updatedComment) => {
-        setAllComments((prevComments) => prevComments.map((comment) => 
+        setAllComments((prevComments) => prevComments.map((comment) =>
             comment._id == updatedComment._id ?
                 updatedComment :
                 comment
         ));
         setShowEditComment(false);
+    }
+
+    const editBookClickHandler = () => {
+        navigate(`/edit/${book_id}`);
+    }
+
+    const deleteBookClickHandler = () => {
+        setShowDeleteBook(true);
+    }
+
+    const deleteBookCloseHandler = () => {
+        setShowDeleteBook(false);
     }
 
     const deleteCommentClickHandler = (comment_id) => {
@@ -83,6 +99,18 @@ export default function Details() {
                                         <img src={currentBook.imageURL} className={styles.book_img} />
                                     </div>
                                 </div>
+
+                                {(isAuthenticated && user_id === currentBook._ownerId) ?
+                                    <div className={styles.modify_entry_div}>
+                                        <Button onClick={editBookClickHandler} className={styles.modify_entry_edit}>
+                                            Edit Entry
+                                        </Button>
+                                        <Button onClick={deleteBookClickHandler} className={styles.modify_entry_delete}>
+                                            Delete Entry
+                                        </Button>
+                                    </div>
+                                    : ''
+                                }
                             </div>
                             <div className="col-md-8">
                                 <div>
@@ -212,6 +240,11 @@ export default function Details() {
                     </div>
                 }
             </div>
+
+            {showDeleteBook && <DeleteBook
+                onClose={deleteBookCloseHandler}
+                book_id={book_id}
+            />}
 
             {showAddComment && <AddComment
                 onAddComment={handleAddComment}

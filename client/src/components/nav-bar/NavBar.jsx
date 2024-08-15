@@ -57,6 +57,11 @@ export default function NavBar() {
                                     </li>)
                                     : ''
                                 }
+                                {isAuthenticated
+                                    ? (<li>
+                                        <Link to="/logout">Logout</Link>
+                                    </li>)
+                                    : ''}
 
                             </ul>
                         </div>

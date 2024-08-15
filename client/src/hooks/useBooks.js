@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { createBook, getAll, getOne } from "../api/books-api";
+import { createBook, deleteBook, editBook, getAll, getOne } from "../api/books-api";
 import { sortGenre } from "../api/utils";
 
 export function useGetBookGenre(genre) {
@@ -33,4 +33,16 @@ export function useCreateBook() {
     const bookCreateHandler = (bookData) => createBook(bookData);
 
     return bookCreateHandler;
+}
+
+export function useDeleteBook() {
+    const bookDeleteHandler = (book_id) => deleteBook(book_id);
+
+    return bookDeleteHandler;
+}
+
+export function useUpdateBook() {
+    const bookUpdateHandler = (book_id, data) => editBook(book_id, data);
+
+    return bookUpdateHandler;
 }

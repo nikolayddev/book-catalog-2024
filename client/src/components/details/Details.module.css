@@ -439,6 +439,22 @@
     margin-left: 500px;
 }
 
+.delete_prompt_book {
+    width: 500px;
+    height: 130px;
+    position: absolute;
+    max-height: 100vh;
+    margin: auto;
+    border-radius: 7px;
+    border: 2px solid black;
+    background-color: white;
+    padding-top: 10px;
+    box-shadow: 0 2px 8px rgb(0 0 0 / 25%);
+    z-index: 30;
+    margin-top: 300px;
+    margin-left: 500px;
+}
+
 .delete_prompt_div {
     padding-top: 22px;
     text-align: right;
@@ -446,4 +462,37 @@
 
 .delete_prompt_buttons {
     margin-right: 15px;
+}
+
+.modify_entry_div {
+    margin-top: 70px;
+    text-align: center;
+}
+
+.modify_entry_edit,
+.modify_entry_delete {
+    margin-top: 10px;
+    font-size: 16px;
+    width: 165px;
+    height: 40px;
+}
+
+.modify_entry_edit {
+    background-color: rgba(0, 128, 128, 0.56);
+    border-color: rgba(0, 128, 128, 0.56);
+}
+
+.modify_entry_delete {
+    background-color: #ff4220;
+    border-color: #ff4220;
+}
+
+.modify_entry_edit:hover {
+    background-color: rgba(0, 58, 58, 0.56);
+    border-color: rgba(0, 58, 58, 0.56);
+}
+
+.modify_entry_delete:hover {
+    background-color: #cf361c;
+    border-color: #cf361c;
 }

@@ -1,4 +1,4 @@
-import { post } from "./requester";
+import { get, post } from "./requester";
 
 const BASE_URL = 'users';
 
@@ -10,4 +10,8 @@ export function login(email, password) {
 export function register(email, password) {
     const authData = post(`${BASE_URL}/register`, { email, password });
     return authData;
+}
+
+export function logout() {
+   return get(`${BASE_URL}/logout`);
 }
