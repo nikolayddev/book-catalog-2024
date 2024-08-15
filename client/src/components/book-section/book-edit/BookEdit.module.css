@@ -73,3 +73,8 @@
     margin-top: 10px;
     text-align: right;
 }
+
+.err_class {
+    color: red;
+    font-size: 25px;
+}

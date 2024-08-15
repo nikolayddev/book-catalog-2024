@@ -19,23 +19,17 @@ async function requester(method, url, data) {
         options.body = JSON.stringify(data);
     }
 
-    try {
-        const response = await fetch(host + url, options);
+    const response = await fetch(host + url, options);
 
-        if (!response.ok) {
-            const error = await response.json();
-            throw new Error(error.message);
-        }
-
-        if (response.status == 204) {
-            return response;
-        } else {
-            return response.json();
-        }
-
-    } catch (error) {
-        alert(error.message);
+    if (!response.ok) {
+        const error = await response.json();
         throw error;
+    }
+
+    if (response.status == 204) {
+        return response;
+    } else {
+        return response.json();
     }
 }
 

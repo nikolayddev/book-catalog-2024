@@ -4,6 +4,7 @@ import styles from './BookCreate.module.css';
 import { useNavigate } from 'react-router-dom';
 import { useForm } from '../../../hooks/useForm';
 import { useCreateBook } from '../../../hooks/useBooks';
+import { useState } from 'react';
 
 const initialValues = {
     price: '',
@@ -22,13 +23,21 @@ const initialValues = {
 export default function BookCreate() {
     const createBook = useCreateBook();
     const navigate = useNavigate();
+    const [error, setError] = useState('');
 
     const submitCallback = async (values) => {
         try {
+            for (const field in values) {
+                if (values[field] === '') {
+                    throw new Error('All fields are required!');
+                }
+            }
+
             const { _id: book_id, genre } = await createBook(values);
             navigate(`/catalog/${genre}/${book_id}`);
         } catch (err) {
-            alert(err.message);
+            setError(err.message);
+            console.log(err.message);
         }
     };
 
@@ -131,6 +140,13 @@ export default function BookCreate() {
                                     <label className={styles.create_form_labels}>Description</label>
                                     <textarea className={styles.description_textarea} type="textarea" name="description" onChange={changeHandler} value={values.description}></textarea>
                                 </div>
+
+                                {error &&
+                                    <div>
+                                        <h1 className={styles.err_class}>{error}</h1>
+                                    </div>
+                                }
+
                                 <div className={styles.button_div}>
                                     <Button className={styles.button} variant="secondary" type="submit">
                                         Add Book

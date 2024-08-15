@@ -1,9 +1,11 @@
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
+import styles from './Login.module.css';
 
 import { Link, useNavigate } from 'react-router-dom';
 import { useForm } from '../../hooks/useForm';
 import { useLogin } from '../../hooks/useAuth';
+import { useState } from 'react';
 
 
 const initialValues = { email: '', password: '' };
@@ -11,12 +13,19 @@ const initialValues = { email: '', password: '' };
 export default function Login() {
     const login = useLogin();
     const navigate = useNavigate();
+    const [error, setError] = useState('');
+
 
     const submitCallback = async ({ email, password }) => {
         try {
+            if (email === '' || password === '') {
+                throw new Error('All fields are required!');
+            }
+
             await login(email, password);
             navigate('/');
         } catch (err) {
+            setError(err.message);
             console.log(err.message);
         }
     };
@@ -57,6 +66,12 @@ export default function Login() {
                                     onChange={changeHandler}
                                 />
                             </Form.Group>
+
+                            {error &&
+                                <div>
+                                    <h1 className={styles.err_class}>{error}</h1>
+                                </div>
+                            }
 
                             <Button variant="primary" type="submit">
                                 Login

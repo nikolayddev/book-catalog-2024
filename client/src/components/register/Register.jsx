@@ -1,25 +1,50 @@
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
+import styles from './Register.module.css';
 
 import { Link, useNavigate } from 'react-router-dom';
 import { useRegister } from '../../hooks/useAuth';
 import { useForm } from '../../hooks/useForm';
+import { useState } from 'react';
 
-const initialValues = { firstName: '', lastName: '', email: '', profilePicture: '', password: '', confirmPassword: '' };
+const initialValues = {
+    firstName: '',
+    lastName: '',
+    email: '',
+    profilePicture: '',
+    password: '',
+    confirmPassword: ''
+};
 
 export default function Register() {
     const register = useRegister();
     const navigate = useNavigate();
+    const [error, setError] = useState('');
 
-    const submitCallback = async ({ email, password, confirmPassword }) => {
-        if (password != confirmPassword) {
-            return;
-        }
 
+    const submitCallback = async ({ email, password, confirmPassword, firstName, lastName, profilePicture}) => {
         try {
+            if (email === ''
+                || password === ''
+                || firstName === ''
+                || lastName === ''
+                || profilePicture === ''
+                || confirmPassword === '') {
+                throw new Error('All fields are required!');
+            }
+
+            if (password.length < 4) {
+                throw new Error('Password must be at least 4 characters long');
+            }
+
+            if (password !== confirmPassword) {
+                throw new Error('Passwords don\'t match');
+            }
+
             await register(email, password);
             navigate('/');
         } catch (err) {
+            setError(err.message);
             console.log(err.message);
         }
     };
@@ -104,6 +129,12 @@ export default function Register() {
                                 />
                             </Form.Group>
 
+                            {error &&
+                                <div>
+                                    <h1 className={styles.err_class}>{error}</h1>
+                                </div>
+                            }
+
                             <Button variant="primary" type="submit">
                                 Register
                             </Button>
@@ -117,7 +148,6 @@ export default function Register() {
                 </div>
             </div>
         </div>
-
     );
 }
 

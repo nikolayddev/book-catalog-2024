@@ -4,6 +4,7 @@ import styles from './BookEdit.module.css';
 import { useNavigate, useParams } from 'react-router-dom';
 import { useForm } from '../../../hooks/useForm';
 import { useUpdateBook } from '../../../hooks/useBooks';
+import { useState } from 'react';
 
 const initialValues = {
     price: '',
@@ -23,13 +24,22 @@ export default function BookEdit() {
     const editBook = useUpdateBook();
     const navigate = useNavigate();
     const { id: book_id } = useParams();
+    const [error, setError] = useState('');
+
 
     const submitCallback = async (values) => {
         try {
+            for (const field in values) {
+                if (values[field] === '') {
+                    throw new Error('All fields are required!');
+                }
+            }
+
             const { genre } = await editBook(book_id, values);
             navigate(`/catalog/${genre}/${book_id}`);
         } catch (err) {
-            alert(err.message);
+            setError(err.message);
+            console.log(err.message);
         }
     };
 
@@ -132,6 +142,11 @@ export default function BookEdit() {
                                     <label className={styles.create_form_labels}>Description</label>
                                     <textarea className={styles.description_textarea} type="textarea" name="description" onChange={changeHandler} value={values.description}></textarea>
                                 </div>
+                                {error &&
+                                    <div>
+                                        <h1 className={styles.err_class}>{error}</h1>
+                                    </div>
+                                }
                                 <div className={styles.button_div}>
                                     <Button className={styles.button} variant="secondary" type="submit">
                                         Update Book
