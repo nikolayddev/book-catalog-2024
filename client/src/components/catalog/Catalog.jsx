@@ -3,7 +3,7 @@ import styles from './Catalog.module.css';
 
 export default function Catalog() {
 
-    const genres = ['Science-Fiction', 'Adventure', 'Fantasy', 'Thriller'];
+    const genres = ['Science-Fiction', 'Adventure', 'Fantasy', 'Thriller', 'Graphic-Novel', 'Historical-Fiction'];
 
     return (
         <div>

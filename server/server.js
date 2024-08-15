@@ -1355,7 +1355,7 @@
                 pageCount: "688",
                 format: "Hard Copy",
                 yearOfPublication: "1965",
-                imageURL: "https://m.media-amazon.com/images/I/91b0C2YNSrL.jpg",
+                imageURL: "https://www.orangecenter.bg/media/catalog/product/cache/bdc2c78f7e06003a3c29bc34b94b23a8/d/u/dune-2.jpg",
                 _createdOn: 1723631576154,
                 _id: "aaad6613-1159-42ee-a596-a54bd461426e"
             },
@@ -1373,7 +1373,7 @@
                 pageCount: "324",
                 format: "Hard Copy",
                 yearOfPublication: "1985",
-                imageURL: "https://m.media-amazon.com/images/I/81t2CVWEsUL.jpg",
+                imageURL: "https://m.media-amazon.com/images/I/71seBe8qnVL._SY466_.jpg",
                 _createdOn: 1723631590769,
                 _id: "b5dcdecf-ae2b-4358-b873-2d67ad2fac52"
             },
@@ -1391,7 +1391,7 @@
                 pageCount: "224",
                 format: "Hard Copy",
                 yearOfPublication: "1979",
-                imageURL: "https://m.media-amazon.com/images/I/81-349iYbfL.jpg",
+                imageURL: "https://m.media-amazon.com/images/I/91pUhA4qZnL._AC_UY218_.jpg",
                 _createdOn: 1723631599687,
                 _id: "9cdc008b-d86e-414e-a2cc-4226499e0acb"
             },
@@ -1409,7 +1409,7 @@
                 pageCount: "328",
                 format: "Hard Copy",
                 yearOfPublication: "1949",
-                imageURL: "https://m.media-amazon.com/images/I/81-349iYbfL.jpg",
+                imageURL: "https://m.media-amazon.com/images/I/61NAx5pd6XL._AC_UY218_.jpg",
                 _createdOn: 1723631607195,
                 _id: "5a955e4f-d49c-4ce8-a839-2737fc2c1e1a"
             },
@@ -1427,7 +1427,7 @@
                 pageCount: "194",
                 format: "Hard Copy",
                 yearOfPublication: "1953",
-                imageURL: "https://m.media-amazon.com/images/I/81-349iYbfL.jpg",
+                imageURL: "https://m.media-amazon.com/images/I/61l8LHt4MeL._AC_UY218_.jpg",
                 _createdOn: 1723631615867,
                 _id: "c832b07d-704c-4a2c-ba0a-d76c10eba70f"
             },
@@ -1445,7 +1445,7 @@
                 pageCount: "369",
                 format: "Hard Copy",
                 yearOfPublication: "2011",
-                imageURL: "https://m.media-amazon.com/images/I/81t2CVWEsUL.jpg",
+                imageURL: "https://m.media-amazon.com/images/I/91X5axm95vL._AC_UY218_.jpg",
                 _createdOn: 1723631624792,
                 _id: "f4d89538-3036-4a99-acd5-62209d0e4b4f"
             },
@@ -1463,7 +1463,7 @@
                 pageCount: "271",
                 format: "Hard Copy",
                 yearOfPublication: "1984",
-                imageURL: "https://m.media-amazon.com/images/I/81-349iYbfL.jpg",
+                imageURL: "https://m.media-amazon.com/images/I/7141ukj6IDL._AC_UY218_.jpg",
                 _createdOn: 1723631633557,
                 _id: "8b4abea4-d7bf-4ff1-9bb6-6eead512901e"
             },
@@ -1481,7 +1481,7 @@
                 pageCount: "240",
                 format: "Hard Copy",
                 yearOfPublication: "1883",
-                imageURL: "https://m.media-amazon.com/images/I/81a4kCNuH+L.jpg",
+                imageURL: "https://m.media-amazon.com/images/I/71DmG8fZS4L._AC_UY218_.jpg",
                 _createdOn: 1723631649324,
                 _id: "b62a7f38-f1dd-4327-bb05-b11bd974a094"
             },
@@ -1499,7 +1499,7 @@
                 pageCount: "1276",
                 format: "Hard Copy",
                 yearOfPublication: "1844",
-                imageURL: "https://m.media-amazon.com/images/I/91b0C2YNSrL.jpg",
+                imageURL: "https://m.media-amazon.com/images/I/811iBn28JdL._AC_UY218_.jpg",
                 _createdOn: 1723631658243,
                 _id: "c361f2cd-a15d-44dc-8e30-3648176b19eb"
             },
@@ -1517,7 +1517,7 @@
                 pageCount: "320",
                 format: "Hard Copy",
                 yearOfPublication: "1864",
-                imageURL: "https://m.media-amazon.com/images/I/81-349iYbfL.jpg",
+                imageURL: "https://m.media-amazon.com/images/I/71bL9EywjOL._AC_UY218_.jpg",
                 _createdOn: 1723631667588,
                 _id: "8323ac10-6bb4-4d69-93d1-9bac84174d5c"
             },
@@ -1535,7 +1535,7 @@
                 pageCount: "736",
                 format: "Hard Copy",
                 yearOfPublication: "1844",
-                imageURL: "https://m.media-amazon.com/images/I/91K8rH5aQUL.jpg",
+                imageURL: "https://m.media-amazon.com/images/I/81lD4bQ1PnL._AC_UY218_.jpg",
                 _createdOn: 1723631676394,
                 _id: "ae355edf-94e1-4848-85a1-62a676512ae8"
             },
@@ -1553,7 +1553,7 @@
                 pageCount: "720",
                 format: "Hard Copy",
                 yearOfPublication: "1851",
-                imageURL: "https://m.media-amazon.com/images/I/81t2CVWEsUL.jpg",
+                imageURL: "https://m.media-amazon.com/images/I/71d5wo+-MuL._AC_UL320_.jpg",
                 _createdOn: 1723631686201,
                 _id: "c768e061-43cd-4df7-aa84-3282b720dd8a"
             },
@@ -1571,7 +1571,7 @@
                 pageCount: "256",
                 format: "Hard Copy",
                 yearOfPublication: "1912",
-                imageURL: "https://m.media-amazon.com/images/I/81-349iYbfL.jpg",
+                imageURL: "https://m.media-amazon.com/images/I/616-vzVYk-L._AC_UY218_.jpg",
                 _createdOn: 1723631693639,
                 _id: "4f3a56b1-1954-4641-80f5-7d6f07fcd57c"
             },
@@ -1589,7 +1589,7 @@
                 pageCount: "304",
                 format: "Hard Copy",
                 yearOfPublication: "1873",
-                imageURL: "https://m.media-amazon.com/images/I/81-349iYbfL.jpg",
+                imageURL: "https://m.media-amazon.com/images/I/613rB9eb0TL._AC_UY218_.jpg",
                 _createdOn: 1723631703175,
                 _id: "50ab5fed-0798-4b76-a0fe-a9cb5db17b1a"
             },
@@ -1607,7 +1607,7 @@
                 pageCount: "462",
                 format: "Hard Copy",
                 yearOfPublication: "2016",
-                imageURL: "https://m.media-amazon.com/images/I/81-349iYbfL.jpg",
+                imageURL: "https://m.media-amazon.com/images/I/91Cl3mY+lYL._SY466_.jpg",
                 _createdOn: 1723631719300,
                 _id: "cc421157-6f39-4348-918c-2e280e30d282"
             },
@@ -1625,7 +1625,7 @@
                 pageCount: "552",
                 format: "Hard Copy",
                 yearOfPublication: "2005",
-                imageURL: "https://m.media-amazon.com/images/I/81eB+7+CkUL.jpg",
+                imageURL: "https://m.media-amazon.com/images/I/914cHl9v7oL._AC_UY218_.jpg",
                 _createdOn: 1723631735761,
                 _id: "65a0c03e-9bc0-4930-b58d-f71aa05461a8"
             },
@@ -1643,7 +1643,7 @@
                 pageCount: "440",
                 format: "Hard Copy",
                 yearOfPublication: "2015",
-                imageURL: "https://m.media-amazon.com/images/I/91aF7n6L5FL.jpg",
+                imageURL: "https://m.media-amazon.com/images/I/81OkWjcf4WL._AC_UY218_.jpg",
                 _createdOn: 1723631743591,
                 _id: "0e7331e2-aa60-4f17-85f3-20dbcda0398c"
             },
@@ -1661,7 +1661,7 @@
                 pageCount: "531",
                 format: "Hard Copy",
                 yearOfPublication: "2014",
-                imageURL: "https://m.media-amazon.com/images/I/91b0C2YNSrL.jpg",
+                imageURL: "https://m.media-amazon.com/images/I/81RBTG28sCL._AC_UY218_.jpg",
                 _createdOn: 1723631756958,
                 _id: "28e70445-832f-484d-8c71-440e4341f90d"
             },
@@ -1679,7 +1679,7 @@
                 pageCount: "973",
                 format: "Hard Copy",
                 yearOfPublication: "1989",
-                imageURL: "https://m.media-amazon.com/images/I/91K8rH5aQUL.jpg",
+                imageURL: "https://m.media-amazon.com/images/I/71CURwcMw9L._AC_UY218_.jpg",
                 _createdOn: 1723631764866,
                 _id: "c528c74a-15f9-4c6b-9016-968a3a1b6013"
             },
@@ -1697,7 +1697,7 @@
                 pageCount: "288",
                 format: "Hard Copy",
                 yearOfPublication: "2018",
-                imageURL: "https://m.media-amazon.com/images/I/81t2CVWEsUL.jpg",
+                imageURL: "https://m.media-amazon.com/images/I/81lfY0CFyaL._AC_UL320_.jpg",
                 _createdOn: 1723631773857,
                 _id: "6e347a50-1681-4a2c-aff1-a5a32707e1fd"
             },
@@ -1715,7 +1715,7 @@
                 pageCount: "336",
                 format: "Hard Copy",
                 yearOfPublication: "2019",
-                imageURL: "https://m.media-amazon.com/images/I/81bPKr9mKxL.jpg",
+                imageURL: "https://m.media-amazon.com/images/I/91BbLCJOruL._AC_UY218_.jpg",
                 _createdOn: 1723631824840,
                 _id: "2485bb21-d493-41a8-8e86-a8bce441f37b"
             },
@@ -1733,7 +1733,7 @@
                 pageCount: "422",
                 format: "Hard Copy",
                 yearOfPublication: "2012",
-                imageURL: "https://m.media-amazon.com/images/I/81bPKr9mKxL.jpg",
+                imageURL: "https://m.media-amazon.com/images/I/713e4Yk6brL._AC_UY218_.jpg",
                 _createdOn: 1723631833399,
                 _id: "2d1db1fd-67cb-42b9-96cb-6853d8549f42"
             },
@@ -1751,7 +1751,7 @@
                 pageCount: "336",
                 format: "Hard Copy",
                 yearOfPublication: "2015",
-                imageURL: "https://m.media-amazon.com/images/I/81bPKr9mKxL.jpg",
+                imageURL: "https://m.media-amazon.com/images/I/91Ub4VK5Z6L._AC_UY218_.jpg",
                 _createdOn: 1723631842254,
                 _id: "d77f96d1-ae8a-4846-8e0c-94ebae151f44"
             },
@@ -1769,7 +1769,7 @@
                 pageCount: "448",
                 format: "Hard Copy",
                 yearOfPublication: "2018",
-                imageURL: "https://m.media-amazon.com/images/I/81bPKr9mKxL.jpg",
+                imageURL: "https://m.media-amazon.com/images/I/41++ksXwtdL._AC_UY218_.jpg",
                 _createdOn: 1723631850727,
                 _id: "21dde114-a329-459a-b254-7ab3d9b6a404"
             },
@@ -1787,7 +1787,7 @@
                 pageCount: "489",
                 format: "Hard Copy",
                 yearOfPublication: "2003",
-                imageURL: "https://m.media-amazon.com/images/I/81bPKr9mKxL.jpg",
+                imageURL: "https://m.media-amazon.com/images/I/913CifLtXeL._AC_UY218_.jpg",
                 _createdOn: 1723631859772,
                 _id: "fdeb115f-7fa1-4055-9f50-64203c489a1e"
             },
@@ -1805,7 +1805,7 @@
                 pageCount: "460",
                 format: "Hard Copy",
                 yearOfPublication: "2014",
-                imageURL: "https://m.media-amazon.com/images/I/81bPKr9mKxL.jpg",
+                imageURL: "https://m.media-amazon.com/images/I/81jmyKbqU5L._AC_UY218_.jpg",
                 _createdOn: 1723631869134,
                 _id: "669a4739-17cc-417c-91d5-76b04b3a5725"
             },
@@ -1823,7 +1823,7 @@
                 pageCount: "465",
                 format: "Hard Copy",
                 yearOfPublication: "2005",
-                imageURL: "https://m.media-amazon.com/images/I/81bPKr9mKxL.jpg",
+                imageURL: "https://m.media-amazon.com/images/I/8133MFwkxOL._AC_UY218_.jpg",
                 _createdOn: 1723631877922,
                 _id: "43d983a2-df10-4c8d-a2b1-3e0e8179e8b0"
             },
@@ -1841,7 +1841,7 @@
                 pageCount: "296",
                 format: "Hard Copy",
                 yearOfPublication: "1980",
-                imageURL: "https://m.media-amazon.com/images/I/81t2CVWEsUL.jpg",
+                imageURL: "https://m.media-amazon.com/images/I/51HjtyuYywL._SY445_SX342_.jpg",
                 _createdOn: 1723632396266,
                 _id: "f74d6955-4b87-424e-a7cd-e40823ea493a"
             },
@@ -1859,7 +1859,7 @@
                 pageCount: "341",
                 format: "Hard Copy",
                 yearOfPublication: "2000",
-                imageURL: "https://m.media-amazon.com/images/I/81F-+2k2JIL.jpg",
+                imageURL: "https://m.media-amazon.com/images/I/616z6dC0bYL._AC_UY218_.jpg",
                 _createdOn: 1723632414791,
                 _id: "d4d8c10f-3b88-40b6-9916-faebba77b799"
             },
@@ -1877,7 +1877,7 @@
                 pageCount: "416",
                 format: "Hard Copy",
                 yearOfPublication: "1986",
-                imageURL: "https://m.media-amazon.com/images/I/91G8d1n1KFL.jpg",
+                imageURL: "https://m.media-amazon.com/images/I/71ztkXHWZaL._AC_UY218_.jpg",
                 _createdOn: 1723632422415,
                 _id: "4145a47d-94da-4176-9a13-28feca654e6d"
             },
@@ -1895,7 +1895,7 @@
                 pageCount: "240",
                 format: "Hard Copy",
                 yearOfPublication: "1989",
-                imageURL: "https://m.media-amazon.com/images/I/81p2+4nYtkL.jpg",
+                imageURL: "https://m.media-amazon.com/images/I/810n6p+2ceL._AC_UL320_.jpg",
                 _createdOn: 1723632429944,
                 _id: "cb30a99e-d6de-4afe-b363-2c23cd35c60e"
             },
@@ -1913,7 +1913,7 @@
                 pageCount: "232",
                 format: "Hard Copy",
                 yearOfPublication: "2006",
-                imageURL: "https://m.media-amazon.com/images/I/81p2+4nYtkL.jpg",
+                imageURL: "https://m.media-amazon.com/images/I/71sMATDF6DL._AC_UY218_.jpg",
                 _createdOn: 1723632441363,
                 _id: "b9eda2d3-26d5-4821-9f86-efa31fdbcf1b"
             },
@@ -1931,7 +1931,7 @@
                 pageCount: "160",
                 format: "Hard Copy",
                 yearOfPublication: "2012",
-                imageURL: "https://m.media-amazon.com/images/I/91G8d1n1KFL.jpg",
+                imageURL: "https://m.media-amazon.com/images/I/61FruD4bhIL._AC_UY218_.jpg",
                 _createdOn: 1723632449526,
                 _id: "4ccffef9-b1a1-4286-bab4-6a8853bbf3bf"
             },
@@ -1949,7 +1949,7 @@
                 pageCount: "592",
                 format: "Hard Copy",
                 yearOfPublication: "2003",
-                imageURL: "https://m.media-amazon.com/images/I/81p2+4nYtkL.jpg",
+                imageURL: "https://m.media-amazon.com/images/I/81ClZo93byL._AC_UY218_.jpg",
                 _createdOn: 1723632458718,
                 _id: "c9eeffd7-a1d5-4c88-9fec-bdcfa081019d"
             },
@@ -1967,7 +1967,7 @@
                 pageCount: "310",
                 format: "Hard Copy",
                 yearOfPublication: "1937",
-                imageURL: "https://m.media-amazon.com/images/I/91b0C2YNSrL.jpg",
+                imageURL: "https://m.media-amazon.com/images/I/81-JdmZeA9L._AC_UY218_.jpg",
                 _createdOn: 1723632467542,
                 _id: "95a29193-7a89-491d-8dcf-ab84790d7358"
             },
@@ -1985,7 +1985,7 @@
                 pageCount: "309",
                 format: "Hard Copy",
                 yearOfPublication: "1997",
-                imageURL: "https://m.media-amazon.com/images/I/81YOuOGFCJL.jpg",
+                imageURL: "https://m.media-amazon.com/images/I/91A6EgLH+2L._AC_UL320_.jpg",
                 _createdOn: 1723632478821,
                 _id: "af299846-adae-413e-8fbd-29b3380f0deb"
             },
@@ -2003,7 +2003,7 @@
                 pageCount: "662",
                 format: "Hard Copy",
                 yearOfPublication: "2007",
-                imageURL: "https://m.media-amazon.com/images/I/91b0C2YNSrL.jpg",
+                imageURL: "https://m.media-amazon.com/images/I/91UzPegYyjL._AC_UY218_.jpg",
                 _createdOn: 1723632486760,
                 _id: "fabcb43d-41bc-4ecc-8076-63f051b39fb6"
             },
@@ -2021,7 +2021,7 @@
                 pageCount: "541",
                 format: "Hard Copy",
                 yearOfPublication: "2006",
-                imageURL: "https://m.media-amazon.com/images/I/91b0C2YNSrL.jpg",
+                imageURL: "https://m.media-amazon.com/images/I/91U6rc7u0yL._AC_UL320_.jpg",
                 _createdOn: 1723632497259,
                 _id: "4aadd70e-e9bf-49ae-b82f-cccc6d5c7845"
             },
@@ -2039,7 +2039,7 @@
                 pageCount: "1007",
                 format: "Hard Copy",
                 yearOfPublication: "2010",
-                imageURL: "https://m.media-amazon.com/images/I/91b0C2YNSrL.jpg",
+                imageURL: "https://m.media-amazon.com/images/I/81rjJoKDOPL._AC_UY218_.jpg",
                 _createdOn: 1723632517041,
                 _id: "a1b8fbf3-2cc0-499e-aaac-5ae84fc8c401"
             },
@@ -2057,7 +2057,7 @@
                 pageCount: "722",
                 format: "Hard Copy",
                 yearOfPublication: "2006",
-                imageURL: "https://m.media-amazon.com/images/I/91b0C2YNSrL.jpg",
+                imageURL: "https://m.media-amazon.com/images/I/914bVKVdZ9L._AC_UY218_.jpg",
                 _createdOn: 1723632527184,
                 _id: "315f17b2-d690-4501-ac83-bbdd58b5ca8f"
             },
@@ -2075,7 +2075,7 @@
                 pageCount: "848",
                 format: "Hard Copy",
                 yearOfPublication: "2019",
-                imageURL: "https://m.media-amazon.com/images/I/91b0C2YNSrL.jpg",
+                imageURL: "https://m.media-amazon.com/images/I/81yow5pEBoL._SY466_.jpg",
                 _createdOn: 1723632540073,
                 _id: "d82ffb6e-f478-4c7a-91e1-7f03456d58ff"
             }

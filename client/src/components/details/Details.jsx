@@ -4,7 +4,7 @@ import styles from './Details.module.css'
 import CommentSection from "./comment-section/CommentSection";
 import Button from "react-bootstrap/esm/Button";
 import AddComment from "./comment-section/AddComment";
-import { useNavigate, useParams } from "react-router-dom";
+import { Link, useNavigate, useParams } from "react-router-dom";
 import { useGetOneBook } from "../../hooks/useBooks";
 import { useGetAllCommentsById, useGetOneComment } from "../../hooks/useComments";
 import { useAuthContext } from "../../contexts/AuthContext.jsx";
@@ -255,9 +255,17 @@ export default function Details() {
                                         editBtnHandler={editCommentClickHandler}
                                     /> :
                                     <div className={styles.scrollable_container}>
-                                        <p className={styles.no_comments_p}>
-                                            Be The First to Leave a Comment!
-                                        </p>
+                                        {isAuthenticated
+                                            ? <p className={styles.no_comments_p}>
+                                                Be The First to Leave a Comment!
+                                            </p>
+                                            : <Link to="/login">
+                                                <p className={styles.no_comments_p}>
+                                                    Be The First to Leave a Comment!
+                                                </p>
+                                            </Link>
+                                            }
+
                                     </div>
                                 }
                             </div>

@@ -16,6 +16,21 @@ export function useGetBookGenre(genre) {
     return [bookGenre, setBookGenre];
 }
 
+export function useGetNewestReleases() {
+    const [allBooks, setAllBooks] = useState({});
+
+    useEffect(() => {
+        (async () => {
+            const result = await getAll();
+            result.sort((a, b) => b._createdOn - a._createdOn);
+            const firstTen = result.slice(0, 10);
+            setAllBooks(firstTen);
+        })();
+    }, []);
+
+    return [allBooks, setAllBooks];
+}
+
 export function useGetOneBook(book_id) {
     const [currentBook, setCurrentBook] = useState({});
 

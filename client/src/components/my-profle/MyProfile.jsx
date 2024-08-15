@@ -4,6 +4,7 @@ import ProfileBookRecent from './profile-book-item/ProfileBookRecent';
 import ProfileComment from './profile-comment/ProfileComment';
 import { useGetAllFavoritesItems, useUpdateFavorites } from '../../hooks/useFavorites';
 import ProfileBookFavorite from './profile-book-item/ProfileBookFavorite';
+import { useAuthContext } from '../../contexts/AuthContext';
 
 export default function MyProfile() {
     const [allFavoriteItems, setAllFavoriteItems] = useGetAllFavoritesItems()
@@ -15,8 +16,6 @@ export default function MyProfile() {
             prevFavoritesItem.filter(FavoritesItem => FavoritesItem._id != FavoritesItem_id)
         );
     }
-
-    console.log(allFavoriteItems);
 
     return (
         <>
@@ -33,7 +32,7 @@ export default function MyProfile() {
                                         item={item}
                                         patchItems={patchInFavorites}
                                         onRemove={handleDeleteFavoritesItem} />
-                                ))};
+                                ))}
                             </ul> :
                             <h1>You haven't added any books yet!</h1>
                         }

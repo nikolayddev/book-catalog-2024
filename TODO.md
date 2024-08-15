@@ -50,11 +50,11 @@ Soft Uni React Course Project
 - [X] Make Create form html and css
 - [X] Make Edit form html and css
 - [X] Make Comments form html and css
-- [ ] Make Delete prompt html and css
+- [X] Make Delete prompt html and css
 - [X] Make CART page html and css (straightforward)
 - [X] Start and think on and try to implement My Profile page html and css (harder)
 - [X] Make CSS improvements
-- [ ] BONUS: Make changes to the css to fix the edges of the forms and banner!
+- [X] BONUS: Make changes to the css to fix the edges of the forms and banner!
 
 ## For next 2 days
 - [X] Work on better routing and routing advanced techniques
@@ -68,14 +68,14 @@ Soft Uni React Course Project
 - [X] Do Edit, delete Books
 - [ ] Check edit form technique
 - [X] Do Cart (ONIT)
-- [ ] Do Profile 
+- [X] Do Profile 
   - [X] Favorites
   - [X] RecentActivity
-  - [ ] ProfilePic Change
+  - [X] ProfilePic Change
 - [X] Improve auth,addlogout
 - [ ] Add guards,
-- [ ] Add Basic validation
-- [ ] change Footer
-- [ ] change copyright 
-- [ ] Final Touches CSS
+- [X] Add Basic validation
+- [X] change Footer
+- [X] change copyright 
+- [X] Final Touches CSS
 - [X] IMPROVE ACCESSTOKEN API 

@@ -1,10 +1,12 @@
+import styles from './Footer.module.css';
+
 export default function Footer() {
     return (
         <div className="footer_section layout_padding">
             <div className="container">
                 <div className="footer_logo">
                     <a href="index.html">
-                        <img src="images/footer-logo.png" />
+                        <img className={styles.logo} src="images/logo1.png" />
                     </a>
                 </div>
                 <div className="input_bt">
@@ -24,21 +26,15 @@ export default function Footer() {
                             <a href="#">Best Sellers</a>
                         </li>
                         <li>
-                            <a href="#">Gift Ideas</a>
-                        </li>
-                        <li>
                             <a href="#">New Releases</a>
                         </li>
                         <li>
-                            <a href="#">Todays Deals</a>
+                            <a href="#">Favorite Books</a>
                         </li>
                         <li>
                             <a href="#">Customer Service</a>
                         </li>
                     </ul>
-                </div>
-                <div className="location_main">
-                    Help Line Number : <a href="#">+1 1800 1200 1200</a>
                 </div>
             </div>
         </div>

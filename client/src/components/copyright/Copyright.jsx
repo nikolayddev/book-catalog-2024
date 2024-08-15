@@ -3,8 +3,7 @@ export default function Copyright() {
         <div className="copyright_section">
             <div className="container">
                 <p className="copyright_text">
-                    © 2020 All Rights Reserved. Design by{" "}
-                    <a href="https://html.design">Free html Templates</a>
+                    © 2020 All Rights Reserved.
                 </p>
             </div>
         </div>

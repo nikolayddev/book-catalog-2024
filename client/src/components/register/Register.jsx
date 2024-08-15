@@ -41,7 +41,7 @@ export default function Register() {
                 throw new Error('Passwords don\'t match');
             }
 
-            await register(email, password);
+            await register(email, password, firstName, lastName, profilePicture);
             navigate('/');
         } catch (err) {
             setError(err.message);
