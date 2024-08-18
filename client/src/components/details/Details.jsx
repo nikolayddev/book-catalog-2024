@@ -12,21 +12,34 @@ import DeleteComment from "./comment-section/DeleteComment";
 import EditComment from "./comment-section/EditComment";
 import DeleteBook from "./DeleteBook";
 import { useToggleFavorites, useUpdateFavorites } from "../../hooks/useFavorites";
-// import { useToggleInCart, useUpdateInCart } from "../../hooks/useCart";
+import { useToggleInCart } from "../../hooks/useCart.js";
+import { useUpdateInCart } from "../../hooks/useCart";
 
 export default function Details() {
     const { isAuthenticated, user_id } = useAuthContext();
 
-
-
     const { id: book_id } = useParams();
     const navigate = useNavigate();
-    // const patchInCart = useUpdateInCart();
+    const patchInCart = useUpdateInCart();
     const patchInFavorites = useUpdateFavorites();
 
     const [currentBook] = useGetOneBook(book_id);
 
-    // const [itemInCart, setItemInCart] = useToggleInCart(book_id);
+    const initialValues = {
+        price: currentBook.price,
+        genre: currentBook.genre,
+        title: currentBook.title,
+        author: currentBook.author,
+        publisher: currentBook.publisher,
+        description: currentBook.description,
+        language: currentBook.language,
+        pageCount: currentBook.pageCount,
+        format: currentBook.format,
+        yearOfPublication: currentBook.yearOfPublication,
+        imageURL: currentBook.imageURL
+    }
+
+    const [itemInCart, setItemInCart] = useToggleInCart(book_id);
     const [itemInFavorites, setItemInFavorites] = useToggleFavorites(book_id);
 
     const [allComments, setAllComments] = useGetAllCommentsById(book_id);
@@ -59,7 +72,7 @@ export default function Details() {
     }
 
     const editBookClickHandler = () => {
-        navigate(`/edit/${book_id}`);
+        navigate(`/edit/${book_id}`, { state: { ...initialValues } });
     }
 
     const deleteBookClickHandler = () => {
@@ -198,7 +211,7 @@ export default function Details() {
                                 {/* <p className={styles.box_unavailable}>X Unavailable</p> */}
                                 <p className={styles.box_price}>Price: ${currentBook.price}</p>
                                 <ul>
-                                    {/* <li className={styles.box_li}>
+                                    <li className={styles.box_li}>
                                         {itemInCart ?
                                             <a href="#" onClick={() => {
                                                 patchInCart(book_id, { ...currentBook, inCart: false })
@@ -211,7 +224,7 @@ export default function Details() {
                                             }
                                             } className={styles.btn_buy}>Add to Cart</a>
                                         }
-                                    </li> */}
+                                    </li>
                                     {isAuthenticated && <li className={styles.box_li}>
                                         {itemInFavorites ?
                                             <a href="#" onClick={() => {
@@ -264,7 +277,7 @@ export default function Details() {
                                                     Be The First to Leave a Comment!
                                                 </p>
                                             </Link>
-                                            }
+                                        }
 
                                     </div>
                                 }

@@ -3,7 +3,7 @@ import { createComment, deleteComment, editComment, getAllComments, getOneCommen
 import { useAuthContext } from "../contexts/AuthContext.jsx";
 
 export function useCreateComment() {
-    const commentCreateHandler = (commentData, book_id) => createComment({ ...commentData, _bookId: book_id });
+    const commentCreateHandler = (commentData, book_id, username) => createComment({ ...commentData, _bookId: book_id, username });
 
     return commentCreateHandler;
 }
@@ -28,7 +28,7 @@ export function useDeleteComment() {
 }
 
 export function useUpdateComment() {
-    const commentUpdateHandler = (comment_id, data, book_id) => editComment(comment_id, { ...data, _bookId: book_id });
+    const commentUpdateHandler = (comment_id, data, book_id, username) => editComment(comment_id, { ...data, _bookId: book_id, username });
 
     return commentUpdateHandler;
 }

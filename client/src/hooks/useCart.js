@@ -15,6 +15,7 @@ export function useToggleInCart(book_id) {
             const result = await getOne(book_id);
             setItemInCart(result.inCart);
         })();
+
     }, [book_id]);
 
     return [itemInCart, setItemInCart];

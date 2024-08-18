@@ -1,31 +1,21 @@
 import Button from 'react-bootstrap/Button';
 import styles from './BookEdit.module.css';
 
-import { useNavigate, useParams } from 'react-router-dom';
+import { useLocation, useNavigate, useParams } from 'react-router-dom';
 import { useForm } from '../../../hooks/useForm';
 import { useUpdateBook } from '../../../hooks/useBooks';
 import { useState } from 'react';
 
-const initialValues = {
-    price: '',
-    genre: '',
-    title: '',
-    author: '',
-    publisher: '',
-    description: '',
-    language: '',
-    pageCount: '',
-    format: '',
-    yearOfPublication: '',
-    imageURL: ''
-}
 
 export default function BookEdit() {
     const editBook = useUpdateBook();
     const navigate = useNavigate();
+    const location = useLocation();
+    const initialValues = location.state || {};
     const { id: book_id } = useParams();
     const [error, setError] = useState('');
 
+    console.log(initialValues);
 
     const submitCallback = async (values) => {
         try {

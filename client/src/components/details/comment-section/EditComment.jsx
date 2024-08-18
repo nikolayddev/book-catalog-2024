@@ -3,6 +3,11 @@ import styles from '../Details.module.css'
 import Button from 'react-bootstrap/esm/Button';
 import { useUpdateComment } from '../../../hooks/useComments';
 import { useForm } from '../../../hooks/useForm';
+import { useGetUserInfo } from '../../../hooks/useAuth';
+
+const initialValues = {
+    commentBody: ''
+}
 
 export default function EditComment({
     onEditComment,
@@ -12,15 +17,13 @@ export default function EditComment({
     commentBody,
     book_id
 }) {
-    const initialValues = {
-        commentBody: ''
-    }
-
     const editComment = useUpdateComment();
+    const [userInfo] = useGetUserInfo();
+    const username = `${userInfo.firstName} ${userInfo.lastName}`;
 
     const submitCallback = async (values) => {
         try {
-            const result = await editComment(comment_id, values, book_id);
+            const result = await editComment(comment_id, values, book_id, username);
             onEditComment(result);
         } catch (err) {
             alert(err.message);

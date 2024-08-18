@@ -3,6 +3,7 @@ import styles from '../Details.module.css'
 import Button from 'react-bootstrap/esm/Button';
 import { useCreateComment } from '../../../hooks/useComments';
 import { useForm } from '../../../hooks/useForm';
+import { useGetUserInfo } from '../../../hooks/useAuth';
 
 const initialValues = {
     commentBody: '',
@@ -15,10 +16,12 @@ export default function AddComment({
     book_id,
 }) {
     const createComment = useCreateComment();
+    const [userInfo] = useGetUserInfo();
+    const username = `${userInfo.firstName} ${userInfo.lastName}`;
 
     const submitCallback = async (values) => {
         try {
-            const result = await createComment(values, book_id);
+            const result = await createComment(values, book_id, username);
             onAddComment(result);
         } catch (err) {
             alert(err.message);
