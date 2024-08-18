@@ -13,7 +13,7 @@ import MyProfile from './components/my-profle/MyProfile';
 import Logout from './components/logout/Logout';
 import BookEdit from './components/book-section/book-edit/BookEdit';
 import { AuthContextProvider } from './contexts/AuthContext';
-// import ShoppingCart from './components/shopping-cart/ShoppingCart';
+import ShoppingCart from './components/shopping-cart/ShoppingCart';
 
 export default function App() {
 
@@ -34,7 +34,7 @@ export default function App() {
                     <Route path='/edit/:id' element={<BookEdit />} />
                     <Route path='/my-profile' element={<MyProfile />} />
                     <Route path='/catalog/:genre/:id' element={<Details />} />
-                    {/* <Route path='/cart' element={<ShoppingCart />} /> */}
+                    <Route path='/cart' element={<ShoppingCart />} />
                     <Route path='/logout' element={<Logout />} />
                 </Routes>
 

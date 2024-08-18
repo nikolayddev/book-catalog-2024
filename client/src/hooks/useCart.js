@@ -53,15 +53,17 @@ export function useDeleteCartItem() {
     return cartItemDeleteHandler;
 }
 
-export function useGetUserCartItems(_ownerId) {
+export function useGetUserCartItems() {
+    const { user_id } = useAuthContext();
     const [currentItems, setCurrentItems] = useState([]);
 
     useEffect(() => {
         (async () => {
-            const result = await getUserCartItems(_ownerId);
+            const result = await getUserCartItems(user_id);
+            result.sort((a, b) => b._createdOn - a._createdOn);
             setCurrentItems(result);
         })();
-    }, [_ownerId]);
+    }, [user_id]);
 
     return [currentItems, setCurrentItems];
 }
