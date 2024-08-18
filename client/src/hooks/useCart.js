@@ -1,36 +1,62 @@
 import { useEffect, useState } from "react";
-import { getAll, getOne, toggleInCart } from "../api/books-api";
+import { createCartItem, deleteCartItem, getCartItemByBookId, getOneUserCartItem, getUserCartItems } from "../api/cart-api";
 
-export function useUpdateInCart() {
-    const toggleCartHandler = (book_id, data) => toggleInCart(book_id, data);
+export function useCreateCartItem() {
+    const cartItemCreateHandler = async (cartItemData, book_id) => {
 
-    return toggleCartHandler;
+        const result = await getCartItemByBookId(book_id);
+
+        if (result.length > 0) {
+            //TODO Implement error handling to show user
+            console.log('Item is already in Cart!');
+            return;
+        }
+
+        createCartItem(cartItemData);
+    }
+    return cartItemCreateHandler;
 }
 
-export function useToggleInCart(book_id) {
-    const [itemInCart, setItemInCart] = useState(false);
+export function useDeleteCartItem() {
+    const cartItemDeleteHandler = async (book_id) => {
+
+        const result = await getCartItemByBookId(book_id);
+
+        const _cartItemId = result[0]?._id;
+
+        if (_cartItemId === undefined) {
+            //TODO Implement error handling to show user
+            console.log('Item is not in the Cart!');
+            return;
+        }
+        deleteCartItem(_cartItemId);
+    }
+
+    return cartItemDeleteHandler;
+}
+
+export function useGetUserCartItems(_ownerId) {
+    const [currentItems, setCurrentItems] = useState([]);
 
     useEffect(() => {
         (async () => {
-            const result = await getOne(book_id);
-            setItemInCart(result.inCart);
+            const result = await getUserCartItems(_ownerId);
+            setCurrentItems(result);
         })();
+    }, [_ownerId]);
 
-    }, [book_id]);
-
-    return [itemInCart, setItemInCart];
+    return [currentItems, setCurrentItems];
 }
 
-export function useGetAllCartItems() {
-    const [allCartItems, setAllCartItems] = useState([]);
+export function useInCart(_itemId) {
+    const [inCart, setInCart] = useState(false);
 
     useEffect(() => {
         (async () => {
-            const result = await getAll();
-            const filteredArr = result.filter(book => book.inCart === true);
-            setAllCartItems(filteredArr);
+            const result = await getOneUserCartItem(_itemId);
+            setInCart(result);
         })();
-    }, []);
+    }, [_itemId]);
 
-    return [allCartItems, setAllCartItems];
+    return [inCart, setInCart];
 }

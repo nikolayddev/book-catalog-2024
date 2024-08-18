@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 import styles from './Details.module.css'
 import CommentSection from "./comment-section/CommentSection";
@@ -11,17 +11,16 @@ import { useAuthContext } from "../../contexts/AuthContext.jsx";
 import DeleteComment from "./comment-section/DeleteComment";
 import EditComment from "./comment-section/EditComment";
 import DeleteBook from "./DeleteBook";
-import { useToggleFavorites, useUpdateFavorites } from "../../hooks/useFavorites";
-import { useToggleInCart } from "../../hooks/useCart.js";
-import { useUpdateInCart } from "../../hooks/useCart";
+import { useCreateCartItem, useDeleteCartItem } from "../../hooks/useCart.js";
 
 export default function Details() {
     const { isAuthenticated, user_id } = useAuthContext();
 
     const { id: book_id } = useParams();
     const navigate = useNavigate();
-    const patchInCart = useUpdateInCart();
-    const patchInFavorites = useUpdateFavorites();
+    const addToCart = useCreateCartItem();
+    const removeFromCart = useDeleteCartItem();
+
 
     const [currentBook] = useGetOneBook(book_id);
 
@@ -39,13 +38,12 @@ export default function Details() {
         imageURL: currentBook.imageURL
     }
 
-    const [itemInCart, setItemInCart] = useToggleInCart(book_id);
-    const [itemInFavorites, setItemInFavorites] = useToggleFavorites(book_id);
-
     const [allComments, setAllComments] = useGetAllCommentsById(book_id);
     const [currentCommentId, setCurrentCommentId] = useState('');
     const [{ commentBody }] = useGetOneComment(currentCommentId);
     const [activeButton, setActiveButton] = useState('description');
+
+    // const [inCart, setInCart] = useInCart();
 
     const [showDeleteBook, setShowDeleteBook] = useState(false);
     const [showAddComment, setShowAddComment] = useState(false);
@@ -212,21 +210,18 @@ export default function Details() {
                                 <p className={styles.box_price}>Price: ${currentBook.price}</p>
                                 <ul>
                                     <li className={styles.box_li}>
-                                        {itemInCart ?
-                                            <a href="#" onClick={() => {
-                                                patchInCart(book_id, { ...currentBook, inCart: false })
-                                                setItemInCart(false);
-                                            }
-                                            } className={styles.btn_buy}>Remove from Cart</a> :
-                                            <a href="#" onClick={() => {
-                                                patchInCart(book_id, { ...currentBook, inCart: true })
-                                                setItemInCart(true);
-                                            }
-                                            } className={styles.btn_buy}>Add to Cart</a>
+                                        <a href="#" onClick={() => {
+                                            removeFromCart(book_id);
                                         }
+                                        } className={styles.btn_buy}>Remove from Cart</a> :
+                                        <a href="#" onClick={() => {
+                                            addToCart({ ...currentBook, _bookId: book_id }, book_id);
+                                        }
+                                        } className={styles.btn_buy}>Add to Cart</a>
+
                                     </li>
                                     {isAuthenticated && <li className={styles.box_li}>
-                                        {itemInFavorites ?
+                                        {/* {itemInFavorites ?
                                             <a href="#" onClick={() => {
                                                 patchInFavorites(book_id, { ...currentBook, inFavorites: false })
                                                 setItemInFavorites(false);
@@ -237,7 +232,7 @@ export default function Details() {
                                                 setItemInFavorites(true);
                                             }
                                             } className={styles.btn_favorites}>&#9733; ADD TO FAVORITES</a>
-                                        }
+                                        } */}
                                     </li>
                                     }
                                 </ul>

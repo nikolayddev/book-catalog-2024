@@ -7,11 +7,21 @@ export function createCartItem(bookData) {
     return result;
 }
 
-export async function deleteCartItem(book_id) {
-    const result = await del(`${BASE_URL}/${book_id}`);
+export async function deleteCartItem(cartItem_id) {
+    const result = await del(`${BASE_URL}/${cartItem_id}`);
 }
 
-export async function getUserCartItems(_ownerId) {
+export function getUserCartItems(_ownerId) {
     const result = get(`${BASE_URL}?where=_ownerId%3D%22${_ownerId}%22`);
+    return result;
+}
+
+export function getOneUserCartItem(_itemId) {
+    const result = get(`${BASE_URL}?where=_ownerId%3D%22${_itemId}%22`);
+    return result;
+}
+
+export function getCartItemByBookId(_bookId) {
+    const result = get(`${BASE_URL}?where=_bookId%3D%22${_bookId}%22`);
     return result;
 }
