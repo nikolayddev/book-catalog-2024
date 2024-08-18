@@ -11,7 +11,7 @@ import { useAuthContext } from "../../contexts/AuthContext.jsx";
 import DeleteComment from "./comment-section/DeleteComment";
 import EditComment from "./comment-section/EditComment";
 import DeleteBook from "./DeleteBook";
-import { useCreateCartItem, useDeleteCartItem } from "../../hooks/useCart.js";
+import { useCreateCartItem, useDeleteCartItem, useInCart } from "../../hooks/useCart.js";
 
 export default function Details() {
     const { isAuthenticated, user_id } = useAuthContext();
@@ -20,10 +20,9 @@ export default function Details() {
     const navigate = useNavigate();
     const addToCart = useCreateCartItem();
     const removeFromCart = useDeleteCartItem();
-
-
+    
     const [currentBook] = useGetOneBook(book_id);
-
+    
     const initialValues = {
         price: currentBook.price,
         genre: currentBook.genre,
@@ -42,8 +41,8 @@ export default function Details() {
     const [currentCommentId, setCurrentCommentId] = useState('');
     const [{ commentBody }] = useGetOneComment(currentCommentId);
     const [activeButton, setActiveButton] = useState('description');
-
-    // const [inCart, setInCart] = useInCart();
+    
+    const [inCart, setInCart] = useInCart(book_id);
 
     const [showDeleteBook, setShowDeleteBook] = useState(false);
     const [showAddComment, setShowAddComment] = useState(false);
@@ -210,15 +209,18 @@ export default function Details() {
                                 <p className={styles.box_price}>Price: ${currentBook.price}</p>
                                 <ul>
                                     <li className={styles.box_li}>
-                                        <a href="#" onClick={() => {
-                                            removeFromCart(book_id);
+                                        {inCart ?
+                                            <a href="#" onClick={() => {
+                                                removeFromCart(book_id);
+                                                setInCart(false);
+                                            }
+                                            } className={styles.btn_buy}>Remove from Cart</a> :
+                                            <a href="#" onClick={() => {
+                                                addToCart({ ...currentBook, _bookId: book_id }, book_id);
+                                                setInCart(true);
+                                            }
+                                            } className={styles.btn_buy}>Add to Cart</a>
                                         }
-                                        } className={styles.btn_buy}>Remove from Cart</a> :
-                                        <a href="#" onClick={() => {
-                                            addToCart({ ...currentBook, _bookId: book_id }, book_id);
-                                        }
-                                        } className={styles.btn_buy}>Add to Cart</a>
-
                                     </li>
                                     {isAuthenticated && <li className={styles.box_li}>
                                         {/* {itemInFavorites ?
