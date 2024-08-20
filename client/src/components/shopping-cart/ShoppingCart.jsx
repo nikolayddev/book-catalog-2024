@@ -1,6 +1,7 @@
 import Button from 'react-bootstrap/esm/Button';
 import styles from './ShoppingCart.module.css';
 import { useDeleteCartItem, useGetUserCartItems } from '../../hooks/useCart';
+import { calculateTotalPrice } from '../../api/utils';
 
 export default function ShoppingCart() {
     const [currentItems, setCurrentItems] = useGetUserCartItems();
@@ -50,7 +51,7 @@ export default function ShoppingCart() {
                 }
                 {currentItems.length > 0 ?
                     <div className={styles.subtotal_div}>
-                        <h3 className={styles.subtotal_h3}>Subtotal ({currentItems.length} items): <span className={styles.subtotal_span}>$120</span></h3>
+                        <h3 className={styles.subtotal_h3}>Subtotal ({currentItems.length} items): <span className={styles.subtotal_span}>${(calculateTotalPrice(currentItems)).toFixed(2)}</span></h3>
                     </div> : ''
                 }
             </div>

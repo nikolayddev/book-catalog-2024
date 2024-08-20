@@ -3,7 +3,7 @@ import styles from '../MyProfile.module.css';
 
 export default function ProfileBookFavorite({
     item,
-    patchItems,
+    onDelete,
     onRemove
 }) {
     return (
@@ -35,8 +35,8 @@ export default function ProfileBookFavorite({
                         Add to Cart
                     </Button> */}
                     <Button onClick={() => {
-                        patchItems(item._id, { ...item, inFavorites: false });
-                        onRemove(item._id);
+                        onDelete(item._bookId)
+                        onRemove(item._id)
                     }}
                         className={styles.button_add} variant='secondary'>
                         Remove from favorites

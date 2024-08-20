@@ -18,16 +18,15 @@ export const getAccessToken = () => {
     return authData?.accessToken;
 }
 
-export async function calculateTotalPrice() {
-    const allItems = await getUserCartItems();
+export function calculateTotalPrice(cartItems) {
 
-    if (allItems.length <= 0) {
+    if (cartItems.length <= 0) {
         return '$0.00';
     }
 
     let sum = 0;
 
-    for (const item of allItems) {
+    for (const item of cartItems) {
         const price = Number(item.price);
         sum+=price;
     }

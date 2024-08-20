@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 
 import styles from './Details.module.css'
 import CommentSection from "./comment-section/CommentSection";
@@ -12,6 +12,7 @@ import DeleteComment from "./comment-section/DeleteComment";
 import EditComment from "./comment-section/EditComment";
 import DeleteBook from "./DeleteBook";
 import { useCreateCartItem, useDeleteCartItem, useInCart } from "../../hooks/useCart.js";
+import { useCreateFavoritesItem, useDeleteFavoritesItem, useInFavorites } from "../../hooks/useFavorites.js";
 
 export default function Details() {
     const { isAuthenticated, user_id } = useAuthContext();
@@ -20,9 +21,11 @@ export default function Details() {
     const navigate = useNavigate();
     const addToCart = useCreateCartItem();
     const removeFromCart = useDeleteCartItem();
-    
+    const addToFavorites = useCreateFavoritesItem();
+    const removeFromFavorites = useDeleteFavoritesItem();
+
     const [currentBook] = useGetOneBook(book_id);
-    
+
     const initialValues = {
         price: currentBook.price,
         genre: currentBook.genre,
@@ -41,8 +44,9 @@ export default function Details() {
     const [currentCommentId, setCurrentCommentId] = useState('');
     const [{ commentBody }] = useGetOneComment(currentCommentId);
     const [activeButton, setActiveButton] = useState('description');
-    
+
     const [inCart, setInCart] = useInCart(book_id);
+    const [inFavorites, setInFavorites] = useInFavorites(book_id);
 
     const [showDeleteBook, setShowDeleteBook] = useState(false);
     const [showAddComment, setShowAddComment] = useState(false);
@@ -208,7 +212,7 @@ export default function Details() {
                                 {/* <p className={styles.box_unavailable}>X Unavailable</p> */}
                                 <p className={styles.box_price}>Price: ${currentBook.price}</p>
                                 <ul>
-                                    <li className={styles.box_li}>
+                                    {isAuthenticated && <li className={styles.box_li}>
                                         {inCart ?
                                             <a href="#" onClick={() => {
                                                 removeFromCart(book_id);
@@ -221,22 +225,21 @@ export default function Details() {
                                             }
                                             } className={styles.btn_buy}>Add to Cart</a>
                                         }
-                                    </li>
+                                    </li>}
                                     {isAuthenticated && <li className={styles.box_li}>
-                                        {/* {itemInFavorites ?
+                                        {inFavorites ?
                                             <a href="#" onClick={() => {
-                                                patchInFavorites(book_id, { ...currentBook, inFavorites: false })
-                                                setItemInFavorites(false);
+                                                removeFromFavorites(book_id);
+                                                setInFavorites(false);
                                             }
                                             } className={styles.btn_favorites}>&#9733; REMOVE FAVORITE</a> :
                                             <a href="#" onClick={() => {
-                                                patchInFavorites(book_id, { ...currentBook, inFavorites: true })
-                                                setItemInFavorites(true);
+                                                addToFavorites({ ...currentBook, _bookId: book_id }, book_id);
+                                                setInFavorites(true);
                                             }
                                             } className={styles.btn_favorites}>&#9733; ADD TO FAVORITES</a>
-                                        } */}
-                                    </li>
-                                    }
+                                        }
+                                    </li>}
                                 </ul>
                             </div>
                         </div>

@@ -2133,6 +2133,48 @@
                 _createdOn: 1613551388703
             }
         },
+        cart: {
+            "22e00b7c-b300-4d3b-9e49-3b9fe8e1aff1": {
+                _ownerId: "ea0635d5-cbf4-4da6-ba60-8d278aa8e779",
+                price: "17.99",
+                genre: "science-fiction",
+                title: "The Martian",
+                author: "Andy Weir",
+                inCart: false,
+                inFavorites: false,
+                publisher: "Crown",
+                description: "Stranded on Mars, astronaut Mark Watney must use his ingenuity and spirit to survive and find a way to signal to Earth that he is alive.",
+                language: "English",
+                pageCount: "369",
+                format: "Hard Copy",
+                yearOfPublication: "2011",
+                imageURL: "https://m.media-amazon.com/images/I/91X5axm95vL._AC_UY218_.jpg",
+                _bookId: "f4d89538-3036-4a99-acd5-62209d0e4b4f",
+                _createdOn: 1724160586489,
+                _id: "22e00b7c-b300-4d3b-9e49-3b9fe8e1aff1"
+            }
+        },
+        favorites: {
+            "22e00b7c-b300-4d3b-9e59-3b9fe8e1aff1": {
+                _ownerId: "ea0635d5-cbf4-4da6-ba60-8d278aa8e779",
+                price: "17.99",
+                genre: "science-fiction",
+                title: "The Martian",
+                author: "Andy Weir",
+                inCart: false,
+                inFavorites: false,
+                publisher: "Crown",
+                description: "Stranded on Mars, astronaut Mark Watney must use his ingenuity and spirit to survive and find a way to signal to Earth that he is alive.",
+                language: "English",
+                pageCount: "369",
+                format: "Hard Copy",
+                yearOfPublication: "2011",
+                imageURL: "https://m.media-amazon.com/images/I/91X5axm95vL._AC_UY218_.jpg",
+                _bookId: "f4d89538-3036-4a99-acd5-62209d0e4b4f",
+                _createdOn: 1724160586489,
+                _id: "22e00b7c-b300-4d3b-9e59-3b9fe8e1aff1"
+            }
+        },
         comments: {
             "0a272c58-b7ea-4e09-a000-7ec988248f66": {
                 _ownerId: "35c62d76-8152-4626-8712-eeb96381bea8",
