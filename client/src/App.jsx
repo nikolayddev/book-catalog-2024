@@ -14,6 +14,7 @@ import Logout from './components/logout/Logout';
 import BookEdit from './components/book-section/book-edit/BookEdit';
 import { AuthContextProvider } from './contexts/AuthContext';
 import ShoppingCart from './components/shopping-cart/ShoppingCart';
+import PrivateGuard from './components/common/PrivateGuard';
 
 export default function App() {
 
@@ -30,12 +31,15 @@ export default function App() {
                     <Route path='/login' element={<Login />} />
                     <Route path='/register' element={<Register />} />
                     <Route path='/catalog' element={<Catalog />} />
-                    <Route path='/create' element={<BookCreate />} />
-                    <Route path='/edit/:id' element={<BookEdit />} />
-                    <Route path='/my-profile' element={<MyProfile />} />
                     <Route path='/catalog/:genre/:id' element={<Details />} />
                     <Route path='/cart' element={<ShoppingCart />} />
-                    <Route path='/logout' element={<Logout />} />
+
+                    <Route element={<PrivateGuard />}>
+                        <Route path='/my-profile' element={<MyProfile />} />
+                        <Route path='/create' element={<BookCreate />} />
+                        <Route path='/edit/:id' element={<BookEdit />} />
+                        <Route path='/logout' element={<Logout />} />
+                    </Route>
                 </Routes>
 
                 <Footer />

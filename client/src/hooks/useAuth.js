@@ -34,8 +34,8 @@ export function useLogout() {
     const { removeAuthState } = useAuthContext();
 
     const logoutHandler = async () => {
-        await logout();
         removeAuthState();
+        await logout();
     };
 
     return logoutHandler;
