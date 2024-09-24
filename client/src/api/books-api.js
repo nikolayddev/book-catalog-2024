@@ -1,4 +1,4 @@
-import { get, post, put, del, patch } from './requester';
+import { get, post, put, del } from './requester';
 
 const BASE_URL = 'data/books';
 

@@ -2,50 +2,38 @@ import Button from 'react-bootstrap/Button';
 import styles from './BookCreate.module.css';
 
 import { useNavigate } from 'react-router-dom';
-import { useForm } from '../../../hooks/useForm';
+import { useForm } from 'react-hook-form';
 import { useCreateBook } from '../../../hooks/useBooks';
-import { useState } from 'react';
-
-const initialValues = {
-    price: '',
-    genre: '',
-    title: '',
-    author: '',
-    publisher: '',
-    description: '',
-    language: '',
-    pageCount: '',
-    format: '',
-    yearOfPublication: '',
-    imageURL: ''
-}
 
 export default function BookCreate() {
     const createBook = useCreateBook();
     const navigate = useNavigate();
-    const [error, setError] = useState('');
-
-    const submitCallback = async (values) => {
-        try {
-            for (const field in values) {
-                if (values[field] === '') {
-                    throw new Error('All fields are required!');
-                }
-            }
-
-            const { _id: book_id, genre } = await createBook(values);
-            navigate(`/catalog/${genre}/${book_id}`);
-        } catch (err) {
-            setError(err.message);
-            console.log(err.message);
-        }
-    };
-
     const {
-        values,
-        changeHandler,
-        submitHandler
-    } = useForm(initialValues, submitCallback);
+        register,
+        handleSubmit,
+        formState: { errors }
+    } = useForm();
+
+    const onSubmit = async (data) => {
+        const dataGuard = {
+            price: data.price,
+            genre: data.genre,
+            title: data.title,
+            author: data.author,
+            publisher: data.publisher,
+            description: data.description,
+            language: data.language,
+            pageCount: data.pageCount,
+            format: data.format,
+            yearOfPublication: data.yearOfPublication,
+            imageURL: data.imageURL
+        }
+
+        await createBook(dataGuard);
+        navigate(`/catalog`);
+    }
+
+    const errorEntries = Object.entries(errors);
 
     return (
         <>
@@ -54,29 +42,41 @@ export default function BookCreate() {
                 <div className="fashion_section_2">
                     <div className="col-lg-12 col-sm-4">
                         <div className="box_main">
-                            <form onSubmit={submitHandler}>
+                            <form onSubmit={handleSubmit(onSubmit)}>
                                 <div className='row pt-1'>
                                     <div className="col md-3">
                                         <label className={styles.create_form_labels}>Title</label>
-                                        <input className={styles.input} type="text" name="title" onChange={changeHandler} value={values.title} />
+                                        <input
+                                            className={`${styles.input} ${errors.title ? styles.input_error : ""}`}
+                                            {...register("title", { required: true })}
+                                            type="text"
+                                        />
                                     </div>
 
                                     <div className="col md-3">
                                         <label className={styles.create_form_labels}>Author</label>
-                                        <input className={styles.input} type="text" name="author" onChange={changeHandler} value={values.author} />
+                                        <input
+                                            className={`${styles.input} ${errors.author ? styles.input_error : ""}`}
+                                            {...register("author", { required: true })}
+                                            type="text" />
                                     </div>
                                 </div>
 
                                 <div className='row pt-4'>
-
                                     <div className="col md-3">
                                         <label className={styles.create_form_labels}>Publisher</label>
-                                        <input className={styles.input} type="text" name="publisher" onChange={changeHandler} value={values.publisher} />
+                                        <input
+                                            className={`${styles.input} ${errors.publisher ? styles.input_error : ""}`}
+                                            {...register("publisher", { required: true })}
+                                            type="text" />
                                     </div>
 
                                     <div className="col md-3">
                                         <label className={styles.create_form_labels}>Year of Publication</label>
-                                        <input className={styles.input} type="number" name="yearOfPublication" onChange={changeHandler} value={values.yearOfPublication} />
+                                        <input
+                                            className={`${styles.input} ${errors.yearOfPublication ? styles.input_error : ""}`}
+                                            {...register("yearOfPublication", { required: true })}
+                                            type="number" />
                                     </div>
                                 </div>
 
@@ -84,12 +84,18 @@ export default function BookCreate() {
 
                                     <div className="col md-3">
                                         <label className={styles.create_form_labels}>Language</label>
-                                        <input className={styles.input} type="text" name="language" onChange={changeHandler} value={values.language} />
+                                        <input
+                                            className={`${styles.input} ${errors.language ? styles.input_error : ""}`}
+                                            {...register("language", { required: true })}
+                                            type="text" />
                                     </div>
 
                                     <div className="col md-3">
                                         <label className={styles.create_form_labels}>Page Count</label>
-                                        <input className={styles.input} type="number" name="pageCount" onChange={changeHandler} value={values.pageCount} />
+                                        <input
+                                            className={`${styles.input} ${errors.pageCount ? styles.input_error : ""}`}
+                                            {...register("pageCount", { required: true })}
+                                            type="number" />
                                     </div>
                                 </div>
 
@@ -98,7 +104,7 @@ export default function BookCreate() {
                                     <div className="col md-3">
                                         <label className={styles.create_form_labels}>Format</label>
                                         <div>
-                                            <select id="options" className={styles.select} name="format" onChange={changeHandler} value={values.format}>
+                                            <select id="options" className={styles.select} {...register("format", { required: true })}>
                                                 <option value="" disabled hidden>Select an option</option>
                                                 <option value="Soft Cover">Soft Cover</option>
                                                 <option value="Hard Copy">Hard Copy</option>
@@ -109,7 +115,10 @@ export default function BookCreate() {
 
                                     <div className="col md-3">
                                         <label className={styles.create_form_labels}>Image URL</label>
-                                        <input className={styles.input} type="url" name="imageURL" onChange={changeHandler} value={values.imageURL} />
+                                        <input
+                                            className={`${styles.input} ${errors.imageURL ? styles.input_error : ""}`}
+                                            {...register("imageURL", { required: true })}
+                                            type="url" />
                                     </div>
                                 </div>
 
@@ -118,7 +127,7 @@ export default function BookCreate() {
                                     <div className="col md-3">
                                         <label className={styles.create_form_labels}>Genre</label>
                                         <div>
-                                            <select id="options" className={styles.select} name="genre" onChange={changeHandler} value={values.genre}>
+                                            <select id="options" className={styles.select} {...register("genre", { required: true })}>
                                                 <option value="" disabled hidden>Select an option</option>
                                                 <option value="science-fiction">Science Fiction</option>
                                                 <option value="adventure">Adventure</option>
@@ -132,21 +141,26 @@ export default function BookCreate() {
 
                                     <div className="col md-3">
                                         <label className={styles.create_form_labels}>Price $</label>
-                                        <input className={styles.input} type="number" name="price" onChange={changeHandler} value={values.price} />
+                                        <input
+                                            className={`${styles.input} ${errors.price ? styles.input_error : ""}`}
+                                            {...register("price", { required: true })}
+                                            type="number" />
                                     </div>
                                 </div>
 
                                 <div className={styles.description}>
                                     <label className={styles.create_form_labels}>Description</label>
-                                    <textarea className={styles.description_textarea} type="textarea" name="description" onChange={changeHandler} value={values.description}></textarea>
+                                    <textarea
+                                        className={`${styles.description_textarea} ${errors.description ? styles.description_error : ""}`}
+                                        {...register("description", { required: true })}
+                                        type="textarea">
+                                    </textarea>
                                 </div>
-
-                                {error &&
+                                {(errorEntries.length > 0) &&
                                     <div>
-                                        <h1 className={styles.err_class}>{error}</h1>
+                                        <h1 className={styles.err_class}>{"All fields are required!"}</h1>
                                     </div>
                                 }
-
                                 <div className={styles.button_div}>
                                     <Button className={styles.button} variant="secondary" type="submit">
                                         Add Book
@@ -160,4 +174,3 @@ export default function BookCreate() {
         </>
     );
 }
-
