@@ -1,13 +1,19 @@
+import { useNavigate } from 'react-router-dom';
+import { useForm } from 'react-hook-form';
 import Button from 'react-bootstrap/Button';
 import styles from './BookCreate.module.css';
 
-import { useNavigate } from 'react-router-dom';
-import { useForm } from 'react-hook-form';
 import { useCreateBook } from '../../../hooks/useBooks';
+import { useIsLoading } from '../../../hooks/useLoadingSpinner';
+
+import LoadingSpinner from '../../loadingSpinner/LoadingSpinner';
 
 export default function BookCreate() {
     const createBook = useCreateBook();
     const navigate = useNavigate();
+
+    const [isLoading, setIsLoading] = useIsLoading(false);
+
     const {
         register,
         handleSubmit,
@@ -29,7 +35,10 @@ export default function BookCreate() {
             imageURL: data.imageURL
         }
 
+        setIsLoading(true);
         await createBook(dataGuard);
+        setIsLoading(false);
+
         navigate(`/catalog`);
     }
 
@@ -162,8 +171,8 @@ export default function BookCreate() {
                                     </div>
                                 }
                                 <div className={styles.button_div}>
-                                    <Button className={styles.button} variant="secondary" type="submit">
-                                        Add Book
+                                    <Button disabled={isLoading} className={styles.button} variant="secondary" type="submit">
+                                        {isLoading ? "Loading..." : "Add Book"}
                                     </Button>
                                 </div>
                             </form>
@@ -171,6 +180,7 @@ export default function BookCreate() {
                     </div>
                 </div >
             </div >
+            {isLoading && <LoadingSpinner />}
         </>
     );
 }
